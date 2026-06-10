@@ -14,20 +14,26 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
-  title: "Game Zone | Free Fire & PUBG Tournament App Bangladesh",
-  description: "Download Game Zone, Bangladesh's premier real-time mobile gaming tournament platform for PUBG Mobile, Free Fire & Ludo. Play daily matches and withdraw instant winnings via bKash.",
+  title: "Game Zone - GameZoneBD & GamesClubBD Tournament App Bangladesh",
+  description: "Download Game Zone (GameZoneBD & GamesClubBD), Bangladesh's premier real-time mobile gaming tournament platform for Free Fire, PUBG Mobile & Ludo. Play daily matches and withdraw instant winnings via bKash.",
   keywords: [
     "Game Zone",
-    "Game Zone Bangladesh",
+    "GameZoneBD",
+    "GamesClubBD",
+    "Free Fire Tournament",
+    "Free Fire",
+    "Game Tournament",
+    "Game Tournament Bangladesh",
+    "Games Club BD",
+    "Game Zone BD",
     "Esports Bangladesh",
-    "Free Fire Tournament Bangladesh",
-    "PUBG Mobile Tournament Bangladesh",
     "Ludo Tournament Cash Prize",
     "bKash earning app",
     "Game Zone App Download",
-    "Mobile Gaming Tournaments"
+    "Mobile Gaming Tournaments",
+    "gamezonebd.space"
   ],
-  metadataBase: new URL("https://gamezonebd.com"),
+  metadataBase: new URL("https://gamezonebd.space"),
   alternates: {
     canonical: "/",
   },
@@ -45,13 +51,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gamezonebd.com",
-    title: "Game Zone | Free Fire, PUBG & Ludo Tournament App Bangladesh",
+    url: "https://gamezonebd.space",
+    title: "Game Zone - GameZoneBD & GamesClubBD Tournament App Bangladesh",
     description: "Bangladesh's premier real-time mobile gaming tournament platform for PUBG Mobile, Free Fire & Ludo. Win daily cash rewards and withdraw instantly via bKash.",
     siteName: "Game Zone",
     images: [
       {
-        url: "https://gamezonebd.com/og-image.png",
+        url: "https://gamezonebd.space/og-image.png",
         width: 1200,
         height: 630,
         alt: "Game Zone - Premier Gaming Tournament App",
@@ -60,9 +66,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Game Zone | Free Fire, PUBG & Ludo Tournament App Bangladesh",
+    title: "Game Zone - GameZoneBD & GamesClubBD Tournament App Bangladesh",
     description: "Play daily mobile tournaments and win real cash rewards with instant bKash withdrawal. Download Game Zone APK.",
-    images: ["https://gamezonebd.com/og-image.png"],
+    images: ["https://gamezonebd.space/og-image.png"],
   },
 };
 
@@ -75,9 +81,16 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "MobileApplication",
     "name": "Game Zone",
+    "alternateName": [
+      "GameZoneBD",
+      "GamesClubBD",
+      "Games Club BD",
+      "Game Zone BD",
+      "gamezonebd.space"
+    ],
     "operatingSystem": "Android",
     "applicationCategory": "GameApplication",
-    "downloadUrl": "https://gamezonebd.com",
+    "downloadUrl": "https://gamezonebd.space",
     "description": "Bangladesh's premier real-time mobile gaming tournament platform for PUBG Mobile, Free Fire & Ludo. Win daily cash rewards and withdraw instantly via bKash.",
     "genre": "Esports",
     "offers": {

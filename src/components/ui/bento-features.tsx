@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { CreditCard, Wallet, Shield, Clock, Gamepad2 } from "lucide-react";
 import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg";
+import { translations } from "@/lib/translations";
 
 interface ThemeColors {
   tagText: string;
@@ -17,6 +18,7 @@ interface BentoCardProps {
   delay: number;
   icon: React.ReactNode;
   themeColor: ThemeColors;
+  language: "bn" | "en";
 }
 
 const BentoCard: React.FC<BentoCardProps> = ({
@@ -27,6 +29,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
   delay,
   icon,
   themeColor,
+  language,
 }) => {
   const container = {
     hidden: { opacity: 0 },
@@ -88,9 +91,9 @@ const BentoCard: React.FC<BentoCardProps> = ({
           </div>
         </div>
         
-        {/* Description (Bengali) */}
+        {/* Description */}
         <motion.p 
-          className="text-xs sm:text-sm text-[var(--muted-foreground)] font-bangla font-semibold mt-4 leading-relaxed" 
+          className={`text-xs sm:text-sm text-[var(--muted-foreground)] font-semibold mt-4 leading-relaxed ${language === 'bn' ? 'font-bangla' : ''}`} 
           variants={item}
         >
           {description}
@@ -100,16 +103,22 @@ const BentoCard: React.FC<BentoCardProps> = ({
   );
 };
 
-const BentoFeaturesDemo: React.FC = () => {
+interface BentoFeaturesDemoProps {
+  language: "bn" | "en";
+}
+
+const BentoFeaturesDemo: React.FC<BentoFeaturesDemoProps> = ({ language }) => {
+  const t = translations[language];
+
   return (
     <div className="w-full bg-transparent h-full">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 auto-rows-fr">
         {/* Card 1: Full width on mobile (col-span-2), 2 cols on desktop */}
         <div className="col-span-2">
           <BentoCard
-            title="Instant Deposits"
-            subtitle="Quick & Automated"
-            description="বিকাশ, রকেট বা নগদের মাধ্যমে যেকোনো সময় ইনস্ট্যান্ট ডিপোজিট করুন খুব সহজেই।"
+            title={t.whyUs.feat1Title}
+            subtitle={t.whyUs.feat1Subtitle}
+            description={t.whyUs.feat1Desc}
             colors={["#E2F6D5", "#C5EDAB", "#E8EBE6"]}
             delay={0.05}
             icon={<CreditCard />}
@@ -118,15 +127,16 @@ const BentoFeaturesDemo: React.FC = () => {
               iconBg: "bg-emerald-50",
               iconText: "text-emerald-700"
             }}
+            language={language}
           />
         </div>
         
         {/* Card 2: Half width on mobile (col-span-1), 1 col on desktop */}
         <div className="col-span-1">
           <BentoCard
-            title="Secure & Safe"
-            subtitle="100% Trusted"
-            description="আমাদের টুর্নামেন্ট সিকিউরিটি ও পেমেন্ট গেটওয়ে সম্পূর্ণ নিরাপদ ও সুরক্ষিত।"
+            title={t.whyUs.feat2Title}
+            subtitle={t.whyUs.feat2Subtitle}
+            description={t.whyUs.feat2Desc}
             colors={["#E2F6D5", "#FFFFFF", "#E8EBE6"]}
             delay={0.1}
             icon={<Shield />}
@@ -135,15 +145,16 @@ const BentoFeaturesDemo: React.FC = () => {
               iconBg: "bg-emerald-50",
               iconText: "text-emerald-700"
             }}
+            language={language}
           />
         </div>
 
         {/* Card 3: Half width on mobile (col-span-1), 1 col on desktop */}
         <div className="col-span-1">
           <BentoCard
-            title="Instant Withdrawal"
-            subtitle="Zero Delay Payouts"
-            description="আপনার জেতা প্রাইজ মানি কোনো ঝামেলা ছাড়াই সরাসরি বিকাশে ইনস্ট্যান্ট উইথড্র করে নিন।"
+            title={t.whyUs.feat3Title}
+            subtitle={t.whyUs.feat3Subtitle}
+            description={t.whyUs.feat3Desc}
             colors={["#E2F6D5", "#C5EDAB", "#FFFFFF"]}
             delay={0.15}
             icon={<Wallet />}
@@ -152,15 +163,16 @@ const BentoFeaturesDemo: React.FC = () => {
               iconBg: "bg-emerald-50",
               iconText: "text-emerald-700"
             }}
+            language={language}
           />
         </div>
 
         {/* Card 4: Full width on mobile (col-span-2), 2 cols on desktop */}
         <div className="col-span-2">
           <BentoCard
-            title="24/7 Support"
-            subtitle="Always Here For You"
-            description="২৪/৭ হেল্পলাইন এবং ডেডিকেটেড সাপোর্ট টিমের মাধ্যমে যেকোনো সমস্যার তাৎক্ষণিক সমাধান।"
+            title={t.whyUs.feat4Title}
+            subtitle={t.whyUs.feat4Subtitle}
+            description={t.whyUs.feat4Desc}
             colors={["#E2F6D5", "#E8EBE6", "#FFFFFF"]}
             delay={0.2}
             icon={<Clock />}
@@ -169,15 +181,16 @@ const BentoFeaturesDemo: React.FC = () => {
               iconBg: "bg-emerald-50",
               iconText: "text-emerald-700"
             }}
+            language={language}
           />
         </div>
 
         {/* Card 5: Full width on mobile (col-span-2), 3 cols on desktop */}
         <div className="col-span-2 md:col-span-3">
           <BentoCard
-            title="Active Community"
-            subtitle="100K+ Active Players"
-            description="বাংলাদেশের সবচেয়ে বড় ও বিশ্বস্ত মোবাইল গেমিং টুর্নামেন্ট প্ল্যাটফর্মে অংশ নিয়ে জিতে নিন আকর্ষণীয় সব প্রাইজ।"
+            title={t.whyUs.feat5Title}
+            subtitle={t.whyUs.feat5Subtitle}
+            description={t.whyUs.feat5Desc}
             colors={["#C5EDAB", "#E2F6D5", "#E8EBE6"]}
             delay={0.25}
             icon={<Gamepad2 />}
@@ -186,6 +199,7 @@ const BentoFeaturesDemo: React.FC = () => {
               iconBg: "bg-emerald-50",
               iconText: "text-emerald-700"
             }}
+            language={language}
           />
         </div>
       </div>

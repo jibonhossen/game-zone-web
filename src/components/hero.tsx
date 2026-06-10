@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Download, Menu, X, Gamepad2 } from "lucide-react";
+import { translations } from "@/lib/translations";
 
-export default function HeroNavbar() {
+interface NavbarProps {
+  language: "bn" | "en";
+  setLanguage: (lang: "bn" | "en") => void;
+}
+
+export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const t = translations[language];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,8 +56,8 @@ export default function HeroNavbar() {
               <span className="text-lg font-black tracking-tight text-[var(--foreground)] font-english block leading-none">
                 GAME ZONE
               </span>
-              <span className="text-[10px] text-[var(--muted-foreground)] font-bangla font-semibold mt-0.5 block leading-none">
-                প্রিমিয়াম গেমিং অভিজ্ঞতা
+              <span className="text-[10px] text-[var(--muted-foreground)] font-semibold mt-0.5 block leading-none font-bangla">
+                {t.footer.subLogo}
               </span>
             </div>
           </div>
@@ -59,42 +67,72 @@ export default function HeroNavbar() {
             <button
               id="nav-link-how-to-start"
               onClick={() => scrollToSection("how-to-start")}
-              className="hover:text-[var(--foreground)] transition-colors font-bangla cursor-pointer"
+              className={`hover:text-[var(--foreground)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              কিভাবে শুরু করবেন?
+              {t.navbar.howToStart}
             </button>
             <button
               id="nav-link-how-to-play"
               onClick={() => scrollToSection("how-to-play")}
-              className="hover:text-[var(--foreground)] transition-colors font-bangla cursor-pointer"
+              className={`hover:text-[var(--foreground)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              কিভাবে খেলবেন?
+              {t.navbar.howToPlay}
             </button>
             <button
               id="nav-link-available-games"
               onClick={() => scrollToSection("available-games")}
-              className="hover:text-[var(--foreground)] transition-colors font-bangla cursor-pointer"
+              className={`hover:text-[var(--foreground)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              গেমস সমূহ
+              {t.navbar.games}
             </button>
             <button
               id="nav-link-why-us"
               onClick={() => scrollToSection("why-us")}
-              className="hover:text-[var(--foreground)] transition-colors font-bangla cursor-pointer"
+              className={`hover:text-[var(--foreground)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              আমাদের সুবিধাসমূহ
+              {t.navbar.features}
             </button>
           </nav>
 
           {/* Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden md:flex items-center gap-4">
+            {/* Language Switcher */}
+            <div className="flex items-center gap-0.5 bg-[var(--muted)] border border-[var(--border)] rounded-full p-0.5 text-[10px] shadow-3xs">
+              <button
+                onClick={() => {
+                  setLanguage("bn");
+                  localStorage.setItem("lang", "bn");
+                }}
+                className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                  language === "bn"
+                    ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-3xs"
+                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                }`}
+              >
+                BN
+              </button>
+              <button
+                onClick={() => {
+                  setLanguage("en");
+                  localStorage.setItem("lang", "en");
+                }}
+                className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                  language === "en"
+                    ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-3xs"
+                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                }`}
+              >
+                EN
+              </button>
+            </div>
+
             <button
               id="nav-btn-download"
               onClick={() => scrollToSection("download")}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--primary-foreground)] shadow-xs hover:bg-[var(--primary)]/90 active:scale-95 transition-all duration-200 cursor-pointer font-bangla"
+              className={`inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--primary-foreground)] shadow-xs hover:bg-[var(--primary)]/90 active:scale-95 transition-all duration-200 cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               <Download className="h-4 w-4" />
-              <span>অ্যাপ ডাউনলোড</span>
+              <span>{t.navbar.downloadBtn}</span>
             </button>
           </div>
 
@@ -122,39 +160,76 @@ export default function HeroNavbar() {
             <button
               id="nav-mobile-link-how-to-start"
               onClick={() => scrollToSection("how-to-start")}
-              className="flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] font-bangla text-left"
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] text-left ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              কিভাবে শুরু করবেন?
+              {t.navbar.howToStart}
             </button>
             <button
               id="nav-mobile-link-how-to-play"
               onClick={() => scrollToSection("how-to-play")}
-              className="flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] font-bangla text-left"
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] text-left ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              কিভাবে খেলবেন?
+              {t.navbar.howToPlay}
             </button>
             <button
               id="nav-mobile-link-available-games"
               onClick={() => scrollToSection("available-games")}
-              className="flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] font-bangla text-left"
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] text-left ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              গেমস সমূহ
+              {t.navbar.games}
             </button>
             <button
               id="nav-mobile-link-why-us"
               onClick={() => scrollToSection("why-us")}
-              className="flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] font-bangla text-left"
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--background)] hover:text-[var(--foreground)] text-left ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              আমাদের সুবিধাসমূহ
+              {t.navbar.features}
             </button>
+            
             <hr className="border-[var(--border)] my-1" />
+            
+            {/* Mobile Language Switcher */}
+            <div className="flex items-center justify-between px-3 py-1">
+              <span className={`text-sm font-semibold text-[var(--muted-foreground)] ${language === 'bn' ? 'font-bangla' : ''}`}>
+                {language === 'bn' ? 'ভাষা পরিবর্তন করুন' : 'Change Language'}
+              </span>
+              <div className="flex items-center gap-0.5 bg-[var(--muted)] border border-[var(--border)] rounded-full p-0.5 text-xs shadow-3xs">
+                <button
+                  onClick={() => {
+                    setLanguage("bn");
+                    localStorage.setItem("lang", "bn");
+                  }}
+                  className={`px-3 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                    language === "bn"
+                      ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-3xs"
+                      : "text-[var(--muted-foreground)]"
+                  }`}
+                >
+                  BN
+                </button>
+                <button
+                  onClick={() => {
+                    setLanguage("en");
+                    localStorage.setItem("lang", "en");
+                  }}
+                  className={`px-3 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                    language === "en"
+                      ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-3xs"
+                      : "text-[var(--muted-foreground)]"
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+            </div>
+
             <button
               id="nav-mobile-btn-download"
               onClick={() => scrollToSection("download")}
-              className="flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] py-3 text-base font-semibold text-[var(--primary-foreground)] shadow-xs hover:bg-[var(--primary)]/90 font-bangla cursor-pointer"
+              className={`flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] py-3 text-base font-semibold text-[var(--primary-foreground)] shadow-xs hover:bg-[var(--primary)]/90 cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               <Download className="h-4.5 w-4.5" />
-              <span>অ্যাপ ডাউনলোড করুন</span>
+              <span>{t.navbar.mobileDownloadBtn}</span>
             </button>
           </div>
         </div>

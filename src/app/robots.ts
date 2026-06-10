@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://gamezonebd.com/sitemap.xml',
+    sitemap: 'https://gamezonebd.space/sitemap.xml',
   };
 }
