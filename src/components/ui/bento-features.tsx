@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 import { CreditCard, Wallet, Shield, Clock, Gamepad2 } from "lucide-react";
@@ -48,7 +46,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
 
   return (
     <motion.div
-      className="relative overflow-hidden h-full w-full rounded-3xl border border-zinc-200 bg-white shadow-2xs hover:shadow-xs transition-all duration-300 group"
+      className="relative overflow-hidden h-full w-full rounded-3xl border border-[var(--border)] bg-[var(--card)] shadow-2xs hover:shadow-xs transition-all duration-300 group"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
@@ -66,7 +64,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
         <div className="space-y-3">
           {/* Icon Box */}
           <div className="flex items-center justify-between">
-            <div className={`h-10 w-10 sm:h-12 sm:w-12 rounded-2xl ${themeColor.iconBg} flex items-center justify-center border border-zinc-100 shadow-3xs group-hover:scale-105 transition-transform duration-300`}>
+            <div className={`h-10 w-10 sm:h-12 sm:w-12 rounded-2xl ${themeColor.iconBg} flex items-center justify-center border border-[var(--border)] shadow-3xs group-hover:scale-105 transition-transform duration-300`}>
               {React.cloneElement(icon as React.ReactElement<{ className?: string }>, {
                 className: `h-5 w-5 sm:h-6 sm:w-6 ${themeColor.iconText}`,
               })}
@@ -76,7 +74,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
           {/* Titles */}
           <div className="space-y-0.5 sm:space-y-1">
             <motion.h4
-              className="text-base sm:text-lg md:text-xl font-extrabold text-zinc-900 font-english"
+              className="text-base sm:text-lg md:text-xl font-extrabold text-[var(--foreground)] font-english"
               variants={item}
             >
               {title}
@@ -92,7 +90,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
         
         {/* Description (Bengali) */}
         <motion.p 
-          className="text-xs sm:text-sm text-zinc-500 font-bangla font-semibold mt-4 leading-relaxed" 
+          className="text-xs sm:text-sm text-[var(--muted-foreground)] font-bangla font-semibold mt-4 leading-relaxed" 
           variants={item}
         >
           {description}
@@ -112,13 +110,13 @@ const BentoFeaturesDemo: React.FC = () => {
             title="Instant Deposits"
             subtitle="Quick & Automated"
             description="বিকাশ, রকেট বা নগদের মাধ্যমে যেকোনো সময় ইনস্ট্যান্ট ডিপোজিট করুন খুব সহজেই।"
-            colors={["#FFF1F2", "#FFE4E6", "#F0F9FF"]}
+            colors={["#E2F6D5", "#C5EDAB", "#E8EBE6"]}
             delay={0.05}
             icon={<CreditCard />}
             themeColor={{
-              tagText: "text-rose-500",
-              iconBg: "bg-rose-50",
-              iconText: "text-rose-500"
+              tagText: "text-emerald-700",
+              iconBg: "bg-emerald-50",
+              iconText: "text-emerald-700"
             }}
           />
         </div>
@@ -129,13 +127,13 @@ const BentoFeaturesDemo: React.FC = () => {
             title="Secure & Safe"
             subtitle="100% Trusted"
             description="আমাদের টুর্নামেন্ট সিকিউরিটি ও পেমেন্ট গেটওয়ে সম্পূর্ণ নিরাপদ ও সুরক্ষিত।"
-            colors={["#EFF6FF", "#E0F2FE", "#DBEAFE"]}
+            colors={["#E2F6D5", "#FFFFFF", "#E8EBE6"]}
             delay={0.1}
             icon={<Shield />}
             themeColor={{
-              tagText: "text-blue-500",
-              iconBg: "bg-blue-50",
-              iconText: "text-blue-500"
+              tagText: "text-emerald-700",
+              iconBg: "bg-emerald-50",
+              iconText: "text-emerald-700"
             }}
           />
         </div>
@@ -146,13 +144,13 @@ const BentoFeaturesDemo: React.FC = () => {
             title="Instant Withdrawal"
             subtitle="Zero Delay Payouts"
             description="আপনার জেতা প্রাইজ মানি কোনো ঝামেলা ছাড়াই সরাসরি বিকাশে ইনস্ট্যান্ট উইথড্র করে নিন।"
-            colors={["#ECFDF5", "#D1FAE5", "#E0F2FE"]}
+            colors={["#E2F6D5", "#C5EDAB", "#FFFFFF"]}
             delay={0.15}
             icon={<Wallet />}
             themeColor={{
-              tagText: "text-emerald-500",
+              tagText: "text-emerald-700",
               iconBg: "bg-emerald-50",
-              iconText: "text-emerald-500"
+              iconText: "text-emerald-700"
             }}
           />
         </div>
@@ -163,13 +161,13 @@ const BentoFeaturesDemo: React.FC = () => {
             title="24/7 Support"
             subtitle="Always Here For You"
             description="২৪/৭ হেল্পলাইন এবং ডেডিকেটেড সাপোর্ট টিমের মাধ্যমে যেকোনো সমস্যার তাৎক্ষণিক সমাধান।"
-            colors={["#FFFBEB", "#FEF3C7", "#EFF6FF"]}
+            colors={["#E2F6D5", "#E8EBE6", "#FFFFFF"]}
             delay={0.2}
             icon={<Clock />}
             themeColor={{
-              tagText: "text-amber-500",
-              iconBg: "bg-amber-50",
-              iconText: "text-amber-500"
+              tagText: "text-emerald-700",
+              iconBg: "bg-emerald-50",
+              iconText: "text-emerald-700"
             }}
           />
         </div>
@@ -180,13 +178,13 @@ const BentoFeaturesDemo: React.FC = () => {
             title="Active Community"
             subtitle="100K+ Active Players"
             description="বাংলাদেশের সবচেয়ে বড় ও বিশ্বস্ত মোবাইল গেমিং টুর্নামেন্ট প্ল্যাটফর্মে অংশ নিয়ে জিতে নিন আকর্ষণীয় সব প্রাইজ।"
-            colors={["#EEF2FF", "#E0E7FF", "#EFF6FF"]}
+            colors={["#C5EDAB", "#E2F6D5", "#E8EBE6"]}
             delay={0.25}
             icon={<Gamepad2 />}
             themeColor={{
-              tagText: "text-indigo-500",
-              iconBg: "bg-indigo-50",
-              iconText: "text-indigo-500"
+              tagText: "text-emerald-700",
+              iconBg: "bg-emerald-50",
+              iconText: "text-emerald-700"
             }}
           />
         </div>

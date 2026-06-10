@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbfbfb;
-  --foreground: #09090b;
+  --background: #e8ebe6;
+  --foreground: #0e0f0c;
   --card: #ffffff;
-  --card-foreground: #09090b;
-  --primary: #1565c0;
-  --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #09090b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #eff6ff;
-  --accent-foreground: #1e3a8a;
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #1565c0;
+  --card-foreground: #0e0f0c;
+  --primary: #9fe870;
+  --primary-foreground: #0e0f0c;
+  --secondary: #e8ebe6;
+  --secondary-foreground: #0e0f0c;
+  --muted: #e2f6d5;
+  --muted-foreground: #454745;
+  --accent: #c5edab;
+  --accent-foreground: #0e0f0c;
+  --border: rgba(14, 15, 12, 0.12);
+  --input: #ffffff;
+  --ring: #9fe870;
 }
 
 @theme inline {
@@ -35,8 +35,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   
-  --font-sans: var(--font-hind-siliguri), var(--font-poppins), system-ui;
-  --font-english: var(--font-poppins), system-ui;
+  --font-sans: var(--font-hind-siliguri), var(--font-inter), system-ui;
+  --font-english: var(--font-inter), system-ui;
   --font-bangla: var(--font-hind-siliguri), system-ui;
 
   --animate-background-gradient: background-gradient var(--background-gradient-speed, 15s) cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
