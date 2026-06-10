@@ -23,13 +23,18 @@ export default function Home() {
   const [downloadSuccess, setDownloadSuccess] = useState(false);
 
   const handleDownloadClick = () => {
-    // Simulate APK download trigger
     setDownloadSuccess(true);
-    const link = document.createElement("a");
-    link.href = "#"; // Replace with real APK path when available
-    link.setAttribute("download", "Game_Zone_Tournament_App.apk");
-    document.body.appendChild(link);
-    // link.click(); // Optional simulation
+
+    // Trigger download using a hidden iframe to avoid page redirection
+    let iframe = document.getElementById("download-iframe") as HTMLIFrameElement;
+    if (!iframe) {
+      iframe = document.createElement("iframe");
+      iframe.id = "download-iframe";
+      iframe.style.display = "none";
+      document.body.appendChild(iframe);
+    }
+    iframe.src = "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk";
+
     setTimeout(() => setDownloadSuccess(false), 5000);
   };
 
@@ -348,84 +353,58 @@ export default function Home() {
             </div>
 
             {/* Games Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
               
               {/* Game 1: Free Fire */}
-              <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 flex flex-col items-center justify-between text-center hover:shadow-sm hover:border-[var(--border)] transition-all duration-300">
-                <div className="relative w-full h-28 rounded-xl overflow-hidden bg-[var(--background)] mb-3 border border-[var(--border)]">
+              <div className="group bg-[var(--card)] border border-[var(--border)] rounded-3xl p-3 sm:p-5 flex flex-col justify-between hover:shadow-md hover:scale-[1.01] transition-all duration-300">
+                <div className="relative w-full h-32 sm:h-48 rounded-2xl overflow-hidden bg-[var(--background)] mb-4 border border-[var(--border)]">
+                  {/* Active Badge */}
+                  <span className="absolute top-3 left-3 z-10 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-[var(--muted)] border border-emerald-600/10 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full flex items-center gap-1 sm:gap-1.5 shadow-xs font-bangla">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                    লাইভ টুর্নামেন্ট
+                  </span>
                   <Image 
                     src="/game-image/freefire.jpg" 
                     alt="Free Fire Tournament game thumbnail" 
                     fill 
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                 </div>
-                <h3 className="font-bold text-sm text-[var(--foreground)] font-english">
-                  Free Fire
-                </h3>
+                <div className="text-center sm:text-left sm:px-1 pb-1">
+                  <h3 className="font-black text-sm sm:text-lg text-[var(--foreground)] font-english tracking-tight">
+                    Free Fire
+                  </h3>
+                  <p className="text-[10px] sm:text-xs text-[var(--muted-foreground)] font-bangla font-semibold mt-0.5">
+                    দৈনিক ফ্রি ও পেইড ম্যাচ খেলুন
+                  </p>
+                </div>
               </div>
 
               {/* Game 2: PUBG Mobile */}
-              <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 flex flex-col items-center justify-between text-center hover:shadow-sm hover:border-[var(--border)] transition-all duration-300">
-                <div className="relative w-full h-28 rounded-xl overflow-hidden bg-[var(--background)] mb-3 border border-[var(--border)]">
+              <div className="group bg-[var(--card)] border border-[var(--border)] rounded-3xl p-3 sm:p-5 flex flex-col justify-between hover:shadow-md hover:scale-[1.01] transition-all duration-300">
+                <div className="relative w-full h-32 sm:h-48 rounded-2xl overflow-hidden bg-[var(--background)] mb-4 border border-[var(--border)]">
+                  {/* Active Badge */}
+                  <span className="absolute top-3 left-3 z-10 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-[var(--muted)] border border-emerald-600/10 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full flex items-center gap-1 sm:gap-1.5 shadow-xs font-bangla">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse" />
+                    লাইভ টুর্নামেন্ট
+                  </span>
                   <Image 
-                    src="/game-image/battle_royale.png" 
+                    src="/game-image/pubg.webp" 
                     alt="PUBG Mobile Tournament game thumbnail" 
                     fill 
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
                   />
                 </div>
-                <h3 className="font-bold text-sm text-[var(--foreground)] font-english">
-                  PUBG Mobile
-                </h3>
-              </div>
-
-              {/* Game 3: Call of Duty */}
-              <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 flex flex-col items-center justify-between text-center hover:shadow-sm hover:border-[var(--border)] transition-all duration-300">
-                <div className="relative w-full h-28 rounded-xl overflow-hidden bg-[var(--background)] mb-3 border border-[var(--border)]">
-                  <Image 
-                    src="/game-image/fight.jpg" 
-                    alt="Call of Duty Mobile game thumbnail" 
-                    fill 
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 16vw"
-                    className="object-cover"
-                  />
+                <div className="text-center sm:text-left sm:px-1 pb-1">
+                  <h3 className="font-black text-sm sm:text-lg text-[var(--foreground)] font-english tracking-tight">
+                    PUBG Mobile
+                  </h3>
+                  <p className="text-[10px] sm:text-xs text-[var(--muted-foreground)] font-bangla font-semibold mt-0.5">
+                    প্রতিদিন একাধিক রুম ম্যাচ ও প্রাইজ
+                  </p>
                 </div>
-                <h3 className="font-bold text-sm text-[var(--foreground)] font-english">
-                  Call of Duty
-                </h3>
-              </div>
-
-              {/* Game 4: eFootball */}
-              <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 flex flex-col items-center justify-between text-center hover:shadow-sm hover:border-[var(--border)] transition-all duration-300">
-                <div className="w-full h-28 rounded-xl bg-[var(--background)] flex items-center justify-center mb-3 border border-[var(--border)]">
-                  <Gamepad2 className="h-10 w-10 text-[var(--foreground)]" />
-                </div>
-                <h3 className="font-bold text-sm text-[var(--foreground)] font-english">
-                  eFootball
-                </h3>
-              </div>
-
-              {/* Game 5: Ludo */}
-              <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 flex flex-col items-center justify-between text-center hover:shadow-sm hover:border-[var(--border)] transition-all duration-300">
-                <div className="w-full h-28 rounded-xl bg-[var(--background)] flex items-center justify-center mb-3 border border-[var(--border)]">
-                  <Gamepad2 className="h-10 w-10 text-[var(--foreground)]" />
-                </div>
-                <h3 className="font-bold text-sm text-[var(--foreground)] font-english">
-                  Ludo
-                </h3>
-              </div>
-
-              {/* Game 6: Valorant */}
-              <div className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-4 flex flex-col items-center justify-between text-center hover:shadow-sm hover:border-[var(--border)] transition-all duration-300">
-                <div className="w-full h-28 rounded-xl bg-[var(--background)] flex items-center justify-center mb-3 border border-[var(--border)]">
-                  <Gamepad2 className="h-10 w-10 text-[var(--foreground)]" />
-                </div>
-                <h3 className="font-bold text-sm text-[var(--foreground)] font-english">
-                  Valorant
-                </h3>
               </div>
 
             </div>

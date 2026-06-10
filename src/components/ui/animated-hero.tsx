@@ -46,14 +46,14 @@ function Hero({ onDownloadClick, onHowToPlayClick }: HeroProps) {
           
           <div className="flex gap-4 flex-col items-center max-w-4xl">
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-center text-[var(--foreground)] leading-none tracking-tight">
-              <span className="block font-bangla mb-2 text-[var(--muted-foreground)] text-xl sm:text-3xl font-bold uppercase tracking-wider">
+              <span className="block font-bangla mb-2 text-[var(--muted-foreground)] text-xl sm:text-3xl font-bold uppercase tracking-wider leading-normal py-1">
                 বাংলাদেশের সবচেয়ে
               </span>
-              <span className="relative flex w-full justify-center items-center overflow-hidden text-center h-[60px] sm:h-[90px] md:h-[110px]">
+              <span className="relative flex w-full justify-center items-center overflow-hidden text-center h-[72px] sm:h-[105px] md:h-[125px]">
                 {titles.map((title, index) => (
                   <motion.span
                     key={index}
-                    className="absolute inset-0 flex justify-center items-center font-black font-bangla"
+                    className="absolute inset-0 flex justify-center items-center font-black font-bangla leading-normal"
                     initial={{ opacity: 0, y: "-100%" }}
                     transition={{ type: "spring", stiffness: 60, damping: 15 }}
                     animate={
@@ -68,13 +68,13 @@ function Hero({ onDownloadClick, onHowToPlayClick }: HeroProps) {
                           }
                     }
                   >
-                    <span className="bg-gradient-to-r from-emerald-700 to-[var(--foreground)] bg-clip-text text-transparent pb-1">
+                    <span className="bg-gradient-to-r from-emerald-700 to-[var(--foreground)] bg-clip-text text-transparent py-2">
                       {title}
                     </span>
                   </motion.span>
                 ))}
               </span>
-              <span className="block font-bangla bg-gradient-to-r from-emerald-700 to-[var(--foreground)] bg-clip-text text-transparent font-black mt-1">
+              <span className="block font-bangla bg-gradient-to-r from-emerald-700 to-[var(--foreground)] bg-clip-text text-transparent font-black mt-1 leading-[1.3] pt-4 pb-2 -mt-3">
                 গেমিং প্ল্যাটফর্ম
               </span>
             </h1>

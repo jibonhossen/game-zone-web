@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy:vercel": "bunx vercel --prod",
+    "deploy:cloudflare": "bunx wrangler pages deploy out"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.16",
