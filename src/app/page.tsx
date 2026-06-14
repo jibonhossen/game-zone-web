@@ -339,7 +339,7 @@ export default function Home() {
                 <div className="relative aspect-video w-full bg-[var(--background)] overflow-hidden">
                   <img 
                     src="https://img.youtube.com/vi/THorHIAtkwE/maxresdefault.jpg"
-                    alt="GamesClubBD Ludo Match Play Video Guide"
+                    alt="GameZoneBD Ludo Match Play Video Guide"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/15 group-hover:bg-black/10 transition-colors" />
@@ -427,7 +427,7 @@ export default function Home() {
                   </span>
                   <Image 
                     src="/game-image/pubg.webp" 
-                    alt="GamesClubBD PUBG Mobile Tournament - join custom room tournaments and win cash prize" 
+                    alt="GameZoneBD PUBG Mobile Tournament - join custom room tournaments and win cash prize" 
                     fill 
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 50vw"
                     className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"

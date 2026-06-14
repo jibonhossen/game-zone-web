@@ -57,7 +57,7 @@ function Hero({ language = "bn", onDownloadClick, onHowToPlayClick }: HeroProps)
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-center text-[var(--foreground)] leading-none tracking-tight">
               {/* Screen-reader keywords for Search Engine Optimization */}
               <span className="sr-only">
-                GameZoneBD GamesClubBD Free Fire Tournament PUBG Mobile Tournament Ludo Cash Game Tournaments Bangladesh Games Club BD Game Zone BD
+                GameZoneBD Free Fire Tournament PUBG Mobile Tournament Ludo Cash Game Tournaments Bangladesh Game Zone BD
               </span>
               
               <span className={`block mb-2 text-[var(--muted-foreground)] text-xl sm:text-3xl font-bold uppercase tracking-wider leading-normal py-1 ${language === 'bn' ? 'font-bangla' : ''}`}>

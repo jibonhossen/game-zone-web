@@ -14,17 +14,15 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
-  title: "Game Zone - GameZoneBD & GamesClubBD Tournament App Bangladesh",
-  description: "Download Game Zone (GameZoneBD & GamesClubBD), Bangladesh's premier real-time mobile gaming tournament platform for Free Fire, PUBG Mobile & Ludo. Play daily matches and withdraw instant winnings via bKash.",
+  title: "Game Zone - GameZoneBD Tournament App Bangladesh",
+  description: "Download Game Zone (GameZoneBD), Bangladesh's premier real-time mobile gaming tournament platform for Free Fire, PUBG Mobile & Ludo. Play daily matches and withdraw instant winnings via bKash.",
   keywords: [
     "Game Zone",
     "GameZoneBD",
-    "GamesClubBD",
     "Free Fire Tournament",
     "Free Fire",
     "Game Tournament",
     "Game Tournament Bangladesh",
-    "Games Club BD",
     "Game Zone BD",
     "Esports Bangladesh",
     "Ludo Tournament Cash Prize",
@@ -52,7 +50,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://gamezonebd.space",
-    title: "Game Zone - GameZoneBD & GamesClubBD Tournament App Bangladesh",
+    title: "Game Zone - GameZoneBD Tournament App Bangladesh",
     description: "Bangladesh's premier real-time mobile gaming tournament platform for PUBG Mobile, Free Fire & Ludo. Win daily cash rewards and withdraw instantly via bKash.",
     siteName: "Game Zone",
     images: [
@@ -66,7 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Game Zone - GameZoneBD & GamesClubBD Tournament App Bangladesh",
+    title: "Game Zone - GameZoneBD Tournament App Bangladesh",
     description: "Play daily mobile tournaments and win real cash rewards with instant bKash withdrawal. Download Game Zone APK.",
     images: ["https://gamezonebd.space/og-image.png"],
   },
@@ -83,8 +81,6 @@ export default function RootLayout({
     "name": "Game Zone",
     "alternateName": [
       "GameZoneBD",
-      "GamesClubBD",
-      "Games Club BD",
       "Game Zone BD",
       "gamezonebd.space"
     ],
