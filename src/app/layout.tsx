@@ -14,20 +14,19 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
-  title: "Game Zone - GameZoneBD Tournament App Bangladesh",
-  description: "Download Game Zone (GameZoneBD), Bangladesh's premier real-time mobile gaming tournament platform for Free Fire, PUBG Mobile & Ludo. Play daily matches and withdraw instant winnings via bKash.",
+  title: "Fast Gaming - Tournament App Bangladesh",
+  description: "Download Fast Gaming, Bangladesh's premier real-time mobile gaming tournament platform for Free Fire, PUBG Mobile & Ludo. Play daily matches and withdraw instant winnings via bKash.",
   keywords: [
-    "Game Zone",
-    "GameZoneBD",
+    "Fast Gaming",
+    "Fast Gaming BD",
     "Free Fire Tournament",
     "Free Fire",
     "Game Tournament",
     "Game Tournament Bangladesh",
-    "Game Zone BD",
     "Esports Bangladesh",
     "Ludo Tournament Cash Prize",
     "bKash earning app",
-    "Game Zone App Download",
+    "Fast Gaming App Download",
     "Mobile Gaming Tournaments",
     "gamezonebd.space"
   ],
@@ -50,22 +49,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://gamezonebd.space",
-    title: "Game Zone - GameZoneBD Tournament App Bangladesh",
+    title: "Fast Gaming - Tournament App Bangladesh",
     description: "Bangladesh's premier real-time mobile gaming tournament platform for PUBG Mobile, Free Fire & Ludo. Win daily cash rewards and withdraw instantly via bKash.",
-    siteName: "Game Zone",
+    siteName: "Fast Gaming",
     images: [
       {
         url: "https://gamezonebd.space/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Game Zone - Premier Gaming Tournament App",
+        alt: "Fast Gaming - Premier Gaming Tournament App",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Game Zone - GameZoneBD Tournament App Bangladesh",
-    description: "Play daily mobile tournaments and win real cash rewards with instant bKash withdrawal. Download Game Zone APK.",
+    title: "Fast Gaming - Tournament App Bangladesh",
+    description: "Play daily mobile tournaments and win real cash rewards with instant bKash withdrawal. Download Fast Gaming APK.",
     images: ["https://gamezonebd.space/og-image.png"],
   },
 };
@@ -78,10 +77,9 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "MobileApplication",
-    "name": "Game Zone",
+    "name": "Fast Gaming",
     "alternateName": [
-      "GameZoneBD",
-      "Game Zone BD",
+      "Fast Gaming BD",
       "gamezonebd.space"
     ],
     "operatingSystem": "Android",
