@@ -37,18 +37,6 @@ export interface TranslationDict {
     success: string;
     regSuccess: string;
   };
-  videoGuides: {
-    tag: string;
-    title: string;
-    subtitle: string;
-    video1Title: string;
-    video1Desc: string;
-    video2Title: string;
-    video2Desc: string;
-    video3Title: string;
-    video3Desc: string;
-    watchTutorial: string;
-  };
   games: {
     tag: string;
     title: string;
@@ -109,7 +97,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       bangladeshMost: "বাংলাদেশের সবচেয়ে",
       adjectives: ["নিরাপদ", "বিশ্বস্ত", "অটোমেটেড", "প্রিমিয়াম", "সেরা"],
       gamingPlatform: "গেমিং প্ল্যাটফর্ম",
-      subtitle: "Game Zone (GameZoneBD) অ্যাপের মাধ্যমে খেলুন আপনার প্রিয় গেমস এবং জিতে নিন আকর্ষণীয় সব প্রাইজ। নিরাপদ ও বিশ্বস্ত টুর্নামেন্ট প্ল্যাটফর্মে জয়েন করুন আজই।",
+      subtitle: "Fast Gaming অ্যাপের মাধ্যমে খেলুন আপনার প্রিয় গেমস এবং জিতে নিন আকর্ষণীয় সব প্রাইজ। নিরাপদ ও বিশ্বস্ত টুর্নামেন্ট প্ল্যাটফর্মে জয়েন করুন আজই।",
       downloadBtn: "অ্যাপ ডাউনলোড করুন",
       howToPlayBtn: "কিভাবে খেলবেন দেখুন",
       downloadToast: "ডাউনলোড শুরু হয়েছে! নিচে দেওয়া ৪টি স্টেপ অনুসরণ করে অ্যাপটি ইনস্টল করুন।",
@@ -117,7 +105,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
     howToStart: {
       tag: "Get Started",
       title: "কিভাবে শুরু করবেন?",
-      subtitle: "সহজ ৪টি ধাপে Game Zone অ্যাপ ডাউনলোড ও ইনস্টল করে গেম খেলা শুরু করুন",
+      subtitle: "সহজ ৪টি ধাপে Fast Gaming অ্যাপ ডাউনলোড ও ইনস্টল করে গেম খেলা শুরু করুন",
       step1Title: "ধাপ ১",
       step1Desc: "অ্যাপ ডাউনলোড করতে উপরের ডাউনলোড বাটনে ক্লিক করুন।",
       step2Title: "ধাপ ২",
@@ -133,18 +121,6 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       allowSource: "Allow Source",
       success: "Success!",
       regSuccess: "রেজিস্ট্রেশন সম্পন্ন হয়েছে",
-    },
-    videoGuides: {
-      tag: "ভিডিও গাইড",
-      title: "কিভাবে খেলবেন?",
-      subtitle: "টুর্নামেন্টে অংশগ্রহণ করতে এবং ডিপোজিটের বিস্তারিত দেখতে ভিডিওগুলো দেখুন",
-      video1Title: "কিভাবে ম্যাচ জইন করবেন?",
-      video1Desc: "Game Zone অ্যাপে ফ্রি ফায়ার টুর্নামেন্ট এবং অন্যান্য ম্যাচ জইন করার সম্পূর্ণ গাইড।",
-      video2Title: "কিভাবে ডিপোজিট করবেন?",
-      video2Desc: "Game Zone অ্যাপে টাকা ডিপোজিট করার নতুন এবং আপডেট পদ্ধতি।",
-      video3Title: "কিভাবে লুডো ম্যাচ খেলবেন?",
-      video3Desc: "Game Zone প্ল্যাটফর্মে লুডো টুর্নামেন্ট খেলার কৌশল এবং টিপস।",
-      watchTutorial: "টিউটোরিয়াল দেখুন",
     },
     games: {
       tag: "সমর্থিত গেমস",
@@ -177,14 +153,14 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       feat5Desc: "বাংলাদেশের সবচেয়ে বড় ও বিশ্বস্ত মোবাইল গেমিং টুর্নামেন্ট প্ল্যাটফর্মে অংশ নিয়ে জিতে নিন আকর্ষণীয় সব প্রাইজ।",
     },
     downloadCTA: {
-      title: "এখনই Game Zone অ্যাপ ডাউনলোড করুন",
+      title: "এখনই Fast Gaming অ্যাপ ডাউনলোড করুন",
       subtitle: "বাংলাদেশ জুড়ে হাজারো খেলোয়াড়ের সাথে যোগ দিন। অ্যাপটি ইনস্টল করে আজই প্রথম টুর্নামেন্টে অংশগ্রহণ করুন!",
       btnText: "অ্যাপ ডাউনলোড করুন (APK)",
       androidSupport: "Compatible with Android 6.0+ devices • Verified Safe & Secure",
     },
     footer: {
       subLogo: "প্রিমিয়াম গেমিং অভিজ্ঞতা",
-      copy: "Game Zone BD Gaming. All rights reserved.",
+      copy: "Fast Gaming BD. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       rules: "Rules of Play",
@@ -204,7 +180,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       bangladeshMost: "Bangladesh's Most",
       adjectives: ["Secure", "Trusted", "Automated", "Premium", "Best"],
       gamingPlatform: "Gaming Platform",
-      subtitle: "Play your favorite games (Free Fire, PUBG, Ludo) and win exciting cash rewards on Game Zone (GameZoneBD). Join Bangladesh's safest, most trusted automated game tournament platform today.",
+      subtitle: "Play your favorite games (Free Fire, PUBG, Ludo) and win exciting cash rewards on Fast Gaming. Join Bangladesh's safest, most trusted automated game tournament platform today.",
       downloadBtn: "Download App (APK)",
       howToPlayBtn: "Watch How to Play",
       downloadToast: "Download started! Follow the 4 steps below to install the app.",
@@ -212,7 +188,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
     howToStart: {
       tag: "Get Started",
       title: "How to Start?",
-      subtitle: "Download and install the Game Zone app in 4 easy steps to start playing game tournaments.",
+      subtitle: "Download and install the Fast Gaming app in 4 easy steps to start playing game tournaments.",
       step1Title: "Step 1",
       step1Desc: "Click the download button above to download the gamezonebd.apk installation file.",
       step2Title: "Step 2",
@@ -229,18 +205,6 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       success: "Success!",
       regSuccess: "Registration Complete",
     },
-    videoGuides: {
-      tag: "Video Guides",
-      title: "How to Play?",
-      subtitle: "Watch these step-by-step video tutorials to learn how to join tournaments and deposit on Game Zone.",
-      video1Title: "How to Join a Match?",
-      video1Desc: "Complete video walkthrough on joining Free Fire tournaments and room matches on Game Zone.",
-      video2Title: "How to Deposit?",
-      video2Desc: "Step-by-step guide to adding money to your Game Zone wallet using bKash, Rocket, or Nagad.",
-      video3Title: "How to Play Ludo?",
-      video3Desc: "Winning strategies and tips for playing automated cash Ludo matches on our platform.",
-      watchTutorial: "Watch Tutorial",
-    },
     games: {
       tag: "Supported Games",
       title: "Available Games",
@@ -253,7 +217,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
     },
     whyUs: {
       tag: "Features",
-      title: "Why Choose Game Zone?",
+      title: "Why Choose Fast Gaming?",
       subtitle: "The most trusted, secure, and automated mobile game tournament platform in Bangladesh.",
       feat1Title: "Instant Deposits",
       feat1Subtitle: "Quick & Automated",
@@ -272,14 +236,14 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       feat5Desc: "Join over 100,000 active players in Bangladesh's largest game tournament community.",
     },
     downloadCTA: {
-      title: "Download Game Zone App Now",
-      subtitle: "Join thousands of players in Bangladesh. Install the Game Zone APK (GameZoneBD) and enter your first game tournament today!",
+      title: "Download Fast Gaming App Now",
+      subtitle: "Join thousands of players in Bangladesh. Install the Fast Gaming APK and enter your first game tournament today!",
       btnText: "Download App (APK)",
       androidSupport: "Compatible with Android 6.0+ devices • Verified Safe & Secure",
     },
     footer: {
       subLogo: "Premium Gaming Experience",
-      copy: "Game Zone BD Gaming. All rights reserved.",
+      copy: "Fast Gaming BD. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       rules: "Rules of Play",

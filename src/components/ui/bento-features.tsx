@@ -49,12 +49,12 @@ const BentoCard: React.FC<BentoCardProps> = ({
 
   return (
     <motion.div
-      className="relative overflow-hidden h-full w-full rounded-3xl border border-[var(--border)] bg-[var(--card)] shadow-2xs hover:shadow-xs transition-all duration-300 group"
+      className="relative overflow-hidden h-full w-full rounded-3xl border border-[var(--border)] bg-[var(--card)] hover:border-[var(--border-bright)] hover:shadow-[var(--glow-sm)] transition-all duration-300 group neon-border"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay }}
     >
-      {/* Animated gradient canvas */}
+      {/* Animated gradient canvas — darker palette */}
       <AnimatedGradient colors={colors} speed={0.03} blur="heavy" />
 
       {/* Content overlay */}
@@ -67,7 +67,7 @@ const BentoCard: React.FC<BentoCardProps> = ({
         <div className="space-y-3">
           {/* Icon Box */}
           <div className="flex items-center justify-between">
-            <div className={`h-10 w-10 sm:h-12 sm:w-12 rounded-2xl ${themeColor.iconBg} flex items-center justify-center border border-[var(--border)] shadow-3xs group-hover:scale-105 transition-transform duration-300`}>
+            <div className={`h-10 w-10 sm:h-12 sm:w-12 rounded-2xl ${themeColor.iconBg} flex items-center justify-center border border-[var(--border-bright)] shadow-[var(--glow-sm)] group-hover:scale-105 group-hover:shadow-[var(--glow-md)] transition-all duration-300`}>
               {React.cloneElement(icon as React.ReactElement<{ className?: string }>, {
                 className: `h-5 w-5 sm:h-6 sm:w-6 ${themeColor.iconText}`,
               })}
@@ -119,85 +119,85 @@ const BentoFeaturesDemo: React.FC<BentoFeaturesDemoProps> = ({ language }) => {
             title={t.whyUs.feat1Title}
             subtitle={t.whyUs.feat1Subtitle}
             description={t.whyUs.feat1Desc}
-            colors={["#E2F6D5", "#C5EDAB", "#E8EBE6"]}
+            colors={["#0a1a08", "#0e2a0c", "#0c0c14"]}
             delay={0.05}
             icon={<CreditCard />}
             themeColor={{
-              tagText: "text-emerald-700",
-              iconBg: "bg-emerald-50",
-              iconText: "text-emerald-700"
+              tagText: "text-[var(--primary)]",
+              iconBg: "bg-[var(--primary)]/10",
+              iconText: "text-[var(--primary)]"
             }}
             language={language}
           />
         </div>
         
-        {/* Card 2: Half width on mobile (col-span-1), 1 col on desktop */}
+        {/* Card 2 */}
         <div className="col-span-1">
           <BentoCard
             title={t.whyUs.feat2Title}
             subtitle={t.whyUs.feat2Subtitle}
             description={t.whyUs.feat2Desc}
-            colors={["#E2F6D5", "#FFFFFF", "#E8EBE6"]}
+            colors={["#0a0a18", "#0e0e20", "#0c1210"]}
             delay={0.1}
             icon={<Shield />}
             themeColor={{
-              tagText: "text-emerald-700",
-              iconBg: "bg-emerald-50",
-              iconText: "text-emerald-700"
+              tagText: "text-[var(--primary)]",
+              iconBg: "bg-[var(--primary)]/10",
+              iconText: "text-[var(--primary)]"
             }}
             language={language}
           />
         </div>
 
-        {/* Card 3: Half width on mobile (col-span-1), 1 col on desktop */}
+        {/* Card 3 */}
         <div className="col-span-1">
           <BentoCard
             title={t.whyUs.feat3Title}
             subtitle={t.whyUs.feat3Subtitle}
             description={t.whyUs.feat3Desc}
-            colors={["#E2F6D5", "#C5EDAB", "#FFFFFF"]}
+            colors={["#0c1a08", "#0a1510", "#0e0e18"]}
             delay={0.15}
             icon={<Wallet />}
             themeColor={{
-              tagText: "text-emerald-700",
-              iconBg: "bg-emerald-50",
-              iconText: "text-emerald-700"
+              tagText: "text-[var(--primary)]",
+              iconBg: "bg-[var(--primary)]/10",
+              iconText: "text-[var(--primary)]"
             }}
             language={language}
           />
         </div>
 
-        {/* Card 4: Full width on mobile (col-span-2), 2 cols on desktop */}
+        {/* Card 4 */}
         <div className="col-span-2">
           <BentoCard
             title={t.whyUs.feat4Title}
             subtitle={t.whyUs.feat4Subtitle}
             description={t.whyUs.feat4Desc}
-            colors={["#E2F6D5", "#E8EBE6", "#FFFFFF"]}
+            colors={["#0a0a14", "#0c1a0c", "#0e0e1a"]}
             delay={0.2}
             icon={<Clock />}
             themeColor={{
-              tagText: "text-emerald-700",
-              iconBg: "bg-emerald-50",
-              iconText: "text-emerald-700"
+              tagText: "text-[var(--primary)]",
+              iconBg: "bg-[var(--primary)]/10",
+              iconText: "text-[var(--primary)]"
             }}
             language={language}
           />
         </div>
 
-        {/* Card 5: Full width on mobile (col-span-2), 3 cols on desktop */}
+        {/* Card 5 */}
         <div className="col-span-2 md:col-span-3">
           <BentoCard
             title={t.whyUs.feat5Title}
             subtitle={t.whyUs.feat5Subtitle}
             description={t.whyUs.feat5Desc}
-            colors={["#C5EDAB", "#E2F6D5", "#E8EBE6"]}
+            colors={["#0c1a0a", "#0a1408", "#0e0e14"]}
             delay={0.25}
             icon={<Gamepad2 />}
             themeColor={{
-              tagText: "text-emerald-700",
-              iconBg: "bg-emerald-50",
-              iconText: "text-emerald-700"
+              tagText: "text-[var(--primary)]",
+              iconBg: "bg-[var(--primary)]/10",
+              iconText: "text-[var(--primary)]"
             }}
             language={language}
           />
