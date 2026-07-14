@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import Image from "next/image";
+import { Users, Trophy, Swords, Play } from "lucide-react";
 
 interface ThreeGameCardProps {
   title: string;
@@ -9,7 +10,11 @@ interface ThreeGameCardProps {
   imageSrc: string;
   imageAlt: string;
   badgeText: string;
+  players: string;
+  prize: string;
+  mode: string;
   language: "bn" | "en";
+  playLabel: string;
 }
 
 export default function ThreeGameCard({
@@ -18,10 +23,12 @@ export default function ThreeGameCard({
   imageSrc,
   imageAlt,
   badgeText,
-  language,
+  players,
+  prize,
+  mode,
+  playLabel,
 }: ThreeGameCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
   const [glowPos, setGlowPos] = useState({ x: 50, y: 50 });
   const [isHovered, setIsHovered] = useState(false);
 
@@ -30,110 +37,89 @@ export default function ThreeGameCard({
     const rect = cardRef.current.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width;
     const y = (e.clientY - rect.top) / rect.height;
-
-    setTilt({
-      x: (y - 0.5) * -12,
-      y: (x - 0.5) * 12,
-    });
     setGlowPos({ x: x * 100, y: y * 100 });
-  };
-
-  const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 });
-    setIsHovered(false);
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
   };
 
   return (
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onMouseEnter={handleMouseEnter}
-      className="group relative cursor-pointer"
-      style={{
-        perspective: "1000px",
-      }}
+      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={() => setIsHovered(true)}
+      className="group relative"
     >
-      <div
-        className="relative bg-[var(--card)] border border-[var(--border)] rounded-3xl p-3 sm:p-5 flex flex-col justify-between transition-all duration-300 ease-out"
-        style={{
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) scale(${isHovered ? 1.02 : 1})`,
-          transformStyle: "preserve-3d",
-          boxShadow: isHovered
-            ? "0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(159, 232, 112, 0.15)"
-            : "0 4px 20px rgba(0,0,0,0.3)",
-        }}
-      >
-        {/* Glow effect following cursor */}
+      <div className="relative bg-[var(--canvas)] border border-[var(--border-subtle)] rounded-[24px] overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-md)]">
+        {/* Cursor glow */}
         <div
-          className="absolute inset-0 rounded-3xl pointer-events-none transition-opacity duration-300 z-0"
+          className="absolute inset-0 rounded-[24px] pointer-events-none transition-opacity duration-300 z-10"
           style={{
             opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(circle at ${glowPos.x}% ${glowPos.y}%, rgba(159, 232, 112, 0.12) 0%, transparent 60%)`,
+            background: `radial-gradient(350px circle at ${glowPos.x}% ${glowPos.y}%, rgba(159,232,112,0.08) 0%, transparent 100%)`,
           }}
         />
 
-        {/* Neon border glow */}
-        <div
-          className="absolute inset-[-1px] rounded-3xl pointer-events-none transition-opacity duration-500 z-0"
-          style={{
-            opacity: isHovered ? 1 : 0,
-            background:
-              "linear-gradient(135deg, rgba(159, 232, 112, 0.4), transparent 40%, transparent 60%, rgba(159, 232, 112, 0.2))",
-            WebkitMask:
-              "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-            WebkitMaskComposite: "xor",
-            maskComposite: "exclude",
-            padding: "1.5px",
-          }}
-        />
-
-        {/* Game image */}
-        <div
-          className="relative w-full h-32 sm:h-48 rounded-2xl overflow-hidden bg-[var(--background-secondary)] mb-4 border border-[var(--border)] z-10"
-          style={{
-            transform: isHovered ? "translateZ(20px)" : "translateZ(0)",
-            transition: "transform 0.3s ease-out",
-          }}
-        >
-          {/* Live badge */}
-          <span className="absolute top-3 left-3 z-10 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider text-[var(--primary)] bg-[var(--card)]/80 backdrop-blur-sm border border-[var(--border-bright)] px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full flex items-center gap-1 sm:gap-1.5 shadow-xs font-bangla">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
-            {badgeText}
-          </span>
+        {/* Image Section */}
+        <div className="relative h-44 sm:h-52 md:h-56 overflow-hidden bg-[var(--canvas-soft)]">
           <Image
             src={imageSrc}
             alt={imageAlt}
             fill
-            sizes="(max-width: 768px) 50vw, (max-width: 1024px) 50vw, 50vw"
-            className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
           />
-          {/* Dark overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--card)]/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--canvas)] via-[var(--canvas)]/20 to-transparent" />
+
+          {/* Badge */}
+          <span className="absolute top-3 left-3 z-10 text-[10px] font-bold uppercase tracking-wider text-[var(--positive-deep)] bg-[var(--primary-pale)]/90 backdrop-blur-sm border border-[var(--primary)]/30 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-xs">
+            <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
+            {badgeText}
+          </span>
+
+          {/* Title overlaid on image */}
+          <div className="absolute bottom-3 left-3 right-3 z-10">
+            <h3 className="text-lg sm:text-xl font-black text-[var(--ink)] drop-shadow-xs">
+              {title}
+            </h3>
+          </div>
         </div>
 
-        {/* Card content */}
-        <div
-          className="text-center sm:text-left sm:px-1 pb-1 z-10 relative"
-          style={{
-            transform: isHovered ? "translateZ(10px)" : "translateZ(0)",
-            transition: "transform 0.3s ease-out",
-          }}
-        >
-          <h3 className="font-black text-sm sm:text-lg text-[var(--foreground)] font-english tracking-tight">
-            {title}
-          </h3>
-          <p
-            className={`text-[10px] sm:text-xs text-[var(--muted-foreground)] font-semibold mt-0.5 ${
-              language === "bn" ? "font-bangla" : ""
-            }`}
-          >
+        {/* Stats Row */}
+        <div className="grid grid-cols-3 border-b border-[var(--border-subtle)]">
+          {[
+            { icon: Users, label: players },
+            { icon: Trophy, label: prize },
+            { icon: Swords, label: mode },
+          ].map((stat, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center gap-1.5 py-2.5 px-2 border-r border-[var(--border-subtle)] last:border-r-0"
+            >
+              <stat.icon className="h-3.5 w-3.5 text-[var(--mute)] flex-shrink-0" />
+              <span className="text-[10px] sm:text-[11px] font-semibold text-[var(--mute)] truncate">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        {/* Description + CTA */}
+        <div className="p-4 sm:p-5">
+          <p className="text-xs sm:text-sm text-[var(--body)] leading-relaxed line-clamp-2">
             {description}
           </p>
+
+          <button
+            onClick={() => {
+              const section = document.getElementById("download");
+              if (section) section.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-[0.97] text-[var(--on-primary)] font-semibold text-sm px-5 py-2.5 transition-all duration-200 cursor-pointer"
+          >
+            <Play className="h-4 w-4 fill-current" />
+            {playLabel}
+          </button>
         </div>
       </div>
     </div>

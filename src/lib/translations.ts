@@ -44,8 +44,15 @@ export interface TranslationDict {
     liveTournament: string;
     ffTitle: string;
     ffDesc: string;
+    ffPlayers: string;
+    ffPrize: string;
+    ffMode: string;
     pubgTitle: string;
     pubgDesc: string;
+    pubgPlayers: string;
+    pubgPrize: string;
+    pubgMode: string;
+    playNow: string;
   };
   whyUs: {
     tag: string;
@@ -79,6 +86,28 @@ export interface TranslationDict {
     privacy: string;
     terms: string;
     rules: string;
+  };
+  downloadPage: {
+    title: string;
+    subtitle: string;
+    prerequisites: string;
+    prereqItems: string[];
+    steps: Array<{
+      title: string;
+      subtitle: string;
+      details: string[];
+      warning?: string;
+    }>;
+    tips: string;
+    tipItems: string[];
+    ctaTitle: string;
+    ctaBtn: string;
+    backToHome: string;
+    faq: string;
+    faqItems: Array<{
+      q: string;
+      a: string;
+    }>;
   };
 }
 
@@ -128,9 +157,16 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       subtitle: "আমাদের প্ল্যাটফর্মে উপলব্ধ সব গেমের টুর্নামেন্ট খেলুন এবং বড় পুরস্কার জিতে নিন",
       liveTournament: "লাইভ টুর্নামেন্ট",
       ffTitle: "Free Fire",
-      ffDesc: "দৈনিক ফ্রি ও পেইড ম্যাচ খেলুন",
+      ffDesc: "দৈনিক ফ্রি ও পেইড ম্যাচ খেলুন এবং জিতে নিন আকর্ষণীয় পুরস্কার",
+      ffPlayers: "১০,০০০+ খেলোয়াড়",
+      ffPrize: "৫০,০০০৳ পর্যন্ত",
+      ffMode: "Battle Royale",
       pubgTitle: "PUBG Mobile",
-      pubgDesc: "প্রতিদিন একাধিক রুম ম্যাচ ও প্রাইজ",
+      pubgDesc: "প্রতিদিন একাধিক রুম ম্যাচ ও প্রাইজ পুলে অংশ নিন",
+      pubgPlayers: "৮,০০০+ খেলোয়াড়",
+      pubgPrize: "৭৫,০০০৳ পর্যন্ত",
+      pubgMode: "Battle Royale",
+      playNow: "এখন খেলুন",
     },
     whyUs: {
       tag: "সুবিধাসমূহ",
@@ -164,6 +200,87 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       rules: "Rules of Play",
+    },
+    downloadPage: {
+      title: "Fast Gaming অ্যাপ ডাউনলোড ও ইনস্টলেশন গাইড",
+      subtitle: "আপনার অ্যান্ড্রয়েড ডিভাইসে Fast Gaming অ্যাপ ডাউনলোড, ইনস্টল ও সেটআপ করার বিস্তারিত নির্দেশিকা।",
+      prerequisites: "প্রয়োজনীয় শর্তসমূহ",
+      prereqItems: [
+        "Android 6.0 (Marshmallow) বা তার উপরে চালিত ডিভাইস",
+        "অন্তত ৫০MB ফ্রি স্টোরেজ স্পেস",
+        "স্থিতিশীল ইন্টারনেট সংযোগ",
+        "থার্ড-পার্টি অ্যাপ ইনস্টল করার অনুমতি"
+      ],
+      steps: [
+        {
+          title: "অ্যাপ ডাউনলোড করুন",
+          subtitle: "সরাসরি আপনার ডিভাইসে APK ফাইল ডাউনলোড করুন",
+          details: [
+            "নিচের ডাউনলোড বাটনে ক্লিক করে অ্যাপ ডাউনলোড শুরু করুন",
+            "ফাইলটির নাম হবে gamezonebd.apk",
+            "ডাউনলোড সম্পন্ন হওয়া পর্যন্ত অপেক্ষা করুন"
+          ]
+        },
+        {
+          title: "ডাউনলোড নিশ্চিত করুন",
+          subtitle: "আপনার ব্রাউজারে পপ-আপ দেখালে 'Download Anyway' নির্বাচন করুন",
+          details: [
+            "Chrome বা আপনার ব্রাউজার একটি সতর্কতা বার্তা দেখাবে",
+            "\"Download Anyway\" বা \"Keep\" বাটনে ক্লিক করুন",
+            "এটি নিশ্চিত করে যে আপনি ফাইলটি ডাউনলোড করতে চান"
+          ],
+          warning: "এই সতর্কতা স্বাভাবিক। যেকোনো APK ফাইল ডাউনলোডের সময় ব্রাউজার এই বার্তা দেখায়।"
+        },
+        {
+          title: "ইনস্টল করার অনুমতি দিন",
+          subtitle: "Android সেটিংস থেকে 'Unknown Sources' অপশন সক্রিয় করুন",
+          details: [
+            "Settings > Security > Install unknown apps এ যান",
+            "আপনার ব্রাউজার (Chrome/Firefox) নির্বাচন করুন",
+            "\"Allow from this source\" টগল অন করুন",
+            "অথবা ডাউনলোড সম্পন্ন হলে নোটিফিকেশনে ক্লিক করলেই সরাসরি অনুমতি চাইবে"
+          ]
+        },
+        {
+          title: "ইনস্টল ও রেজিস্টার করুন",
+          subtitle: "ইনস্টলেশন সম্পন্ন করে আপনার একাউন্ট তৈরি করুন",
+          details: [
+            "\"Install\" বাটনে ক্লিক করে ইনস্টলেশন সম্পন্ন করুন",
+            "ইনস্টলেশন শেষে \"Open\" বাটনে ক্লিক করে অ্যাপ খুলুন",
+            "আপনার মোবাইল নম্বর দিয়ে নিবন্ধন করুন",
+            "OTP ভেরিফিকেশন সম্পন্ন করে আপনার প্রোফাইল সেটআপ করুন"
+          ]
+        }
+      ],
+      tips: "গুরুত্বপূর্ণ টিপস",
+      tipItems: [
+        "নিরাপত্তার জন্য শুধুমাত্র আমাদের অফিসিয়াল ওয়েবসাইট থেকে অ্যাপ ডাউনলোড করুন",
+        "ইনস্টলেশনের সময় যেকোনো সমস্যায় আমাদের ২৪/৭ সাপোর্ট টিমের সাথে যোগাযোগ করুন",
+        "আপনার অ্যাকাউন্ট নিরাপদ রাখতে শক্তিশালী পাসওয়ার্ড ব্যবহার করুন",
+        "প্রথমবার টুর্নামেন্টে অংশ নেওয়ার আগে নিয়ম-কানুন ভালোভাবে পড়ুন"
+      ],
+      ctaTitle: "খেলা শুরু করতে এখনই ডাউনলোড করুন",
+      ctaBtn: "অ্যাপ ডাউনলোড করুন (APK)",
+      backToHome: "হোমপেজে ফিরে যান",
+      faq: "সাধারণ জিজ্ঞাসা",
+      faqItems: [
+        {
+          q: "এপিকে (APK) ফাইল কি নিরাপদ?",
+          a: "হ্যাঁ, আমাদের APK ফাইল সম্পূর্ণ নিরাপদ। আপনি আমাদের অফিসিয়াল ওয়েবসাইট থেকে ডাউনলোড করছেন যা সম্পূর্ণ ভাইরাস-মুক্ত এবং ম্যালওয়্যার-মুক্ত। আমরা নিয়মিতভাবে সিকিউরিটি চেক করি।"
+        },
+        {
+          q: "ইনস্টলের সময় 'ব্লক বাই প্লে প্রোটেক্ট' দেখালে কি করব?",
+          a: "এটি একটি সাধারণ Android নিরাপত্তা বৈশিষ্ট্য। 'Install Anyway' (যেভাবেই হোক ইনস্টল করুন) বাটনে ক্লিক করুন। যেহেতু অ্যাপটি Google Play Store ছাড়া ডাউনলোড করা হচ্ছে, তাই এই বার্তাটি দেখায়।"
+        },
+        {
+          q: "অ্যাপ কি সব Android ফোনে চলে?",
+          a: "Fast Gaming অ্যাপ Android 6.0 (Marshmallow) বা তার উপরে চালিত ডিভাইসে সাপোর্ট করে। সর্বোত্তম পারফরম্যান্সের জন্য কমপক্ষে ৩GB RAM থাকা সুপারিশ করা হয়।"
+        },
+        {
+          q: "কিভাবে আমি সহায়তা পেতে পারি?",
+          a: "আপনি আমাদের ২৪/৭ হেল্পলাইন, অ্যাপের লাইভ চ্যাট সাপোর্ট, অথবা আমাদের ফেসবুক পেজে মেসেজ দিয়ে সহায়তা পেতে পারেন।"
+        }
+      ]
     },
   },
   en: {
@@ -211,9 +328,16 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       subtitle: "Play daily tournaments for popular games (Free Fire, PUBG) and win big cash rewards.",
       liveTournament: "Live Tournament",
       ffTitle: "Free Fire Tournaments",
-      ffDesc: "Play daily free and paid Free Fire matches",
+      ffDesc: "Play daily free and paid Free Fire matches and win exciting prizes",
+      ffPlayers: "10K+ Players",
+      ffPrize: "Up to ৳50,000",
+      ffMode: "Battle Royale",
       pubgTitle: "PUBG Mobile Tournaments",
-      pubgDesc: "Daily custom room matches with high prize pools",
+      pubgDesc: "Daily custom room matches with high prize pools and fierce competition",
+      pubgPlayers: "8K+ Players",
+      pubgPrize: "Up to ৳75,000",
+      pubgMode: "Battle Royale",
+      playNow: "Play Now",
     },
     whyUs: {
       tag: "Features",
@@ -247,6 +371,87 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       rules: "Rules of Play",
+    },
+    downloadPage: {
+      title: "Fast Gaming App Download & Installation Guide",
+      subtitle: "A complete step-by-step guide to download, install, and set up the Fast Gaming app on your Android device.",
+      prerequisites: "Prerequisites",
+      prereqItems: [
+        "Android 6.0 (Marshmallow) or higher device",
+        "At least 50MB of free storage space",
+        "A stable internet connection",
+        "Permission to install third-party apps"
+      ],
+      steps: [
+        {
+          title: "Download the App",
+          subtitle: "Download the APK file directly to your device",
+          details: [
+            "Click the Download button below to start downloading the app",
+            "The file will be named gamezonebd.apk",
+            "Wait for the download to complete"
+          ]
+        },
+        {
+          title: "Confirm the Download",
+          subtitle: "Select 'Download Anyway' when prompted by your browser",
+          details: [
+            "Your browser (Chrome, etc.) will show a warning message",
+            "Click the \"Download Anyway\" or \"Keep\" button",
+            "This confirms you want to download the file"
+          ],
+          warning: "This warning is normal. Browsers show this for any APK file downloaded outside the Play Store."
+        },
+        {
+          title: "Enable Installation Permission",
+          subtitle: "Allow 'Unknown Sources' in your Android settings",
+          details: [
+            "Go to Settings > Security > Install unknown apps",
+            "Select your browser (Chrome/Firefox)",
+            "Toggle \"Allow from this source\" ON",
+            "Alternatively, tap the notification after download to grant permission directly"
+          ]
+        },
+        {
+          title: "Install & Register",
+          subtitle: "Complete installation and create your account",
+          details: [
+            "Tap the \"Install\" button to complete the installation",
+            "Once installed, tap \"Open\" to launch the app",
+            "Register using your mobile phone number",
+            "Complete OTP verification and set up your profile"
+          ]
+        }
+      ],
+      tips: "Important Tips",
+      tipItems: [
+        "Download the app only from our official website for security",
+        "Contact our 24/7 support team for any installation issues",
+        "Use a strong password to secure your account",
+        "Read the tournament rules carefully before participating"
+      ],
+      ctaTitle: "Download Now to Start Playing",
+      ctaBtn: "Download App (APK)",
+      backToHome: "Back to Home",
+      faq: "Frequently Asked Questions",
+      faqItems: [
+        {
+          q: "Is the APK file safe?",
+          a: "Yes, our APK file is completely safe. You are downloading from our official website which is virus-free and malware-free. We run regular security checks."
+        },
+        {
+          q: "What if 'Blocked by Play Protect' appears during installation?",
+          a: "This is a standard Android security feature. Click 'Install Anyway' to proceed. This appears because the app is not from the Google Play Store."
+        },
+        {
+          q: "Does the app work on all Android phones?",
+          a: "Fast Gaming supports Android 6.0 (Marshmallow) and above. For best performance, we recommend at least 3GB of RAM."
+        },
+        {
+          q: "How can I get help?",
+          a: "You can reach us through our 24/7 helpline, the in-app live chat support, or by messaging our Facebook page."
+        }
+      ]
     },
   },
 };

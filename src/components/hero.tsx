@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Download, Menu, X, Gamepad2 } from "lucide-react";
 import { translations } from "@/lib/translations";
+import Link from "next/link";
 
 interface NavbarProps {
   language: "bn" | "en";
@@ -15,11 +16,7 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -37,60 +34,67 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "glass-dark-heavy shadow-lg shadow-black/20 border-b border-[var(--border-bright)]"
+          ? "glass-nav shadow-[var(--shadow-sm)]"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <div 
-            className="flex items-center gap-3 cursor-pointer group" 
+          <div
+            className="flex items-center gap-3 cursor-pointer group"
             onClick={() => scrollToSection("hero")}
             id="nav-logo-container"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-md)] group-hover:shadow-[var(--glow-lg)] group-hover:scale-105 transition-all duration-300">
-              <Gamepad2 className="h-5.5 w-5.5" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--on-primary)] group-hover:scale-105 transition-all duration-300">
+              <Gamepad2 className="h-5 w-5" />
             </div>
             <div>
-              <span className="text-lg font-black tracking-tight text-[var(--foreground)] font-english block leading-none">
+              <span className="text-lg font-black tracking-tight text-[var(--ink)] block leading-none">
                 FAST GAMING
               </span>
-              <span className="text-[10px] text-[var(--muted-foreground)] font-semibold mt-0.5 block leading-none font-bangla">
+              <span className="text-[10px] font-semibold text-[var(--mute)] mt-0.5 block leading-none font-bangla">
                 {t.footer.subLogo}
               </span>
             </div>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--muted-foreground)]">
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--body)]">
             <button
               id="nav-link-how-to-start"
               onClick={() => scrollToSection("how-to-start")}
-              className={`hover:text-[var(--primary)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`hover:text-[var(--ink)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.howToStart}
             </button>
             <button
               id="nav-link-available-games"
               onClick={() => scrollToSection("available-games")}
-              className={`hover:text-[var(--primary)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`hover:text-[var(--ink)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.games}
             </button>
             <button
               id="nav-link-why-us"
               onClick={() => scrollToSection("why-us")}
-              className={`hover:text-[var(--primary)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`hover:text-[var(--ink)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.features}
             </button>
+            <Link
+              href="/download"
+              id="nav-link-download-page"
+              className={`hover:text-[var(--ink)] transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+            >
+              {language === 'bn' ? 'ডাউনলোড নির্দেশিকা' : 'Download Guide'}
+            </Link>
           </nav>
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
             {/* Language Switcher */}
-            <div className="flex items-center gap-0.5 bg-[var(--card)]/80 backdrop-blur-sm border border-[var(--border)] rounded-full p-0.5 text-[10px] shadow-3xs">
+            <div className="flex items-center gap-0.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-full p-0.5 text-[10px]">
               <button
                 onClick={() => {
                   setLanguage("bn");
@@ -98,8 +102,8 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
                 }}
                 className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
                   language === "bn"
-                    ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                    ? "bg-[var(--primary)] text-[var(--on-primary)]"
+                    : "text-[var(--mute)] hover:text-[var(--ink)]"
                 }`}
               >
                 BN
@@ -111,8 +115,8 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
                 }}
                 className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
                   language === "en"
-                    ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                    ? "bg-[var(--primary)] text-[var(--on-primary)]"
+                    : "text-[var(--mute)] hover:text-[var(--ink)]"
                 }`}
               >
                 EN
@@ -122,7 +126,7 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
             <button
               id="nav-btn-download"
               onClick={() => scrollToSection("download")}
-              className={`inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--primary-foreground)] shadow-[var(--glow-md)] hover:shadow-[var(--glow-lg)] active:scale-95 transition-all duration-300 cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--on-primary)] hover:shadow-[var(--shadow-green)] active:scale-95 transition-all duration-300 cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               <Download className="h-4 w-4" />
               <span>{t.navbar.downloadBtn}</span>
@@ -134,7 +138,7 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
             <button
               id="nav-btn-mobile-toggle"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="rounded-lg p-2 text-[var(--muted-foreground)] hover:bg-[var(--card)] hover:text-[var(--foreground)] focus:outline-none transition-colors"
+              className="rounded-lg p-2 text-[var(--mute)] hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)] focus:outline-none transition-colors"
             >
               {isMobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -148,38 +152,45 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
 
       {/* Mobile Menu Panel */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-dark-heavy px-4 pt-2 pb-4 shadow-lg border-b border-[var(--border-bright)]">
+        <div className="md:hidden bg-[var(--canvas)] border-b border-[var(--border-subtle)] shadow-[var(--shadow-md)] px-4 pt-2 pb-4">
           <div className="flex flex-col gap-3">
             <button
               id="nav-mobile-link-how-to-start"
               onClick={() => scrollToSection("how-to-start")}
-              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--card)] hover:text-[var(--primary)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--body)] rounded-lg hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.howToStart}
             </button>
             <button
               id="nav-mobile-link-available-games"
               onClick={() => scrollToSection("available-games")}
-              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--card)] hover:text-[var(--primary)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--body)] rounded-lg hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.games}
             </button>
             <button
               id="nav-mobile-link-why-us"
               onClick={() => scrollToSection("why-us")}
-              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--card)] hover:text-[var(--primary)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--body)] rounded-lg hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.features}
             </button>
-            
-            <hr className="border-[var(--border)] my-1" />
-            
+            <Link
+              href="/download"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--body)] rounded-lg hover:bg-[var(--canvas-soft)] hover:text-[var(--ink)] transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+            >
+              {language === 'bn' ? 'ডাউনলোড নির্দেশিকা' : 'Download Guide'}
+            </Link>
+
+            <hr className="border-[var(--border-subtle)] my-1" />
+
             {/* Mobile Language Switcher */}
             <div className="flex items-center justify-between px-3 py-1">
-              <span className={`text-sm font-semibold text-[var(--muted-foreground)] ${language === 'bn' ? 'font-bangla' : ''}`}>
+              <span className={`text-sm font-semibold text-[var(--mute)] ${language === 'bn' ? 'font-bangla' : ''}`}>
                 {language === 'bn' ? 'ভাষা পরিবর্তন করুন' : 'Change Language'}
               </span>
-              <div className="flex items-center gap-0.5 bg-[var(--card)] border border-[var(--border)] rounded-full p-0.5 text-xs shadow-3xs">
+              <div className="flex items-center gap-0.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-full p-0.5 text-xs">
                 <button
                   onClick={() => {
                     setLanguage("bn");
@@ -187,8 +198,8 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
                   }}
                   className={`px-3 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
                     language === "bn"
-                      ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                      : "text-[var(--muted-foreground)]"
+                      ? "bg-[var(--primary)] text-[var(--on-primary)]"
+                      : "text-[var(--mute)]"
                   }`}
                 >
                   BN
@@ -200,8 +211,8 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
                   }}
                   className={`px-3 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
                     language === "en"
-                      ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                      : "text-[var(--muted-foreground)]"
+                      ? "bg-[var(--primary)] text-[var(--on-primary)]"
+                      : "text-[var(--mute)]"
                   }`}
                 >
                   EN
@@ -212,7 +223,7 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
             <button
               id="nav-mobile-btn-download"
               onClick={() => scrollToSection("download")}
-              className={`flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] py-3 text-base font-semibold text-[var(--primary-foreground)] shadow-[var(--glow-md)] hover:shadow-[var(--glow-lg)] cursor-pointer transition-all ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] py-3 text-base font-semibold text-[var(--on-primary)] hover:shadow-[var(--shadow-green)] cursor-pointer transition-all ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               <Download className="h-4.5 w-4.5" />
               <span>{t.navbar.mobileDownloadBtn}</span>
