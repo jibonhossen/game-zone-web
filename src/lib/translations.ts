@@ -44,8 +44,15 @@ export interface TranslationDict {
     liveTournament: string;
     ffTitle: string;
     ffDesc: string;
+    ffPlayers: string;
+    ffPrize: string;
+    ffMode: string;
     pubgTitle: string;
     pubgDesc: string;
+    pubgPlayers: string;
+    pubgPrize: string;
+    pubgMode: string;
+    playNow: string;
   };
   whyUs: {
     tag: string;
@@ -150,9 +157,16 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       subtitle: "আমাদের প্ল্যাটফর্মে উপলব্ধ সব গেমের টুর্নামেন্ট খেলুন এবং বড় পুরস্কার জিতে নিন",
       liveTournament: "লাইভ টুর্নামেন্ট",
       ffTitle: "Free Fire",
-      ffDesc: "দৈনিক ফ্রি ও পেইড ম্যাচ খেলুন",
+      ffDesc: "দৈনিক ফ্রি ও পেইড ম্যাচ খেলুন এবং জিতে নিন আকর্ষণীয় পুরস্কার",
+      ffPlayers: "১০,০০০+ খেলোয়াড়",
+      ffPrize: "৫০,০০০৳ পর্যন্ত",
+      ffMode: "Battle Royale",
       pubgTitle: "PUBG Mobile",
-      pubgDesc: "প্রতিদিন একাধিক রুম ম্যাচ ও প্রাইজ",
+      pubgDesc: "প্রতিদিন একাধিক রুম ম্যাচ ও প্রাইজ পুলে অংশ নিন",
+      pubgPlayers: "৮,০০০+ খেলোয়াড়",
+      pubgPrize: "৭৫,০০০৳ পর্যন্ত",
+      pubgMode: "Battle Royale",
+      playNow: "এখন খেলুন",
     },
     whyUs: {
       tag: "সুবিধাসমূহ",
@@ -314,9 +328,16 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       subtitle: "Play daily tournaments for popular games (Free Fire, PUBG) and win big cash rewards.",
       liveTournament: "Live Tournament",
       ffTitle: "Free Fire Tournaments",
-      ffDesc: "Play daily free and paid Free Fire matches",
+      ffDesc: "Play daily free and paid Free Fire matches and win exciting prizes",
+      ffPlayers: "10K+ Players",
+      ffPrize: "Up to ৳50,000",
+      ffMode: "Battle Royale",
       pubgTitle: "PUBG Mobile Tournaments",
-      pubgDesc: "Daily custom room matches with high prize pools",
+      pubgDesc: "Daily custom room matches with high prize pools and fierce competition",
+      pubgPlayers: "8K+ Players",
+      pubgPrize: "Up to ৳75,000",
+      pubgMode: "Battle Royale",
+      playNow: "Play Now",
     },
     whyUs: {
       tag: "Features",

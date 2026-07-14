@@ -3,18 +3,12 @@
 import React, { useState } from "react";
 import HeroNavbar from "@/components/hero";
 import { BentoFeaturesDemo } from "@/components/ui/bento-features";
+import HowToStartCarousel from "@/components/ui/how-to-start-carousel";
 import { Hero } from "@/components/ui/animated-hero";
 import { translations } from "@/lib/translations";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import {
-  Download,
-  Check,
-  Shield,
-  Gamepad2,
-  Smartphone,
-  Settings,
-} from "lucide-react";
+import { Download, Check, Gamepad2, Smartphone } from "lucide-react";
 
 const ThreeGameCard = dynamic(
   () => import("@/components/ui/ThreeGameCard"),
@@ -90,117 +84,8 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Grid of Steps */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-              {/* Step 1 */}
-              <div className="bg-[var(--canvas-soft)] rounded-[24px] p-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--on-primary)] font-black text-lg mb-5">
-                    {language === 'bn' ? '১' : '1'}
-                  </div>
-                  <h3 className="text-lg font-bold text-[var(--ink)]">
-                    {t.howToStart.step1Title}
-                  </h3>
-                  <p className={`text-sm text-[var(--body)] mt-2 leading-relaxed ${language === 'bn' ? 'font-bangla' : ''}`}>
-                    {t.howToStart.step1Desc}
-                  </p>
-                </div>
-                <div className="mt-6 bg-[var(--canvas)] rounded-2xl border border-[var(--border-subtle)] p-4 flex items-center justify-center min-h-[120px]">
-                  <div className="flex flex-col items-center gap-2">
-                    <Download className="h-8 w-8 text-[var(--primary)]" />
-                    <span className="text-[10px] font-bold text-[var(--mute)] uppercase tracking-wider">gamezonebd.apk</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 2 */}
-              <div className="bg-[var(--canvas-soft)] rounded-[24px] p-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--on-primary)] font-black text-lg mb-5">
-                    {language === 'bn' ? '২' : '2'}
-                  </div>
-                  <h3 className="text-lg font-bold text-[var(--ink)]">
-                    {t.howToStart.step2Title}
-                  </h3>
-                  <p className={`text-sm text-[var(--body)] mt-2 leading-relaxed ${language === 'bn' ? 'font-bangla' : ''}`}>
-                    {t.howToStart.step2Desc}
-                  </p>
-                </div>
-                <div className="mt-6 bg-[var(--canvas)] rounded-2xl border border-[var(--border-subtle)] p-4 flex items-center justify-center min-h-[120px]">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="flex items-center gap-1.5">
-                      <Shield className="h-4 w-4 text-[var(--negative)]" />
-                      <span className="text-[10px] font-bold text-[var(--ink)] uppercase">Warning</span>
-                    </div>
-                    <span className="text-[9px] text-[var(--mute)] text-center max-w-[140px]">{t.howToStart.harmfulText}</span>
-                    <span className="text-[10px] font-bold text-[var(--primary)]">{t.howToStart.anywayBtn}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 3 */}
-              <div className="bg-[var(--canvas-soft)] rounded-[24px] p-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--on-primary)] font-black text-lg mb-5">
-                    {language === 'bn' ? '৩' : '3'}
-                  </div>
-                  <h3 className="text-lg font-bold text-[var(--ink)]">
-                    {t.howToStart.step3Title}
-                  </h3>
-                  <p className={`text-sm text-[var(--body)] mt-2 leading-relaxed ${language === 'bn' ? 'font-bangla' : ''}`}>
-                    {t.howToStart.step3Desc}
-                  </p>
-                </div>
-                <div className="mt-6 bg-[var(--canvas)] rounded-2xl border border-[var(--border-subtle)] p-4 flex items-center justify-center min-h-[120px]">
-                  <div className="flex flex-col items-center gap-2">
-                    <Settings className="h-6 w-6 text-[var(--mute)]" />
-                    <div className="flex items-center gap-2 border-t border-[var(--border-subtle)] pt-2 w-full justify-between">
-                      <span className="text-[9px] font-semibold text-[var(--ink)]">{t.howToStart.allowSource}</span>
-                      <div className="w-8 h-4.5 bg-[var(--primary)] rounded-full p-0.5 flex items-center justify-end">
-                        <div className="h-3.5 w-3.5 bg-white rounded-full shadow-[var(--shadow-sm)]" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Step 4 */}
-              <div className="bg-[var(--canvas-soft)] rounded-[24px] p-6 flex flex-col justify-between">
-                <div>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--on-primary)] font-black text-lg mb-5">
-                    {language === 'bn' ? '৪' : '4'}
-                  </div>
-                  <h3 className="text-lg font-bold text-[var(--ink)]">
-                    {t.howToStart.step4Title}
-                  </h3>
-                  <p className={`text-sm text-[var(--body)] mt-2 leading-relaxed ${language === 'bn' ? 'font-bangla' : ''}`}>
-                    {t.howToStart.step4Desc}
-                  </p>
-                </div>
-                <div className="mt-6 bg-[var(--canvas)] rounded-2xl border border-[var(--border-subtle)] p-4 flex items-center justify-center min-h-[120px]">
-                  <div className="flex flex-col items-center gap-2">
-                    <div className="h-10 w-10 rounded-full bg-[var(--primary-pale)] flex items-center justify-center">
-                      <Check className="h-5 w-5 text-[var(--positive)]" />
-                    </div>
-                    <span className="text-xs font-black text-[var(--ink)]">{t.howToStart.success}</span>
-                    <span className={`text-[9px] text-[var(--mute)] ${language === 'bn' ? 'font-bangla' : ''}`}>
-                      {t.howToStart.regSuccess}
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Link to full download page */}
-            <div className="text-center mt-12">
-              <Link
-                href="/download"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:text-[var(--positive-deep)] transition-colors"
-              >
-                <Smartphone className="h-4 w-4" />
-                {language === 'bn' ? 'বিস্তারিত গাইড দেখুন' : 'View detailed installation guide'}
-              </Link>
-            </div>
+            {/* Auto-sliding carousel */}
+            <HowToStartCarousel language={language} steps={t.howToStart} />
           </div>
         </section>
 
@@ -219,14 +104,18 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-5 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
               <ThreeGameCard
                 title={t.games.ffTitle}
                 description={t.games.ffDesc}
                 imageSrc="/game-image/freefire.jpg"
                 imageAlt="Fast Gaming Free Fire Tournament - play online match tournaments and win cash rewards"
                 badgeText={t.games.liveTournament}
+                players={t.games.ffPlayers}
+                prize={t.games.ffPrize}
+                mode={t.games.ffMode}
                 language={language}
+                playLabel={t.games.playNow}
               />
               <ThreeGameCard
                 title={t.games.pubgTitle}
@@ -234,7 +123,11 @@ export default function Home() {
                 imageSrc="/game-image/pubg.webp"
                 imageAlt="Fast Gaming PUBG Mobile Tournament - join custom room tournaments and win cash prize"
                 badgeText={t.games.liveTournament}
+                players={t.games.pubgPlayers}
+                prize={t.games.pubgPrize}
+                mode={t.games.pubgMode}
                 language={language}
+                playLabel={t.games.playNow}
               />
             </div>
           </div>
