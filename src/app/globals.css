@@ -1,36 +1,41 @@
 @import "tailwindcss";
 
 :root {
-  /* Dark Gaming Theme */
-  --background: #06060b;
-  --background-secondary: #0c0c14;
-  --foreground: #e4e8e0;
-  --card: #0e0e18;
-  --card-foreground: #e4e8e0;
-  --card-elevated: #141422;
-  --primary: #9fe870;
-  --primary-foreground: #06060b;
-  --primary-glow: rgba(159, 232, 112, 0.15);
-  --primary-glow-intense: rgba(159, 232, 112, 0.35);
-  --secondary: #161626;
-  --secondary-foreground: #e4e8e0;
-  --muted: #12121e;
-  --muted-foreground: #7a7e76;
-  --accent: #1a1a2e;
-  --accent-foreground: #9fe870;
-  --border: rgba(159, 232, 112, 0.08);
-  --border-bright: rgba(159, 232, 112, 0.18);
-  --input: #0e0e18;
-  --ring: #9fe870;
+  /* Neo-Brutalist Theme (High Contrast Light/Retro) */
+  --background: #FAF7F2;
+  --background-secondary: #F0EDE8;
+  --foreground: #000000;
+  
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --card-elevated: #FFFFFF;
+  
+  --primary: #A3E635; /* Neon Lime Green */
+  --primary-foreground: #000000;
+  
+  --secondary: #FFFFFF;
+  --secondary-foreground: #000000;
+  
+  --muted: #E2E8F0;
+  --muted-foreground: #475569;
+  
+  --accent: #FDE047; /* Neon Yellow */
+  --accent-foreground: #000000;
+  
+  --border: #000000;
+  --border-bright: #000000;
+  --input: #FFFFFF;
+  --ring: #000000;
 
-  /* Glow Effects */
-  --glow-sm: 0 0 10px rgba(159, 232, 112, 0.15);
-  --glow-md: 0 0 20px rgba(159, 232, 112, 0.2);
-  --glow-lg: 0 0 40px rgba(159, 232, 112, 0.25);
-  --glow-xl: 0 0 60px rgba(159, 232, 112, 0.3), 0 0 120px rgba(159, 232, 112, 0.1);
-
-  /* Neon text glow */
-  --text-glow: 0 0 10px rgba(159, 232, 112, 0.5), 0 0 30px rgba(159, 232, 112, 0.2);
+  /* Saturated Neo-Brutalist Accents */
+  --neo-yellow: #FDE047;
+  --neo-pink: #F472B6;
+  --neo-cyan: #22D3EE;
+  --neo-orange: #FB923C;
+  --neo-purple: #C084FC;
+  --neo-blue: #60A5FA;
+  --neo-red: #F87171;
+  --neo-green: #4ADE80;
 }
 
 @theme inline {
@@ -52,48 +57,46 @@
   --color-border-bright: var(--border-bright);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  
-  --font-sans: var(--font-hind-siliguri), var(--font-inter), system-ui;
-  --font-english: var(--font-inter), system-ui;
-  --font-bangla: var(--font-hind-siliguri), system-ui;
 
-  --animate-background-gradient: background-gradient var(--background-gradient-speed, 15s) cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-  --animate-fade-in: fade-in 0.5s ease-out;
+  /* Neo-Brutalist Specifics */
+  --color-neo-yellow: var(--neo-yellow);
+  --color-neo-pink: var(--neo-pink);
+  --color-neo-cyan: var(--neo-cyan);
+  --color-neo-orange: var(--neo-orange);
+  --color-neo-purple: var(--neo-purple);
+  --color-neo-blue: var(--neo-blue);
+  --color-neo-red: var(--neo-red);
+  --color-neo-green: var(--neo-green);
 
-  @keyframes background-gradient {
-    0%, 100% {
-      transform: translate(0, 0);
-      animation-delay: var(--background-gradient-delay, 0s);
-    }
-    20% {
-      transform: translate(calc(100% * var(--tx-1, 1)), calc(100% * var(--ty-1, 1)));
-    }
-    40% {
-      transform: translate(calc(100% * var(--tx-2, -1)), calc(100% * var(--ty-2, 1)));
-    }
-    60% {
-      transform: translate(calc(100% * var(--tx-3, 1)), calc(100% * var(--ty-3, -1)));
-    }
-    80% {
-      transform: translate(calc(100% * var(--tx-4, -1)), calc(100% * var(--ty-4, -1)));
-    }
-  }
+  --font-sans: var(--font-hind-siliguri), var(--font-inter), system-ui, sans-serif;
+  --font-english: var(--font-inter), system-ui, sans-serif;
+  --font-bangla: var(--font-hind-siliguri), system-ui, sans-serif;
+  --font-mono: Courier New, Courier, monospace;
+
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-spin-slow: spin 12s linear infinite;
+  --animate-bounce-slow: bounce-slow 2s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-wiggle: wiggle 0.5s ease-in-out infinite;
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-12px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-8px) rotate(1deg); }
   }
 
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(159, 232, 112, 0.15); }
-    50% { box-shadow: 0 0 40px rgba(159, 232, 112, 0.35), 0 0 80px rgba(159, 232, 112, 0.15); }
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
   }
 
   @keyframes fade-in {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
   }
 }
 
@@ -102,145 +105,133 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
   overflow-x: hidden;
+  letter-spacing: -0.01em;
 }
 
-/* Custom Scrollbar — Dark Gaming */
+/* Custom Scrollbar - Retro Neo-Brutalist */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--background-secondary);
+  border-left: 3px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(159, 232, 112, 0.2);
-  border-radius: 9999px;
+  background: var(--primary);
+  border: 3px solid #000000;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(159, 232, 112, 0.4);
+  background: var(--neo-yellow);
 }
 
-/* Glassmorphism — Dark */
-.glass-dark {
-  background: rgba(14, 14, 24, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border);
+/* Selection Highlight */
+::selection {
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
-.glass-dark-heavy {
-  background: rgba(6, 6, 11, 0.85);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border);
+/* ─── Neo-Brutalist Core Classes ─────────────────────────────── */
+
+/* Thick Solid Borders */
+.neo-border {
+  border: 3px solid #000000;
 }
 
-/* Neon glow border on hover */
-.neon-border {
+.neo-border-4 {
+  border: 4px solid #000000;
+}
+
+.neo-border-2 {
+  border: 2px solid #000000;
+}
+
+/* Hard Shadows (Zero Blur Offset) */
+.neo-shadow-sm {
+  box-shadow: 3px 3px 0px 0px #000000;
+}
+
+.neo-shadow {
+  box-shadow: 6px 6px 0px 0px #000000;
+}
+
+.neo-shadow-lg {
+  box-shadow: 10px 10px 0px 0px #000000;
+}
+
+.neo-shadow-xl {
+  box-shadow: 14px 14px 0px 0px #000000;
+}
+
+/* tactile button press on hover/active */
+.neo-btn {
   position: relative;
-  overflow: hidden;
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.neon-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(159, 232, 112, 0.3), transparent 50%, rgba(159, 232, 112, 0.1));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
+.neo-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0px 0px #000000;
 }
 
-.neon-border:hover::before {
-  opacity: 1;
+.neo-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 2px 2px 0px 0px #000000;
 }
 
-/* Scanline overlay for gaming feel */
-.scanlines::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.03) 2px,
-    rgba(0, 0, 0, 0.03) 4px
-  );
-  pointer-events: none;
-  z-index: 1;
+/* Tactile Clickable Card */
+.neo-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+.neo-card-hover:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px 0px #000000;
+}
+
+/* ─── Retro Geometric Patterns ─────────────────────────────── */
 
 /* Grid pattern background */
-.grid-pattern {
-  background-image:
-    linear-gradient(rgba(159, 232, 112, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(159, 232, 112, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+.neo-grid-bg {
+  background-color: var(--background);
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
-/* Animated grid pattern */
-.grid-pattern-animated {
-  background-image:
-    linear-gradient(rgba(159, 232, 112, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(159, 232, 112, 0.04) 1px, transparent 1px);
-  background-size: 50px 50px;
-  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+/* Dot pattern background */
+.neo-dot-bg {
+  background-color: var(--background);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.12) 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
 }
 
-/* Three.js canvas container */
-.three-canvas-container {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+/* Checkerboard helper */
+.neo-checkerboard {
+  background-image: 
+    linear-gradient(45deg, #000000 25%, transparent 25%), 
+    linear-gradient(-45deg, #000000 25%, transparent 25%), 
+    linear-gradient(45deg, transparent 75%, #000000 75%), 
+    linear-gradient(-45deg, transparent 75%, #000000 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
 }
 
-.three-canvas-container canvas {
-  display: block;
+/* Text outline/stroke for large display elements */
+.neo-text-stroke {
+  -webkit-text-stroke: 1.5px #000000;
+  text-stroke: 1.5px #000000;
 }
 
-/* Phone pulse animation */
-@keyframes phone-pulse {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
+.neo-text-shadow {
+  text-shadow: 3px 3px 0px #000000;
 }
 
-.animate-phone {
-  animation: phone-pulse 4s ease-in-out infinite;
+.neo-text-shadow-lg {
+  text-shadow: 5px 5px 0px #000000;
 }
 
-/* Step connector lines */
-.step-connector {
-  position: relative;
-}
-
-.step-connector::after {
-  content: '';
-  position: absolute;
-  top: 24px;
-  right: -16px;
-  width: 32px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), transparent);
-  opacity: 0.3;
-}
-
-@media (max-width: 1024px) {
-  .step-connector::after {
-    display: none;
-  }
-}

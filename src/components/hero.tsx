@@ -28,60 +28,70 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Offset scroll for navbar height
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
     setIsMobileMenuOpen(false);
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b-[3px] border-black ${
         isScrolled
-          ? "glass-dark-heavy shadow-lg shadow-black/20 border-b border-[var(--border-bright)]"
-          : "bg-transparent"
+          ? "bg-white shadow-[0_4px_0_0_rgba(0,0,0,1)]"
+          : "bg-[var(--background-secondary)]"
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-18 items-center justify-between">
           {/* Logo */}
           <div 
             className="flex items-center gap-3 cursor-pointer group" 
             onClick={() => scrollToSection("hero")}
             id="nav-logo-container"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-md)] group-hover:shadow-[var(--glow-lg)] group-hover:scale-105 transition-all duration-300">
-              <Gamepad2 className="h-5.5 w-5.5" />
+            <div className="flex h-10 w-10 items-center justify-center bg-[var(--primary)] text-black border-2 border-black shadow-[2px_2px_0px_0px_#000] group-hover:translate-x-[1px] group-hover:translate-y-[1px] group-hover:shadow-[1px_1px_0px_0px_#000] transition-all">
+              <Gamepad2 className="h-5.5 w-5.5 stroke-[2.5]" />
             </div>
             <div>
-              <span className="text-lg font-black tracking-tight text-[var(--foreground)] font-english block leading-none">
+              <span className="text-base sm:text-lg font-black tracking-tight text-black font-english block leading-none">
                 FAST GAMING
               </span>
-              <span className="text-[10px] text-[var(--muted-foreground)] font-semibold mt-0.5 block leading-none font-bangla">
+              <span className="text-[10px] text-black font-bold mt-1 block leading-none font-bangla">
                 {t.footer.subLogo}
               </span>
             </div>
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-[var(--muted-foreground)]">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-black text-black">
             <button
               id="nav-link-how-to-start"
               onClick={() => scrollToSection("how-to-start")}
-              className={`hover:text-[var(--primary)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`px-3 py-1.5 border-2 border-transparent hover:border-black hover:bg-[var(--neo-yellow)] hover:shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.howToStart}
             </button>
             <button
               id="nav-link-available-games"
               onClick={() => scrollToSection("available-games")}
-              className={`hover:text-[var(--primary)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`px-3 py-1.5 border-2 border-transparent hover:border-black hover:bg-[var(--neo-pink)] hover:shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.games}
             </button>
             <button
               id="nav-link-why-us"
               onClick={() => scrollToSection("why-us")}
-              className={`hover:text-[var(--primary)] transition-colors cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`px-3 py-1.5 border-2 border-transparent hover:border-black hover:bg-[var(--neo-cyan)] hover:shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.features}
             </button>
@@ -90,16 +100,16 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
           {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
             {/* Language Switcher */}
-            <div className="flex items-center gap-0.5 bg-[var(--card)]/80 backdrop-blur-sm border border-[var(--border)] rounded-full p-0.5 text-[10px] shadow-3xs">
+            <div className="flex bg-white border-2 border-black p-0.5 shadow-[2px_2px_0px_0px_#000]">
               <button
                 onClick={() => {
                   setLanguage("bn");
                   localStorage.setItem("lang", "bn");
                 }}
-                className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                className={`px-3 py-1 text-xs font-black transition-all cursor-pointer border-r-2 border-black ${
                   language === "bn"
-                    ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                    ? "bg-[var(--primary)] text-black"
+                    : "text-slate-600 hover:text-black hover:bg-slate-100"
                 }`}
               >
                 BN
@@ -109,10 +119,10 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
                   setLanguage("en");
                   localStorage.setItem("lang", "en");
                 }}
-                className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                className={`px-3 py-1 text-xs font-black transition-all cursor-pointer ${
                   language === "en"
-                    ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                    : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
+                    ? "bg-[var(--primary)] text-black"
+                    : "text-slate-600 hover:text-black hover:bg-slate-100"
                 }`}
               >
                 EN
@@ -122,9 +132,9 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
             <button
               id="nav-btn-download"
               onClick={() => scrollToSection("download")}
-              className={`inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--primary-foreground)] shadow-[var(--glow-md)] hover:shadow-[var(--glow-lg)] active:scale-95 transition-all duration-300 cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`inline-flex items-center justify-center gap-2 bg-[var(--primary)] border-2 border-black px-4.5 py-2 text-sm font-black text-black shadow-[3px_3px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[2px_2px_0px_0px_#000] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none transition-all cursor-pointer uppercase ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              <Download className="h-4 w-4" />
+              <Download className="h-4 w-4 stroke-[2.5]" />
               <span>{t.navbar.downloadBtn}</span>
             </button>
           </div>
@@ -134,12 +144,12 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
             <button
               id="nav-btn-mobile-toggle"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="rounded-lg p-2 text-[var(--muted-foreground)] hover:bg-[var(--card)] hover:text-[var(--foreground)] focus:outline-none transition-colors"
+              className="border-2 border-black p-2 bg-white text-black shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[1px_1px_0px_0px_#000] focus:outline-none transition-all cursor-pointer"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5.5 w-5.5 stroke-[2.5]" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5.5 w-5.5 stroke-[2.5]" />
               )}
             </button>
           </div>
@@ -148,47 +158,47 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
 
       {/* Mobile Menu Panel */}
       {isMobileMenuOpen && (
-        <div className="md:hidden glass-dark-heavy px-4 pt-2 pb-4 shadow-lg border-b border-[var(--border-bright)]">
-          <div className="flex flex-col gap-3">
+        <div className="md:hidden bg-white border-t-[3px] border-black px-4 pt-4 pb-6 shadow-[0_4px_0_0_rgba(0,0,0,1)] flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
             <button
               id="nav-mobile-link-how-to-start"
               onClick={() => scrollToSection("how-to-start")}
-              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--card)] hover:text-[var(--primary)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`w-full px-4 py-3 text-base font-bold text-black border-2 border-black bg-[var(--background-secondary)] text-left hover:bg-[var(--neo-yellow)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.howToStart}
             </button>
             <button
               id="nav-mobile-link-available-games"
               onClick={() => scrollToSection("available-games")}
-              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--card)] hover:text-[var(--primary)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`w-full px-4 py-3 text-base font-bold text-black border-2 border-black bg-[var(--background-secondary)] text-left hover:bg-[var(--neo-pink)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.games}
             </button>
             <button
               id="nav-mobile-link-why-us"
               onClick={() => scrollToSection("why-us")}
-              className={`flex items-center px-3 py-2.5 text-base font-semibold text-[var(--muted-foreground)] rounded-lg hover:bg-[var(--card)] hover:text-[var(--primary)] text-left transition-colors ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`w-full px-4 py-3 text-base font-bold text-black border-2 border-black bg-[var(--background-secondary)] text-left hover:bg-[var(--neo-cyan)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none shadow-[3px_3px_0px_0px_#000] transition-all cursor-pointer ${language === 'bn' ? 'font-bangla' : ''}`}
             >
               {t.navbar.features}
             </button>
-            
-            <hr className="border-[var(--border)] my-1" />
-            
+          </div>
+          
+          <div className="border-t-2 border-black pt-4 flex flex-col gap-4">
             {/* Mobile Language Switcher */}
-            <div className="flex items-center justify-between px-3 py-1">
-              <span className={`text-sm font-semibold text-[var(--muted-foreground)] ${language === 'bn' ? 'font-bangla' : ''}`}>
+            <div className="flex items-center justify-between px-1">
+              <span className={`text-sm font-black text-black ${language === 'bn' ? 'font-bangla' : ''}`}>
                 {language === 'bn' ? 'ভাষা পরিবর্তন করুন' : 'Change Language'}
               </span>
-              <div className="flex items-center gap-0.5 bg-[var(--card)] border border-[var(--border)] rounded-full p-0.5 text-xs shadow-3xs">
+              <div className="flex bg-white border-2 border-black p-0.5 shadow-[2px_2px_0px_0px_#000]">
                 <button
                   onClick={() => {
                     setLanguage("bn");
                     localStorage.setItem("lang", "bn");
                   }}
-                  className={`px-3 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                  className={`px-3 py-1 text-xs font-black transition-all cursor-pointer border-r-2 border-black ${
                     language === "bn"
-                      ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                      : "text-[var(--muted-foreground)]"
+                      ? "bg-[var(--primary)] text-black"
+                      : "text-slate-600 hover:text-black"
                   }`}
                 >
                   BN
@@ -198,10 +208,10 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
                     setLanguage("en");
                     localStorage.setItem("lang", "en");
                   }}
-                  className={`px-3 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
+                  className={`px-3 py-1 text-xs font-black transition-all cursor-pointer ${
                     language === "en"
-                      ? "bg-[var(--primary)] text-[var(--primary-foreground)] shadow-[var(--glow-sm)]"
-                      : "text-[var(--muted-foreground)]"
+                      ? "bg-[var(--primary)] text-black"
+                      : "text-slate-600 hover:text-black"
                   }`}
                 >
                   EN
@@ -212,9 +222,9 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
             <button
               id="nav-mobile-btn-download"
               onClick={() => scrollToSection("download")}
-              className={`flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] py-3 text-base font-semibold text-[var(--primary-foreground)] shadow-[var(--glow-md)] hover:shadow-[var(--glow-lg)] cursor-pointer transition-all ${language === 'bn' ? 'font-bangla' : ''}`}
+              className={`flex items-center justify-center gap-2 w-full bg-[var(--primary)] border-2 border-black py-3 text-base font-black text-black shadow-[4px_4px_0px_0px_#000] hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-[3px_3px_0px_0px_#000] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all cursor-pointer uppercase ${language === 'bn' ? 'font-bangla' : ''}`}
             >
-              <Download className="h-4.5 w-4.5" />
+              <Download className="h-5 w-5 stroke-[2.5]" />
               <span>{t.navbar.mobileDownloadBtn}</span>
             </button>
           </div>
@@ -223,3 +233,4 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
     </header>
   );
 }
+
