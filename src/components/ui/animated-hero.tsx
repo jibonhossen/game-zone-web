@@ -2,14 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Download, MoveRight, Smartphone } from "lucide-react";
 import { translations } from "@/lib/translations";
-import dynamic from "next/dynamic";
-
-const ThreeScene = dynamic(() => import("@/components/ui/ThreeScene"), {
-  ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 bg-[var(--canvas)]" />
-  ),
-});
 
 interface HeroProps {
   language?: "bn" | "en";
@@ -46,11 +38,6 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
 
   return (
     <div className="w-full bg-[var(--canvas-soft)] relative overflow-hidden min-h-[85vh] flex items-center" id="hero-section">
-      {/* Three.js 3D Background (kept for visual interest) */}
-      <div className="absolute inset-0 opacity-30">
-        <ThreeScene />
-      </div>
-
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--canvas-soft)]/80 via-transparent to-[var(--canvas-soft)] pointer-events-none z-[1]" />
 
