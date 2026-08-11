@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Download, Shield, Settings, Check, ChevronLeft, ChevronRight, Smartphone } from "lucide-react";
 
@@ -163,8 +164,14 @@ export default function HowToStartCarousel({
       description: steps.step4Desc,
       illustration: (
         <div className="flex flex-col items-center gap-2">
-          <div className="h-10 w-10 rounded-full bg-[var(--primary-pale)] flex items-center justify-center">
-            <Check className="h-5 w-5 text-[var(--positive)]" />
+          <div className="relative h-11 w-11 rounded-xl overflow-hidden bg-[var(--canvas-soft)] border border-[var(--border-subtle)] shadow-sm flex items-center justify-center">
+            <Image
+              src="/game-image/fastgamingsplash.png"
+              alt="Fast Gaming App"
+              width={44}
+              height={44}
+              className="object-contain p-0.5"
+            />
           </div>
           <span className="text-xs font-black text-[var(--ink)]">
             {steps.success}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
   Download,
@@ -311,9 +312,17 @@ export default function DownloadPage() {
       <footer className="bg-[var(--card-dark)] py-10" aria-label="Site Footer">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <Gamepad2 className="h-5 w-5 text-[var(--primary)]" />
-              <span className="text-sm font-black text-[var(--canvas)]">FAST GAMING</span>
+            <div className="flex items-center gap-3.5">
+              <div className="relative flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl bg-white p-1.5 shadow-md flex-shrink-0">
+                <Image
+                  src="/game-image/fastgamingsplash.png"
+                  alt="Fast Gaming Logo"
+                  width={80}
+                  height={80}
+                  className="h-full w-full object-contain"
+                />
+              </div>
+              <span className="text-lg sm:text-xl font-black tracking-tight text-[var(--canvas)]">FAST GAMING</span>
             </div>
             <p className="text-xs text-[var(--canvas-soft)]/60">
               &copy; {new Date().getFullYear()} {t.footer.copy}

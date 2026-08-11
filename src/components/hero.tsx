@@ -3,6 +3,8 @@ import { Download, Menu, X, Gamepad2 } from "lucide-react";
 import { translations } from "@/lib/translations";
 import Link from "next/link";
 
+import Image from "next/image";
+
 interface NavbarProps {
   language: "bn" | "en";
   setLanguage: (lang: "bn" | "en") => void;
@@ -42,18 +44,25 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div
-            className="flex items-center gap-3 cursor-pointer group"
+            className="flex items-center gap-3 cursor-pointer group py-1"
             onClick={() => scrollToSection("hero")}
             id="nav-logo-container"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--on-primary)] group-hover:scale-105 transition-all duration-300">
-              <Gamepad2 className="h-5 w-5" />
+            <div className="relative flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300">
+              <Image
+                src="/game-image/fastgamingsplash.png"
+                alt="Fast Gaming Logo"
+                width={160}
+                height={160}
+                className="h-11 sm:h-14 md:h-16 w-auto object-contain drop-shadow-sm filter brightness-105"
+                priority
+              />
             </div>
             <div>
-              <span className="text-lg font-black tracking-tight text-[var(--ink)] block leading-none">
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-[var(--ink)] block leading-none">
                 FAST GAMING
               </span>
-              <span className="text-[10px] font-semibold text-[var(--mute)] mt-0.5 block leading-none font-bangla">
+              <span className="text-[11px] sm:text-xs font-bold text-[var(--mute)] mt-1 block leading-none font-bangla">
                 {t.footer.subLogo}
               </span>
             </div>

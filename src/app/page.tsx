@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import HeroNavbar from "@/components/hero";
 import { BentoFeaturesDemo } from "@/components/ui/bento-features";
 import HowToStartCarousel from "@/components/ui/how-to-start-carousel";
@@ -203,15 +204,21 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
 
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] text-[var(--on-primary)] font-bold text-base">
-                <Gamepad2 className="h-5 w-5" />
+            <div className="flex items-center gap-3.5">
+              <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-white p-1.5 shadow-md flex-shrink-0">
+                <Image
+                  src="/game-image/fastgamingsplash.png"
+                  alt="Fast Gaming Logo"
+                  width={100}
+                  height={100}
+                  className="h-full w-full object-contain"
+                />
               </div>
               <div>
-                <span className="text-base font-black tracking-tight text-[var(--canvas)] block leading-none">
+                <span className="text-xl sm:text-2xl font-black tracking-tight text-[var(--canvas)] block leading-none">
                   FAST GAMING
                 </span>
-                <span className={`text-[9px] text-[var(--canvas-soft)]/60 font-semibold mt-0.5 block leading-none ${language === 'bn' ? 'font-bangla' : ''}`}>
+                <span className={`text-xs text-[var(--canvas-soft)]/70 font-semibold mt-1 block leading-none ${language === 'bn' ? 'font-bangla' : ''}`}>
                   {t.footer.subLogo}
                 </span>
               </div>

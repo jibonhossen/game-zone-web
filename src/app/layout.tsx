@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: "Fast Gaming",
     images: [
       {
-        url: "https://gamezonebd.space/og-image.png",
+        url: "https://gamezonebd.space/game-image/fastgamingsplash.png",
         width: 1200,
         height: 630,
         alt: "Fast Gaming - Premier Gaming Tournament App",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fast Gaming - Tournament App Bangladesh",
     description: "Play daily mobile tournaments and win real cash rewards with instant bKash withdrawal. Download Fast Gaming APK.",
-    images: ["https://gamezonebd.space/og-image.png"],
+    images: ["https://gamezonebd.space/game-image/fastgamingsplash.png"],
   },
 };
 

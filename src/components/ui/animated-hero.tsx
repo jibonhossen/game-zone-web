@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, MoveRight, Smartphone } from "lucide-react";
@@ -32,7 +33,7 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
   }, [titleNumber, titles.length, language]);
 
   return (
-    <div className="w-full bg-[var(--canvas-soft)] relative overflow-hidden min-h-[85vh] flex items-center" id="hero-section">
+    <div className="w-full bg-[var(--canvas-soft)] relative overflow-hidden min-h-[calc(100vh-4rem)] min-h-[calc(100dvh-4rem)] flex items-center justify-center py-10" id="hero-section">
       {/* Soft lime radial glow */}
       <div
         aria-hidden
@@ -49,13 +50,28 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--canvas-soft)]/80 via-transparent to-[var(--canvas-soft)] pointer-events-none z-[1]" />
 
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="flex gap-8 py-20 lg:py-28 items-center justify-center flex-col">
+        <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-16 items-center justify-center flex-col">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, scale: 0.9, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="flex flex-col items-center gap-4"
           >
-            <span className="inline-flex items-center gap-2 font-semibold text-sm text-[var(--body)] bg-[var(--canvas)] px-4 py-1.5 rounded-full border border-[var(--border-subtle)]">
+            <div className="relative group cursor-pointer">
+              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[var(--primary)] via-emerald-400 to-[var(--primary)] blur-lg opacity-50 group-hover:opacity-90 transition duration-500" />
+              <div className="relative bg-[var(--canvas)] p-4 sm:p-6 rounded-3xl border border-[var(--border-subtle)] shadow-[var(--shadow-md)] flex items-center justify-center">
+                <Image
+                  src="/game-image/fastgamingsplash.png"
+                  alt="Fast Gaming Splash Logo"
+                  width={280}
+                  height={280}
+                  className="h-36 sm:h-48 md:h-56 lg:h-64 w-auto object-contain rounded-2xl drop-shadow-md scale-105 group-hover:scale-110 transition-transform duration-500"
+                  priority
+                />
+              </div>
+            </div>
+
+            <span className="inline-flex items-center gap-2 font-semibold text-sm text-[var(--body)] bg-[var(--canvas)] px-4 py-1.5 rounded-full border border-[var(--border-subtle)] shadow-xs">
               <Smartphone className="w-4 h-4 text-[var(--primary)]" />
               {t.hero.badge}
               <MoveRight className="w-4 h-4 text-[var(--mute)]" />
@@ -77,11 +93,11 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
                 {t.hero.bangladeshMost}
               </span>
 
-              <span className="relative block min-h-[1.15em] overflow-visible">
+              <span className="relative block min-h-[1.25em] overflow-visible my-1 sm:my-2">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={titleNumber}
-                    className={`block text-[var(--primary)] leading-[1.15] ${language === 'bn' ? 'font-bangla' : ''}`}
+                    className={`block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[var(--positive-deep)] leading-[1.1] ${language === 'bn' ? 'font-bangla' : ''}`}
                     initial={{ opacity: 0, y: "0.35em" }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: "-0.35em" }}
@@ -92,7 +108,7 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
                 </AnimatePresence>
               </span>
 
-              <span className={`block text-[var(--ink)] mt-1 leading-[1.2] pt-4 pb-2 ${language === 'bn' ? 'font-bangla' : ''}`}>
+              <span className={`block text-[var(--ink)] mt-1 leading-[1.2] pt-2 pb-2 ${language === 'bn' ? 'font-bangla' : ''}`}>
                 {t.hero.gamingPlatform}
               </span>
             </motion.h1>
