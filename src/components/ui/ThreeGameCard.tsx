@@ -46,15 +46,15 @@ export default function ThreeGameCard({
       onMouseMove={handleMouseMove}
       onMouseLeave={() => setIsHovered(false)}
       onMouseEnter={() => setIsHovered(true)}
-      className="group relative"
+      className="group relative transition-transform duration-300 hover:-translate-y-1"
     >
-      <div className="relative bg-[var(--canvas)] border border-[var(--border-subtle)] rounded-[24px] overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-md)]">
+      <div className="relative bg-[var(--canvas)] border border-[var(--border-subtle)] group-hover:border-[var(--primary)] rounded-[24px] overflow-hidden transition-all duration-300 hover:shadow-[var(--shadow-green)]">
         {/* Cursor glow */}
         <div
           className="absolute inset-0 rounded-[24px] pointer-events-none transition-opacity duration-300 z-10"
           style={{
             opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(350px circle at ${glowPos.x}% ${glowPos.y}%, rgba(159,232,112,0.08) 0%, transparent 100%)`,
+            background: `radial-gradient(400px circle at ${glowPos.x}% ${glowPos.y}%, rgba(159,232,112,0.14) 0%, transparent 100%)`,
           }}
         />
 
@@ -69,24 +69,24 @@ export default function ThreeGameCard({
           />
 
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[var(--canvas)] via-[var(--canvas)]/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--canvas)] via-[var(--canvas)]/30 to-transparent" />
 
           {/* Badge */}
-          <span className="absolute top-3 left-3 z-10 text-[10px] font-bold uppercase tracking-wider text-[var(--positive-deep)] bg-[var(--primary-pale)]/90 backdrop-blur-sm border border-[var(--primary)]/30 px-2.5 py-1 rounded-full flex items-center gap-1.5 shadow-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-[var(--primary)] animate-pulse" />
+          <span className="absolute top-3 left-3 z-10 text-[10px] font-bold uppercase tracking-wider text-[var(--positive-deep)] bg-[var(--primary-pale)]/95 backdrop-blur-md border border-[var(--primary)] px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm">
+            <span className="h-2 w-2 rounded-full bg-[var(--positive)] animate-pulse" />
             {badgeText}
           </span>
 
           {/* Title overlaid on image */}
           <div className="absolute bottom-3 left-3 right-3 z-10">
-            <h3 className="text-lg sm:text-xl font-black text-[var(--ink)] drop-shadow-xs">
+            <h3 className="text-xl sm:text-2xl font-black text-[var(--ink)] drop-shadow-xs">
               {title}
             </h3>
           </div>
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 border-b border-[var(--border-subtle)]">
+        <div className="grid grid-cols-3 bg-[var(--canvas-soft)]/50 border-b border-[var(--border-subtle)]">
           {[
             { icon: Users, label: players },
             { icon: Trophy, label: prize },
@@ -94,10 +94,10 @@ export default function ThreeGameCard({
           ].map((stat, i) => (
             <div
               key={i}
-              className="flex items-center justify-center gap-1.5 py-2.5 px-2 border-r border-[var(--border-subtle)] last:border-r-0"
+              className="flex items-center justify-center gap-1.5 py-3 px-2 border-r border-[var(--border-subtle)] last:border-r-0"
             >
-              <stat.icon className="h-3.5 w-3.5 text-[var(--mute)] flex-shrink-0" />
-              <span className="text-[10px] sm:text-[11px] font-semibold text-[var(--mute)] truncate">
+              <stat.icon className="h-4 w-4 text-[var(--positive-deep)] flex-shrink-0" />
+              <span className="text-[11px] sm:text-xs font-semibold text-[var(--ink)] truncate">
                 {stat.label}
               </span>
             </div>
@@ -105,8 +105,8 @@ export default function ThreeGameCard({
         </div>
 
         {/* Description + CTA */}
-        <div className="p-4 sm:p-5">
-          <p className="text-xs sm:text-sm text-[var(--body)] leading-relaxed line-clamp-2">
+        <div className="p-5 sm:p-6">
+          <p className="text-xs sm:text-sm text-[var(--body)] leading-relaxed line-clamp-2 font-medium">
             {description}
           </p>
 
@@ -115,7 +115,7 @@ export default function ThreeGameCard({
               const section = document.getElementById("download");
               if (section) section.scrollIntoView({ behavior: "smooth" });
             }}
-            className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-[0.97] text-[var(--on-primary)] font-semibold text-sm px-5 py-2.5 transition-all duration-200 cursor-pointer"
+            className="mt-5 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-[0.97] text-[var(--on-primary)] font-bold text-sm px-5 py-3 shadow-[var(--shadow-green)] hover:shadow-md transition-all duration-200 cursor-pointer"
           >
             <Play className="h-4 w-4 fill-current" />
             {playLabel}

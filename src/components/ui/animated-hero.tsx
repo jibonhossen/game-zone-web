@@ -3,6 +3,8 @@ import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Download, MoveRight, Smartphone } from "lucide-react";
 import { translations } from "@/lib/translations";
+import { FloatingBadges } from "@/components/ui/floating-badges";
+import { AnimatedGradient } from "@/components/ui/animated-gradient-with-svg";
 
 interface HeroProps {
   language?: "bn" | "en";
@@ -34,20 +36,27 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
 
   return (
     <div className="w-full bg-[var(--canvas-soft)] relative overflow-hidden min-h-[calc(100vh-4rem)] min-h-[calc(100dvh-4rem)] flex items-center justify-center py-10" id="hero-section">
+      {/* Animated subtle lime gradient background */}
+      <AnimatedGradient
+        colors={["rgba(159,232,112,0.3)", "rgba(226,246,213,0.4)", "rgba(5,77,40,0.1)"]}
+        speed={8}
+        blur="heavy"
+      />
+
       {/* Soft lime radial glow */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none z-0 [background-image:radial-gradient(ellipse_55%_45%_at_50%_38%,rgba(159,232,112,0.22),transparent_70%)]"
+        className="absolute inset-0 pointer-events-none z-0 [background-image:radial-gradient(ellipse_60%_50%_at_50%_35%,rgba(159,232,112,0.28),transparent_70%)]"
       />
 
       {/* Faint grid pattern */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none z-0 [background-image:linear-gradient(to_right,rgba(14,15,12,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(14,15,12,0.035)_1px,transparent_1px)] [background-size:64px_56px]"
+        className="absolute inset-0 pointer-events-none z-0 [background-image:linear-gradient(to_right,rgba(14,15,12,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(14,15,12,0.04)_1px,transparent_1px)] [background-size:64px_56px]"
       />
 
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[var(--canvas-soft)]/80 via-transparent to-[var(--canvas-soft)] pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[var(--canvas-soft)]/60 via-transparent to-[var(--canvas-soft)] pointer-events-none z-[1]" />
 
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
         <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-16 items-center justify-center flex-col">
@@ -55,11 +64,14 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
             initial={{ opacity: 0, scale: 0.9, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex flex-col items-center gap-4"
+            className="flex flex-col items-center gap-4 relative"
           >
             <div className="relative group cursor-pointer">
-              <div className="absolute -inset-2 rounded-3xl bg-gradient-to-r from-[var(--primary)] via-emerald-400 to-[var(--primary)] blur-lg opacity-50 group-hover:opacity-90 transition duration-500" />
-              <div className="relative bg-[var(--canvas)] p-4 sm:p-6 rounded-3xl border border-[var(--border-subtle)] shadow-[var(--shadow-md)] flex items-center justify-center">
+              {/* Floating badges surrounding logo */}
+              <FloatingBadges language={language} />
+
+              <div className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-[var(--primary)] via-emerald-400 to-[var(--primary)] blur-xl opacity-40 group-hover:opacity-80 transition duration-500" />
+              <div className="relative bg-[var(--canvas)] p-4 sm:p-6 rounded-3xl border border-[var(--border-subtle)] shadow-[var(--shadow-lg)] flex items-center justify-center">
                 <Image
                   src="/game-image/fastgamingsplash.png"
                   alt="Fast Gaming Splash Logo"
@@ -67,6 +79,7 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
                   height={280}
                   className="h-36 sm:h-48 md:h-56 lg:h-64 w-auto object-contain rounded-2xl drop-shadow-md scale-105 group-hover:scale-110 transition-transform duration-500"
                   priority
+                  loading="eager"
                 />
               </div>
             </div>

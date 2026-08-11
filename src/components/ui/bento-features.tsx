@@ -65,7 +65,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 
   return (
     <motion.div
-      className={`relative overflow-hidden rounded-[24px] ${s.card} ${variant === 'white' ? 'border border-[var(--border-subtle)]' : ''} h-full`}
+      className={`relative overflow-hidden rounded-[24px] ${s.card} ${variant === 'white' ? 'border border-[var(--border-subtle)] hover:border-[var(--primary)]' : 'hover:ring-2 hover:ring-[var(--primary)]/50'} h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-lg group`}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}

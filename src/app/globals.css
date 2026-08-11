@@ -69,13 +69,20 @@
   --font-bangla: var(--font-hind-siliguri), var(--font-inter), system-ui, sans-serif;
 
   --animate-float: float 6s ease-in-out infinite;
+  --animate-float-slow: float-slow 8s ease-in-out infinite;
   --animate-fade-in: fade-in 0.5s ease-out;
   --animate-phone: phone-pulse 4s ease-in-out infinite;
   --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-pulse-glow: pulse-glow 3s ease-in-out infinite;
 
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-8px); }
+  }
+
+  @keyframes float-slow {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-12px) rotate(2deg); }
   }
 
   @keyframes fade-in {
@@ -91,6 +98,29 @@
   @keyframes slide-up {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.05); }
+  }
+
+  @keyframes background-gradient {
+    0% {
+      transform: translate(calc(var(--tx-1) * 100px), calc(var(--ty-1) * 100px)) rotate(0deg);
+    }
+    25% {
+      transform: translate(calc(var(--tx-2) * 120px), calc(var(--ty-2) * 120px)) rotate(90deg);
+    }
+    50% {
+      transform: translate(calc(var(--tx-3) * 100px), calc(var(--ty-3) * 100px)) rotate(180deg);
+    }
+    75% {
+      transform: translate(calc(var(--tx-4) * 120px), calc(var(--ty-4) * 120px)) rotate(270deg);
+    }
+    100% {
+      transform: translate(calc(var(--tx-1) * 100px), calc(var(--ty-1) * 100px)) rotate(360deg);
+    }
   }
 }
 

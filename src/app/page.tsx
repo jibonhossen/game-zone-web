@@ -71,10 +71,10 @@ export default function Home() {
         </section>
 
         {/* STEP BY STEP SECTION — content-band per DESIGN.md */}
-        <section id="how-to-start" className="py-20 bg-[var(--canvas)]" aria-labelledby="how-to-start-title">
+        <section id="how-to-start" className="py-20 bg-[var(--canvas)] border-t border-[var(--border-subtle)]" aria-labelledby="how-to-start-title">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--positive-deep)] bg-[var(--primary-pale)] px-3.5 py-1.5 rounded-full">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--positive-deep)] bg-[var(--primary-pale)] px-3.5 py-1.5 rounded-full border border-[var(--primary)]/20 shadow-xs">
                 {t.howToStart.tag}
               </span>
               <h2 id="how-to-start-title" className={`display-sm text-[var(--ink)] mt-5 ${language === 'bn' ? 'font-bangla' : ''}`}>
@@ -91,10 +91,11 @@ export default function Home() {
         </section>
 
         {/* AVAILABLE GAMES SECTION */}
-        <section id="available-games" className="py-20 bg-[var(--canvas-soft)]" aria-labelledby="available-games-title">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <section id="available-games" className="py-20 bg-[var(--canvas-soft)] border-t border-[var(--border-subtle)] relative overflow-hidden" aria-labelledby="available-games-title">
+          <div className="absolute inset-0 pointer-events-none z-0 [background-image:radial-gradient(circle_at_50%_50%,rgba(159,232,112,0.12),transparent_60%)]" />
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--positive-deep)] bg-[var(--primary-pale)] px-3.5 py-1.5 rounded-full">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--positive-deep)] bg-[var(--primary-pale)] px-3.5 py-1.5 rounded-full border border-[var(--primary)]/20 shadow-xs">
                 {t.games.tag}
               </span>
               <h2 id="available-games-title" className="display-sm text-[var(--ink)] mt-5">
@@ -105,7 +106,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               <ThreeGameCard
                 title={t.games.ffTitle}
                 description={t.games.ffDesc}
@@ -135,10 +136,10 @@ export default function Home() {
         </section>
 
         {/* CORE FEATURES SECTION — uses card variants from DESIGN.md */}
-        <section id="why-us" className="py-20 bg-[var(--canvas)]" aria-labelledby="why-us-title">
+        <section id="why-us" className="py-20 bg-[var(--canvas)] border-t border-[var(--border-subtle)]" aria-labelledby="why-us-title">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-xs font-bold uppercase tracking-widest text-[var(--positive-deep)] bg-[var(--primary-pale)] px-3.5 py-1.5 rounded-full">
+              <span className="text-xs font-bold uppercase tracking-widest text-[var(--positive-deep)] bg-[var(--primary-pale)] px-3.5 py-1.5 rounded-full border border-[var(--primary)]/20 shadow-xs">
                 {t.whyUs.tag}
               </span>
               <h2 id="why-us-title" className={`display-sm text-[var(--ink)] mt-5 ${language === 'bn' ? 'font-bangla' : ''}`}>
@@ -154,11 +155,16 @@ export default function Home() {
         </section>
 
         {/* DOWNLOAD CTA SECTION */}
-        <section id="download" className="py-20 bg-[var(--canvas-soft)]" aria-labelledby="download-section-title">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-            <div className="bg-[var(--canvas)] border border-[var(--border-subtle)] rounded-[24px] p-8 md:p-12 text-center space-y-6 relative overflow-hidden">
+        <section id="download" className="py-20 bg-[var(--canvas-soft)] border-t border-[var(--border-subtle)] relative overflow-hidden" aria-labelledby="download-section-title">
+          <div className="absolute inset-0 pointer-events-none z-0 [background-image:radial-gradient(ellipse_70%_70%_at_50%_50%,rgba(159,232,112,0.2),transparent_70%)]" />
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="bg-[var(--canvas)] border border-[var(--border-subtle)] rounded-[24px] p-8 md:p-12 text-center space-y-6 relative overflow-hidden shadow-[var(--shadow-lg)]">
+              {/* Background accent ring */}
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[var(--primary-pale)]/60 blur-2xl pointer-events-none" />
+              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[var(--primary-pale)]/60 blur-2xl pointer-events-none" />
+
               <div className="relative z-10">
-                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary-pale)] text-[var(--positive-deep)]">
+                <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary-pale)] text-[var(--positive-deep)] shadow-xs">
                   <Download className="h-7 w-7" />
                 </div>
 
@@ -174,7 +180,7 @@ export default function Home() {
                   <button
                     id="bottom-cta-btn-download"
                     onClick={handleDownloadClick}
-                    className={`inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-95 text-[var(--on-primary)] font-semibold text-base px-8 py-3.5 shadow-[var(--shadow-green)] hover:shadow-[var(--shadow-lg)] transition-all duration-300 cursor-pointer w-full sm:w-auto ${language === 'bn' ? 'font-bangla' : ''}`}
+                    className={`inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-95 text-[var(--on-primary)] font-bold text-base px-8 py-3.5 shadow-[var(--shadow-green)] hover:shadow-[var(--shadow-lg)] transition-all duration-300 cursor-pointer w-full sm:w-auto ${language === 'bn' ? 'font-bangla' : ''}`}
                   >
                     <Download className="h-5 w-5" />
                     <span>{t.downloadCTA.btnText}</span>
