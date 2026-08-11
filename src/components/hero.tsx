@@ -56,6 +56,7 @@ export default function HeroNavbar({ language, setLanguage }: NavbarProps) {
                 height={160}
                 className="h-11 sm:h-14 md:h-16 w-auto object-contain drop-shadow-sm filter brightness-105"
                 priority
+                loading="eager"
               />
             </div>
             <div>
