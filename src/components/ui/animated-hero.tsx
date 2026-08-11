@@ -1,15 +1,7 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Download, MoveRight, Smartphone } from "lucide-react";
 import { translations } from "@/lib/translations";
-import dynamic from "next/dynamic";
-
-const ThreeScene = dynamic(() => import("@/components/ui/ThreeScene"), {
-  ssr: false,
-  loading: () => (
-    <div className="absolute inset-0 bg-[var(--canvas)]" />
-  ),
-});
 
 interface HeroProps {
   language?: "bn" | "en";
@@ -18,13 +10,8 @@ interface HeroProps {
 
 function Hero({ language = "bn", onDownloadClick }: HeroProps) {
   const [titleNumber, setTitleNumber] = useState(0);
-
   const t = translations[language];
-
-  const titles = useMemo(
-    () => t.hero.adjectives,
-    [t.hero.adjectives]
-  );
+  const titles = t.hero.adjectives;
 
   const prevLangRef = useRef(language);
 
@@ -46,10 +33,17 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
 
   return (
     <div className="w-full bg-[var(--canvas-soft)] relative overflow-hidden min-h-[85vh] flex items-center" id="hero-section">
-      {/* Three.js 3D Background (kept for visual interest) */}
-      <div className="absolute inset-0 opacity-30">
-        <ThreeScene />
-      </div>
+      {/* Soft lime radial glow */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none z-0 [background-image:radial-gradient(ellipse_55%_45%_at_50%_38%,rgba(159,232,112,0.22),transparent_70%)]"
+      />
+
+      {/* Faint grid pattern */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none z-0 [background-image:linear-gradient(to_right,rgba(14,15,12,0.035)_1px,transparent_1px),linear-gradient(to_bottom,rgba(14,15,12,0.035)_1px,transparent_1px)] [background-size:64px_56px]"
+      />
 
       {/* Subtle gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--canvas-soft)]/80 via-transparent to-[var(--canvas-soft)] pointer-events-none z-[1]" />
@@ -79,28 +73,23 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
                 Fast Gaming Free Fire Tournament PUBG Mobile Tournament Ludo Cash Game Tournaments Bangladesh Fast Gaming BD
               </span>
 
-              <span className={`block mb-2 text-[var(--body)] text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-wider ${language === 'bn' ? 'font-bangla' : ''}`}>
+              <span className={`block mb-4 text-[var(--body)] text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-wider ${language === 'bn' ? 'font-bangla' : ''}`}>
                 {t.hero.bangladeshMost}
               </span>
 
-              <span className="relative flex w-full justify-center items-center overflow-hidden text-center h-[60px] sm:h-[90px] md:h-[110px] lg:h-[130px]">
-                {titles.map((title, index) => (
+              <span className="relative block min-h-[1.15em] overflow-visible">
+                <AnimatePresence mode="wait">
                   <motion.span
-                    key={index}
-                    className={`absolute inset-0 flex justify-center items-center font-black ${language === 'bn' ? 'font-bangla' : ''}`}
-                    initial={{ opacity: 0, y: "-100%" }}
-                    transition={{ type: "spring", stiffness: 60, damping: 15 }}
-                    animate={
-                      titleNumber === index
-                        ? { y: 0, opacity: 1 }
-                        : { y: titleNumber > index ? "-150%" : "150%", opacity: 0 }
-                    }
+                    key={titleNumber}
+                    className={`block text-[var(--primary)] leading-[1.15] ${language === 'bn' ? 'font-bangla' : ''}`}
+                    initial={{ opacity: 0, y: "0.35em" }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: "-0.35em" }}
+                    transition={{ type: "spring", stiffness: 110, damping: 18 }}
                   >
-                    <span className="text-[var(--primary)]">
-                      {title}
-                    </span>
+                    {titles[titleNumber]}
                   </motion.span>
-                ))}
+                </AnimatePresence>
               </span>
 
               <span className={`block text-[var(--ink)] mt-1 leading-[1.2] pt-4 pb-2 ${language === 'bn' ? 'font-bangla' : ''}`}>

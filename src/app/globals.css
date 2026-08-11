@@ -201,17 +201,6 @@ body {
   padding: 24px;
 }
 
-/* Three.js canvas container */
-.three-canvas-container {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.three-canvas-container canvas {
-  display: block;
-}
-
 /* Step connector lines */
 .step-connector::after {
   content: '';
