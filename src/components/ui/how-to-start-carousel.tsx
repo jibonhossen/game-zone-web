@@ -278,12 +278,16 @@ export default function HowToStartCarousel({
       <div className="text-center mt-8">
         <a
           href="/download"
-          className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:text-[var(--positive-deep)] transition-colors"
+          className={`inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--primary-pale)] hover:bg-[var(--primary)] active:scale-95 text-[var(--positive-deep)] hover:text-[var(--on-primary)] font-bold text-sm px-6 py-2.5 border border-[var(--primary)]/50 shadow-xs hover:shadow-md transition-all duration-300 ${
+            language === "bn" ? "font-bangla" : ""
+          }`}
         >
-          <Smartphone className="h-4 w-4" />
-          {language === "bn"
-            ? "বিস্তারিত গাইড দেখুন"
-            : "View detailed installation guide"}
+          <Smartphone className="h-4.5 w-4.5 flex-shrink-0" />
+          <span>
+            {language === "bn"
+              ? "বিস্তারিত গাইড দেখুন →"
+              : "View Detailed Guide →"}
+          </span>
         </a>
       </div>
     </div>
