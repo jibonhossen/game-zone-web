@@ -35,7 +35,7 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
   }, [titleNumber, titles.length, language]);
 
   return (
-    <div className="w-full bg-[var(--canvas-soft)] relative overflow-hidden min-h-[calc(100vh-4rem)] min-h-[calc(100dvh-4rem)] flex items-center justify-center py-10" id="hero-section">
+    <div className="w-full bg-[var(--canvas-soft)] relative overflow-hidden min-h-[calc(100vh-4rem)] min-h-[calc(100dvh-4rem)] flex items-center justify-center py-8 sm:py-12" id="hero-section">
       {/* Animated subtle lime gradient background */}
       <AnimatedGradient
         colors={["rgba(159,232,112,0.3)", "rgba(226,246,213,0.4)", "rgba(5,77,40,0.1)"]}
@@ -59,41 +59,41 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-[var(--canvas-soft)]/60 via-transparent to-[var(--canvas-soft)] pointer-events-none z-[1]" />
 
       <div className="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="flex gap-6 sm:gap-8 py-8 sm:py-12 lg:py-16 items-center justify-center flex-col">
+        <div className="flex gap-6 sm:gap-8 py-4 sm:py-12 lg:py-16 items-center justify-center flex-col">
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 15 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex flex-col items-center gap-4 relative"
+            className="flex flex-col items-center gap-3 sm:gap-4 relative w-full"
           >
-            <div className="relative group cursor-pointer">
+            <div className="relative group cursor-pointer my-6 sm:my-4">
               {/* Floating badges surrounding logo */}
               <FloatingBadges language={language} />
 
               <div className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-[var(--primary)] via-emerald-400 to-[var(--primary)] blur-xl opacity-40 group-hover:opacity-80 transition duration-500" />
-              <div className="relative bg-[var(--canvas)] p-4 sm:p-6 rounded-3xl border border-[var(--border-subtle)] shadow-[var(--shadow-lg)] flex items-center justify-center">
+              <div className="relative bg-[var(--canvas)] p-3 sm:p-6 rounded-3xl border border-[var(--border-subtle)] shadow-[var(--shadow-lg)] flex items-center justify-center">
                 <Image
                   src="/game-image/fastgamingsplash.png"
                   alt="Fast Gaming Splash Logo"
                   width={280}
                   height={280}
-                  className="h-36 sm:h-48 md:h-56 lg:h-64 w-auto object-contain rounded-2xl drop-shadow-md scale-105 group-hover:scale-110 transition-transform duration-500"
+                  className="h-32 sm:h-48 md:h-56 lg:h-64 w-auto object-contain rounded-2xl drop-shadow-md scale-105 group-hover:scale-110 transition-transform duration-500"
                   priority
                   loading="eager"
                 />
               </div>
             </div>
 
-            <span className="inline-flex items-center gap-2 font-semibold text-sm text-[var(--body)] bg-[var(--canvas)] px-4 py-1.5 rounded-full border border-[var(--border-subtle)] shadow-xs">
+            <span className="inline-flex items-center gap-2 font-semibold text-xs sm:text-sm text-[var(--body)] bg-[var(--canvas)] px-3.5 sm:px-4 py-1.5 rounded-full border border-[var(--border-subtle)] shadow-xs">
               <Smartphone className="w-4 h-4 text-[var(--primary)]" />
               {t.hero.badge}
               <MoveRight className="w-4 h-4 text-[var(--mute)]" />
             </span>
           </motion.div>
 
-          <div className="flex gap-4 flex-col items-center max-w-4xl">
+          <div className="flex gap-3 sm:gap-4 flex-col items-center max-w-4xl">
             <motion.h1
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-center text-[var(--ink)] leading-[1.05] tracking-tight"
+              className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-center text-[var(--ink)] leading-[1.05] tracking-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
@@ -102,7 +102,7 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
                 Fast Gaming Free Fire Tournament PUBG Mobile Tournament Ludo Cash Game Tournaments Bangladesh Fast Gaming BD
               </span>
 
-              <span className={`block mb-4 text-[var(--body)] text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-wider ${language === 'bn' ? 'font-bangla' : ''}`}>
+              <span className={`block mb-2 sm:mb-4 text-[var(--body)] text-lg sm:text-2xl md:text-3xl font-bold uppercase tracking-wider ${language === 'bn' ? 'font-bangla' : ''}`}>
                 {t.hero.bangladeshMost}
               </span>
 
@@ -110,7 +110,7 @@ function Hero({ language = "bn", onDownloadClick }: HeroProps) {
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={titleNumber}
-                    className={`block text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[var(--positive-deep)] leading-[1.1] ${language === 'bn' ? 'font-bangla' : ''}`}
+                    className={`block text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black text-[var(--positive-deep)] leading-[1.1] ${language === 'bn' ? 'font-bangla' : ''}`}
                     initial={{ opacity: 0, y: "0.35em" }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: "-0.35em" }}
