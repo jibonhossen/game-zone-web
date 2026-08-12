@@ -41,6 +41,11 @@ export const metadata: Metadata = {
     "gamingzone"
   ],
   metadataBase: new URL("https://fastgamingbd.com"),
+  icons: {
+    icon: "/game-image/fastgaminglogo.png",
+    shortcut: "/game-image/fastgaminglogo.png",
+    apple: "/game-image/fastgaminglogo.png",
+  },
   alternates: {
     canonical: "/",
   },
@@ -127,7 +132,7 @@ export default function RootLayout({
       "@type": "Organization",
       "name": "Fast Gaming BD",
       "url": "https://fastgamingbd.com",
-      "logo": "https://fastgamingbd.com/game-image/fastgamingsplash.png",
+      "logo": "https://fastgamingbd.com/game-image/fastgaminglogo.png",
       "sameAs": [
         "https://fastgamingbd.online",
         "https://fastgamingbd.xyz"
