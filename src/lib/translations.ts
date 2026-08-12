@@ -569,15 +569,15 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
           name: "Telegram Channel & Support",
           handle: "@fastgamingbd_official",
           desc: "লাইভ নোটিশ, রুম কোড সাহায্য ও সরাসরি চ্যাট।",
-          link: "https://t.me/fastgamingbd",
+          link: "https://t.me/fastgamingbd_official",
           actionText: "টেলিগ্রামে মেসেজ দিন"
         },
         {
           id: "whatsapp",
           name: "WhatsApp Support Hotline",
-          handle: "+880 1700-000000",
+          handle: "+880 1400-389396",
           desc: "দ্রুততম ডিপোজিট ও উইথড্রয়াল হেল্পডেস্ক।",
-          link: "https://wa.me/8801700000000",
+          link: "https://wa.me/8801400389396",
           actionText: "হোয়াটসঅ্যাপে চ্যাট করুন"
         },
         {
@@ -593,7 +593,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
           name: "Facebook Community Group",
           handle: "Fast Gaming BD Official",
           desc: "বাংলাদেশের 50,000+ গেমারদের পরিবার।",
-          link: "https://facebook.com/fastgamingbd",
+          link: "https://facebook.com/fastgamingbdofficial",
           actionText: "গ্রুপে যোগ দিন"
         }
       ],
@@ -981,15 +981,15 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
           name: "Telegram Channel & Support",
           handle: "@fastgamingbd_official",
           desc: "লাইভ নোটিশ, রুম কোড সাহায্য ও সরাসরি চ্যাট।",
-          link: "https://t.me/fastgamingbd",
+          link: "https://t.me/fastgamingbd_official",
           actionText: "টেলিগ্রামে মেসেজ দিন"
         },
         {
           id: "whatsapp",
           name: "WhatsApp Support Hotline",
-          handle: "+880 1700-000000",
+          handle: "+880 1400-389396",
           desc: "দ্রুততম ডিপোজিট ও উইথড্রয়াল হেল্পডেস্ক।",
-          link: "https://wa.me/8801700000000",
+          link: "https://wa.me/8801400389396",
           actionText: "হোয়াটসঅ্যাপে চ্যাট করুন"
         },
         {
