@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import HeroNavbar from "@/components/hero";
+import Navbar from "@/components/Navbar";
 import { BentoFeaturesDemo } from "@/components/ui/bento-features";
 import HowToStartCarousel from "@/components/ui/how-to-start-carousel";
 import { Hero } from "@/components/ui/animated-hero";
@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[var(--canvas)] text-[var(--ink)] selection:bg-[var(--primary)] selection:text-[var(--on-primary)]">
       {/* Navbar */}
-      <HeroNavbar language={language} setLanguage={setLanguage} />
+      <Navbar language={language} setLanguage={setLanguage} onDownloadClick={handleDownloadClick} />
 
       <main className="flex-1 pt-16">
 

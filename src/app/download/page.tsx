@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import Navbar from "@/components/Navbar";
 import {
   Download,
   Check,
@@ -52,51 +53,15 @@ export default function DownloadPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-[var(--canvas)] text-[var(--ink)] selection:bg-[var(--primary)] selection:text-[var(--on-primary)]">
-      {/* Simple Nav */}
-      <header className="sticky top-0 z-50 glass-nav">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-sm font-semibold text-[var(--body)] hover:text-[var(--ink)] transition-colors"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              {dp.backToHome}
-            </Link>
+      {/* Main Header Navbar */}
+      <Navbar
+        language={language}
+        setLanguage={setLanguage}
+        currentPage="download"
+        onDownloadClick={handleDownload}
+      />
 
-            <div className="flex items-center gap-0.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-full p-0.5 text-[10px]">
-              <button
-                onClick={() => {
-                  setLanguage("bn");
-                  localStorage.setItem("lang", "bn");
-                }}
-                className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
-                  language === "bn"
-                    ? "bg-[var(--primary)] text-[var(--on-primary)]"
-                    : "text-[var(--mute)] hover:text-[var(--ink)]"
-                }`}
-              >
-                BN
-              </button>
-              <button
-                onClick={() => {
-                  setLanguage("en");
-                  localStorage.setItem("lang", "en");
-                }}
-                className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
-                  language === "en"
-                    ? "bg-[var(--primary)] text-[var(--on-primary)]"
-                    : "text-[var(--mute)] hover:text-[var(--ink)]"
-                }`}
-              >
-                EN
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         {/* Page Hero */}
         <section className="bg-[var(--canvas-soft)] py-16 sm:py-20">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
