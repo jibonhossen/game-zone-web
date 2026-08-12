@@ -45,6 +45,11 @@ export interface TranslationDict {
     title: string;
     subtitle: string;
     liveTournament: string;
+    dailyFreeTitle: string;
+    dailyFreeDesc: string;
+    dailyFreePlayers: string;
+    dailyFreePrize: string;
+    dailyFreeMode: string;
     ffTitle: string;
     ffDesc: string;
     ffPlayers: string;
@@ -55,6 +60,11 @@ export interface TranslationDict {
     csPlayers: string;
     csPrize: string;
     csMode: string;
+    otherTitle: string;
+    otherDesc: string;
+    otherPlayers: string;
+    otherPrize: string;
+    otherMode: string;
     playNow: string;
   };
   whyUs: {
@@ -243,16 +253,26 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       title: "জনপ্রিয় মোবাইল টুর্নামেন্ট",
       subtitle: "আপনার পছন্দের টুর্নামেন্ট বেছে নিন এবং অংশ নিয়ে জিতে নিন নগদ অর্থ পুরস্কার।",
       liveTournament: "লাইভ টুর্নামেন্ট চলমান",
-      ffTitle: "Free Fire Battle Royale",
+      dailyFreeTitle: "Daily Free Match",
+      dailyFreeDesc: "দৈনিক ফ্রি টুর্নামেন্ট! সম্পূর্ণ ফ্রিতে জয়েন করুন এবং কোন ফি ছাড়াই প্রাইজ মানি জিতে নিন।",
+      dailyFreePlayers: "15,000+ নিয়মিত প্লেয়ার",
+      dailyFreePrize: "এন্ট্রি ফি: 100% ফ্রি (৳0)",
+      dailyFreeMode: "Daily Free BR & CS",
+      ffTitle: "Battle Royale",
       ffDesc: "সোলো, ডুও এবং স্কোয়াড ব্যাটল রয়্যাল টুর্নামেন্ট। রুম কোড নিয়ে যোগ দিন এবং প্রাইজ মানি জিতুন।",
       ffPlayers: "10,000+ নিয়মিত প্লেয়ার",
       ffPrize: "দৈনিক প্রাইজ পুল: ৳50,000 পর্যন্ত",
       ffMode: "Solo, Duo & Squad BR",
-      csTitle: "Free Fire Clash Squad",
+      csTitle: "Clash Squad",
       csDesc: "4v4 স্কোয়াড ফাইট টুর্নামেন্ট। সরাসরি কাস্টম রুমে প্রতিদ্বন্দ্বিতা করে জয়ী হন।",
       csPlayers: "8,000+ নিয়মিত প্লেয়ার",
       csPrize: "দৈনিক প্রাইজ পুল: ৳40,000 পর্যন্ত",
       csMode: "Clash Squad 4v4",
+      otherTitle: "অন্যান্য টুর্নামেন্ট",
+      otherDesc: "লুডু স্টার, কাস্টম 1v1, এবং বিশেষ প্রিমিয়াম টুর্নামেন্ট! অ্যাপ ডাউনলোড করে সবগুলো অপশন এক্সপ্লোর করুন।",
+      otherPlayers: "5,000+ নিয়মিত প্লেয়ার",
+      otherPrize: "স্পেশাল প্রাইজ পুল",
+      otherMode: "Ludo & Custom 1v1",
       playNow: "টুর্নামেন্টে যোগ দিন",
     },
     whyUs: {
@@ -655,16 +675,26 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       title: "Popular Mobile Tournaments",
       subtitle: "Choose your game mode, participate in daily matches, and win real cash prizes.",
       liveTournament: "Live Tournaments Running",
-      ffTitle: "Free Fire Battle Royale",
+      dailyFreeTitle: "Daily Free Match",
+      dailyFreeDesc: "Daily free tournament! Join 100% free of charge and compete for cash rewards every day.",
+      dailyFreePlayers: "15,000+ Active Players",
+      dailyFreePrize: "Entry Fee: 100% Free (৳0)",
+      dailyFreeMode: "Daily Free BR & CS",
+      ffTitle: "Battle Royale",
       ffDesc: "Solo, Duo, and Squad Battle Royale matches. Get room codes and claim top survivor rewards.",
       ffPlayers: "10,000+ Active Players",
       ffPrize: "Daily Prize Pool: Up to ৳50,000",
       ffMode: "Solo, Duo & Squad BR",
-      csTitle: "Free Fire Clash Squad",
+      csTitle: "Clash Squad",
       csDesc: "4v4 Squad Fight custom matches. Compete head-to-head and win cash prizes.",
       csPlayers: "8,000+ Active Players",
       csPrize: "Daily Prize Pool: Up to ৳40,000",
       csMode: "Clash Squad 4v4",
+      otherTitle: "Other Matches",
+      otherDesc: "Ludo Star, Custom 1v1 & special premium tournaments! Download the app to explore all match modes.",
+      otherPlayers: "5,000+ Active Players",
+      otherPrize: "Special Prize Pool",
+      otherMode: "Ludo & Custom 1v1",
       playNow: "Join Tournament",
     },
     whyUs: {

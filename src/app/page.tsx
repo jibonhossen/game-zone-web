@@ -107,12 +107,24 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <ThreeGameCard
+                title={t.games.dailyFreeTitle}
+                description={t.games.dailyFreeDesc}
+                imageSrc="/game-image/img2.jpg"
+                imageAlt="Fast Gaming Daily Free Match Tournament"
+                badgeText={t.games.liveTournament}
+                players={t.games.dailyFreePlayers}
+                prize={t.games.dailyFreePrize}
+                mode={t.games.dailyFreeMode}
+                language={language}
+                playLabel={t.games.playNow}
+              />
               <ThreeGameCard
                 title={t.games.ffTitle}
                 description={t.games.ffDesc}
                 imageSrc="/game-image/freefire.jpg"
-                imageAlt="Fast Gaming Free Fire Battle Royale Tournament"
+                imageAlt="Fast Gaming Battle Royale Tournament"
                 badgeText={t.games.liveTournament}
                 players={t.games.ffPlayers}
                 prize={t.games.ffPrize}
@@ -123,12 +135,24 @@ export default function Home() {
               <ThreeGameCard
                 title={t.games.csTitle}
                 description={t.games.csDesc}
-                imageSrc="/game-image/fastgamingsplash.png"
-                imageAlt="Fast Gaming Free Fire Clash Squad 4v4 Tournament"
+                imageSrc="/game-image/img1.jpg"
+                imageAlt="Fast Gaming Clash Squad 4v4 Tournament"
                 badgeText={t.games.liveTournament}
                 players={t.games.csPlayers}
                 prize={t.games.csPrize}
                 mode={t.games.csMode}
+                language={language}
+                playLabel={t.games.playNow}
+              />
+              <ThreeGameCard
+                title={t.games.otherTitle}
+                description={t.games.otherDesc}
+                imageSrc="/game-image/img3.jpg"
+                imageAlt="Fast Gaming Other Tournament Matches"
+                badgeText={t.games.liveTournament}
+                players={t.games.otherPlayers}
+                prize={t.games.otherPrize}
+                mode={t.games.otherMode}
                 language={language}
                 playLabel={t.games.playNow}
               />

@@ -82,7 +82,7 @@ export default function TermsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Sidebar Navigation */}
-            <aside className="lg:col-span-4 sticky top-24 space-y-4">
+            <aside className="lg:col-span-4 lg:sticky lg:top-24 space-y-4 z-10">
               
               {/* Search Bar */}
               <div className="relative">
