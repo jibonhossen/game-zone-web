@@ -3,16 +3,17 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Download Fast Gaming APK (Official Latest Version) - Bangladesh",
   description:
-    "Download the official Fast Gaming APK for Android. Follow our easy 4-step installation guide to play Free Fire, PUBG Mobile & Ludo tournaments with instant bKash withdrawal.",
+    "Download the official Fast Gaming APK for Android. Follow our easy 4-step installation guide to play Free Fire & Clash Squad tournaments with instant bKash, Nagad & Rocket withdrawals.",
   keywords: [
     "Fast Gaming APK Download",
     "Fast Gaming App Download",
     "Fast Gaming BD APK",
+    "Fast Gaming BD APK 2026",
     "Fast Gaming Android Download",
     "Free Fire Tournament APK",
-    "PUBG Mobile Tournament APK BD",
-    "Ludo Cash Game APK Download",
-    "bKash earning app download"
+    "Free Fire Clash Squad APK BD",
+    "bKash earning game app download",
+    "Nagad eSports app Bangladesh"
   ],
   alternates: {
     canonical: "/download",
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://fastgamingbd.com/download",
-    title: "Download Fast Gaming APK (Official Latest Version)",
+    title: "Download Fast Gaming APK (Official Latest Version) - Bangladesh",
     description:
-      "Official Fast Gaming APK download page. Play daily Free Fire, PUBG Mobile, and Ludo cash matches in Bangladesh.",
+      "Official Fast Gaming APK download page. Play daily Free Fire Battle Royale & Clash Squad cash matches with instant MFS payout in Bangladesh.",
     siteName: "Fast Gaming BD",
     images: [
       {
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Download Fast Gaming APK (Official Latest Version)",
     description:
-      "Get the official Fast Gaming app for Android. Daily eSports tournaments and instant bKash payouts in Bangladesh.",
+      "Get the official Fast Gaming app for Android. Daily Free Fire eSports tournaments and instant bKash payouts in Bangladesh.",
     images: ["https://fastgamingbd.com/game-image/fastgamingsplash.png"],
   },
 };
