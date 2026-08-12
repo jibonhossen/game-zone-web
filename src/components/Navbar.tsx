@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 interface NavbarProps {
   language: "bn" | "en";
   setLanguage: (lang: "bn" | "en") => void;
-  currentPage?: "home" | "download";
+  currentPage?: "home" | "download" | "about" | "rules" | "contact" | "terms" | "privacy";
   onDownloadClick?: () => void;
 }
 
@@ -80,7 +80,7 @@ export default function Navbar({
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || currentPage === "download" || isMobileMenuOpen
+        isScrolled || currentPage !== "home" || isMobileMenuOpen
           ? "glass-nav shadow-[var(--shadow-sm)] border-b border-[var(--border-subtle)]/60"
           : "bg-transparent"
       }`}
@@ -99,13 +99,12 @@ export default function Navbar({
                 alt="Fast Gaming Logo"
                 width={160}
                 height={160}
-                className="h-10 sm:h-13 md:h-15 w-auto object-contain drop-shadow-sm filter brightness-105"
+                className="h-10 sm:h-12 w-auto object-contain drop-shadow-sm filter brightness-105"
                 priority
-                loading="eager"
               />
             </div>
             <div>
-              <span className="text-lg sm:text-2xl font-black tracking-tight text-[var(--ink)] block leading-none">
+              <span className="text-lg sm:text-xl font-black tracking-tight text-[var(--ink)] block leading-none">
                 FAST GAMING
               </span>
               <span className="text-[10px] sm:text-xs font-bold text-[var(--mute)] mt-1 block leading-none font-bangla">
@@ -115,7 +114,7 @@ export default function Navbar({
           </div>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-semibold text-[var(--body)]">
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-[var(--body)]">
             <button
               id="nav-link-how-to-start"
               onClick={() => handleNavClick("how-to-start")}
@@ -134,30 +133,34 @@ export default function Navbar({
             >
               {t.navbar.games}
             </button>
-            <button
-              id="nav-link-why-us"
-              onClick={() => handleNavClick("why-us")}
-              className={`hover:text-[var(--ink)] transition-colors cursor-pointer ${
-                language === "bn" ? "font-bangla" : ""
-              }`}
-            >
-              {t.navbar.features}
-            </button>
             <Link
-              href="/download"
-              id="nav-link-download-page"
+              href="/rules"
               className={`hover:text-[var(--ink)] transition-colors ${
-                currentPage === "download"
-                  ? "text-[var(--positive-deep)] font-bold"
-                  : ""
+                currentPage === "rules" ? "text-[var(--positive-deep)] font-bold" : ""
               } ${language === "bn" ? "font-bangla" : ""}`}
             >
-              {language === "bn" ? "ডাউনলোড নির্দেশিকা" : "Download Guide"}
+              {t.navbar.rules}
+            </Link>
+            <Link
+              href="/about"
+              className={`hover:text-[var(--ink)] transition-colors ${
+                currentPage === "about" ? "text-[var(--positive-deep)] font-bold" : ""
+              } ${language === "bn" ? "font-bangla" : ""}`}
+            >
+              {t.navbar.about}
+            </Link>
+            <Link
+              href="/contact"
+              className={`hover:text-[var(--ink)] transition-colors ${
+                currentPage === "contact" ? "text-[var(--positive-deep)] font-bold" : ""
+              } ${language === "bn" ? "font-bangla" : ""}`}
+            >
+              {t.navbar.contact}
             </Link>
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3">
             {/* Language Switcher */}
             <div className="flex items-center gap-0.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-full p-0.5 text-[10px]">
               <button
@@ -200,9 +203,8 @@ export default function Navbar({
             </button>
           </div>
 
-          {/* Mobile Right Controls: Language Switcher + Hamburger */}
-          <div className="flex md:hidden items-center gap-2">
-            {/* Compact Language Switcher for Mobile Header Bar */}
+          {/* Mobile Right Controls */}
+          <div className="flex lg:hidden items-center gap-2">
             <div className="flex items-center gap-0.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-full p-0.5 text-[10px]">
               <button
                 onClick={() => {
@@ -232,7 +234,6 @@ export default function Navbar({
               </button>
             </div>
 
-            {/* Mobile Menu Toggle Button */}
             <button
               id="nav-btn-mobile-toggle"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -251,12 +252,12 @@ export default function Navbar({
 
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[var(--canvas)]/95 backdrop-blur-xl border-b border-[var(--border-subtle)] shadow-[var(--shadow-lg)] px-4 pt-3 pb-6 animate-in slide-in-from-top-2 duration-200">
-          <div className="flex flex-col gap-2">
+        <div className="lg:hidden bg-[var(--canvas)]/95 backdrop-blur-xl border-b border-[var(--border-subtle)] shadow-[var(--shadow-lg)] px-4 pt-3 pb-6 animate-in slide-in-from-top-2 duration-200">
+          <div className="flex flex-col gap-1.5">
             <button
               id="nav-mobile-link-how-to-start"
               onClick={() => handleNavClick("how-to-start")}
-              className={`flex items-center px-4 py-3 text-base font-semibold text-[var(--ink)] rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
+              className={`flex items-center px-4 py-2.5 text-base font-semibold text-[var(--ink)] rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
                 language === "bn" ? "font-bangla" : ""
               }`}
             >
@@ -265,25 +266,43 @@ export default function Navbar({
             <button
               id="nav-mobile-link-available-games"
               onClick={() => handleNavClick("available-games")}
-              className={`flex items-center px-4 py-3 text-base font-semibold text-[var(--ink)] rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
+              className={`flex items-center px-4 py-2.5 text-base font-semibold text-[var(--ink)] rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
                 language === "bn" ? "font-bangla" : ""
               }`}
             >
               {t.navbar.games}
             </button>
-            <button
-              id="nav-mobile-link-why-us"
-              onClick={() => handleNavClick("why-us")}
-              className={`flex items-center px-4 py-3 text-base font-semibold text-[var(--ink)] rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
-                language === "bn" ? "font-bangla" : ""
-              }`}
+            <Link
+              href="/rules"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center px-4 py-2.5 text-base font-semibold rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
+                currentPage === "rules" ? "bg-[var(--primary-pale)] text-[var(--positive-deep)] font-bold" : "text-[var(--ink)]"
+              } ${language === "bn" ? "font-bangla" : ""}`}
             >
-              {t.navbar.features}
-            </button>
+              {t.navbar.rules}
+            </Link>
+            <Link
+              href="/about"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center px-4 py-2.5 text-base font-semibold rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
+                currentPage === "about" ? "bg-[var(--primary-pale)] text-[var(--positive-deep)] font-bold" : "text-[var(--ink)]"
+              } ${language === "bn" ? "font-bangla" : ""}`}
+            >
+              {t.navbar.about}
+            </Link>
+            <Link
+              href="/contact"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`flex items-center px-4 py-2.5 text-base font-semibold rounded-xl hover:bg-[var(--canvas-soft)] text-left transition-colors touch-manipulation ${
+                currentPage === "contact" ? "bg-[var(--primary-pale)] text-[var(--positive-deep)] font-bold" : "text-[var(--ink)]"
+              } ${language === "bn" ? "font-bangla" : ""}`}
+            >
+              {t.navbar.contact}
+            </Link>
             <Link
               href="/download"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`flex items-center px-4 py-3 text-base font-semibold rounded-xl hover:bg-[var(--canvas-soft)] transition-colors touch-manipulation ${
+              className={`flex items-center px-4 py-2.5 text-base font-semibold rounded-xl hover:bg-[var(--canvas-soft)] transition-colors touch-manipulation ${
                 currentPage === "download"
                   ? "bg-[var(--primary-pale)] text-[var(--positive-deep)] font-bold"
                   : "text-[var(--ink)]"
@@ -294,50 +313,10 @@ export default function Navbar({
 
             <hr className="border-[var(--border-subtle)] my-2" />
 
-            {/* Mobile Drawer Language Switcher */}
-            <div className="flex items-center justify-between px-4 py-2 bg-[var(--canvas-soft)] rounded-xl">
-              <span
-                className={`text-sm font-bold text-[var(--body)] ${
-                  language === "bn" ? "font-bangla" : ""
-                }`}
-              >
-                {language === "bn" ? "ভাষা / Language" : "Language"}
-              </span>
-              <div className="flex items-center gap-1 bg-[var(--canvas)] border border-[var(--border-subtle)] rounded-full p-1 text-xs">
-                <button
-                  onClick={() => {
-                    setLanguage("bn");
-                    localStorage.setItem("lang", "bn");
-                  }}
-                  className={`px-3 py-1.5 rounded-full font-black transition-all cursor-pointer touch-manipulation ${
-                    language === "bn"
-                      ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
-                      : "text-[var(--mute)]"
-                  }`}
-                >
-                  বাংলা (BN)
-                </button>
-                <button
-                  onClick={() => {
-                    setLanguage("en");
-                    localStorage.setItem("lang", "en");
-                  }}
-                  className={`px-3 py-1.5 rounded-full font-black transition-all cursor-pointer touch-manipulation ${
-                    language === "en"
-                      ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
-                      : "text-[var(--mute)]"
-                  }`}
-                >
-                  English (EN)
-                </button>
-              </div>
-            </div>
-
-            {/* Mobile CTA Button */}
             <button
               id="nav-mobile-btn-download"
               onClick={handleDownloadAction}
-              className={`mt-2 flex items-center justify-center gap-2.5 rounded-full bg-[var(--primary)] py-3.5 px-6 text-base font-bold text-[var(--on-primary)] shadow-[var(--shadow-green)] active:scale-98 cursor-pointer transition-all touch-manipulation ${
+              className={`flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] py-3 px-6 text-base font-bold text-[var(--on-primary)] shadow-[var(--shadow-green)] active:scale-98 cursor-pointer transition-all touch-manipulation ${
                 language === "bn" ? "font-bangla" : ""
               }`}
             >

@@ -16,9 +16,9 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
-  title: "Fast Gaming BD - #1 eSports & Mobile Gaming Tournament App Bangladesh",
+  title: "Fast Gaming BD - #1 eSports & Free Fire Tournament App Bangladesh",
   description:
-    "Download Fast Gaming APK – Bangladesh's premier real-time eSports tournament platform for Free Fire, PUBG Mobile & Ludo. Win daily cash prizes with instant bKash, Nagad & Rocket withdrawals.",
+    "Download Fast Gaming APK – Bangladesh's premier real-time eSports tournament platform for Free Fire (Battle Royale & Clash Squad). Win daily cash prizes with instant bKash, Nagad & Rocket withdrawals.",
   keywords: [
     "Fast Gaming",
     "Fast Gaming BD",
@@ -29,8 +29,7 @@ export const metadata: Metadata = {
     "fastgamingbd.xyz",
     "Free Fire Tournament App Bangladesh",
     "Free Fire Tournament",
-    "PUBG Mobile Tournament BD",
-    "Ludo Tournament Cash Prize",
+    "Clash Squad 4v4 Tournament BD",
     "bKash earning app",
     "Nagad earning game app",
     "Mobile Gaming Tournaments BD",
@@ -60,9 +59,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://fastgamingbd.com",
-    title: "Fast Gaming BD - #1 eSports & Mobile Gaming Tournament App Bangladesh",
+    title: "Fast Gaming BD - #1 eSports & Free Fire Tournament App Bangladesh",
     description:
-      "Bangladesh's premier real-time mobile gaming tournament platform for PUBG Mobile, Free Fire & Ludo. Play daily matches and withdraw instant cash rewards via bKash.",
+      "Bangladesh's premier real-time mobile gaming tournament platform for Free Fire. Play daily matches and withdraw instant cash rewards via bKash.",
     siteName: "Fast Gaming BD",
     images: [
       {
@@ -75,7 +74,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fast Gaming BD - #1 eSports & Mobile Gaming Tournament App Bangladesh",
+    title: "Fast Gaming BD - #1 eSports & Free Fire Tournament App Bangladesh",
     description:
       "Play daily mobile tournaments and win real cash rewards with instant bKash withdrawal. Download Fast Gaming APK.",
     images: ["https://fastgamingbd.com/game-image/fastgamingsplash.png"],
@@ -104,7 +103,7 @@ export default function RootLayout({
       "downloadUrl": "https://fastgamingbd.com/download",
       "installUrl": "https://fastgamingbd.com/download",
       "description":
-        "Bangladesh's premier real-time mobile gaming tournament platform for Free Fire, PUBG Mobile & Ludo. Play daily matches and withdraw instant cash rewards via bKash & Nagad.",
+        "Bangladesh's premier real-time mobile gaming tournament platform for Free Fire. Play daily matches and withdraw instant cash rewards via bKash & Nagad.",
       "genre": "eSports Tournament",
       "offers": {
         "@type": "Offer",
@@ -151,7 +150,7 @@ export default function RootLayout({
           "name": "Which games are available on Fast Gaming BD?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Fast Gaming BD hosts daily eSports tournaments for Free Fire, PUBG Mobile, and Ludo Cash Game."
+            "text": "Fast Gaming BD hosts daily eSports tournaments for Free Fire (Battle Royale & Clash Squad 4v4)."
           }
         },
         {

@@ -4,6 +4,9 @@ export interface TranslationDict {
     howToPlay: string;
     games: string;
     features: string;
+    about: string;
+    rules: string;
+    contact: string;
     downloadBtn: string;
     mobileDownloadBtn: string;
   };
@@ -47,11 +50,11 @@ export interface TranslationDict {
     ffPlayers: string;
     ffPrize: string;
     ffMode: string;
-    pubgTitle: string;
-    pubgDesc: string;
-    pubgPlayers: string;
-    pubgPrize: string;
-    pubgMode: string;
+    csTitle: string;
+    csDesc: string;
+    csPlayers: string;
+    csPrize: string;
+    csMode: string;
     playNow: string;
   };
   whyUs: {
@@ -86,6 +89,9 @@ export interface TranslationDict {
     privacy: string;
     terms: string;
     rules: string;
+    about: string;
+    contact: string;
+    download: string;
   };
   downloadPage: {
     title: string;
@@ -109,6 +115,84 @@ export interface TranslationDict {
       a: string;
     }>;
   };
+  terms: {
+    title: string;
+    subtitle: string;
+    lastUpdated: string;
+    sections: Array<{
+      id: string;
+      title: string;
+      content: string[];
+    }>;
+  };
+  privacy: {
+    title: string;
+    subtitle: string;
+    lastUpdated: string;
+    sections: Array<{
+      id: string;
+      title: string;
+      content: string[];
+    }>;
+  };
+  rules: {
+    title: string;
+    subtitle: string;
+    tag: string;
+    generalTitle: string;
+    generalRules: string[];
+    gamesTitle: string;
+    ffTitle: string;
+    ffRules: string[];
+    fairPlayTitle: string;
+    fairPlaySubtitle: string;
+    fairPlayRules: string[];
+    refundTitle: string;
+    refundSubtitle: string;
+    refundRules: string[];
+  };
+  about: {
+    tag: string;
+    title: string;
+    subtitle: string;
+    missionTitle: string;
+    missionDesc: string;
+    stats: Array<{
+      value: string;
+      label: string;
+      desc: string;
+    }>;
+    valuesTitle: string;
+    values: Array<{
+      title: string;
+      desc: string;
+    }>;
+    trustTitle: string;
+    trustDesc: string;
+  };
+  contact: {
+    tag: string;
+    title: string;
+    subtitle: string;
+    channelsTitle: string;
+    channels: Array<{
+      id: string;
+      name: string;
+      handle: string;
+      desc: string;
+      link: string;
+      actionText: string;
+    }>;
+    formTitle: string;
+    formSubtitle: string;
+    nameLabel: string;
+    phoneLabel: string;
+    emailLabel: string;
+    subjectLabel: string;
+    messageLabel: string;
+    submitBtn: string;
+    successToast: string;
+  };
 }
 
 export const translations: Record<"bn" | "en", TranslationDict> = {
@@ -118,6 +202,9 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       howToPlay: "কিভাবে খেলবেন?",
       games: "গেমস সমূহ",
       features: "আমাদের সুবিধাসমূহ",
+      about: "আমাদের সম্পর্কে",
+      rules: "খেলার নিয়ম",
+      contact: "যোগাযোগ",
       downloadBtn: "অ্যাপ ডাউনলোড",
       mobileDownloadBtn: "অ্যাপ ডাউনলোড করুন",
     },
@@ -126,80 +213,83 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       bangladeshMost: "বাংলাদেশের সবচেয়ে",
       adjectives: ["নিরাপদ", "বিশ্বস্ত", "অটোমেটেড", "প্রিমিয়াম", "সেরা"],
       gamingPlatform: "গেমিং প্ল্যাটফর্ম",
-      subtitle: "Fast Gaming অ্যাপের মাধ্যমে খেলুন আপনার প্রিয় গেমস এবং জিতে নিন আকর্ষণীয় সব প্রাইজ। নিরাপদ ও বিশ্বস্ত টুর্নামেন্ট প্ল্যাটফর্মে জয়েন করুন আজই।",
+      subtitle: "Fast Gaming অ্যাপের মাধ্যমে খেলুন আপনার প্রিয় Free Fire টুর্নামেন্ট এবং জিতে নিন আকর্ষণীয় সব নগদ পুরস্কার। নিরাপদ ও বিশ্বস্ত টুর্নামেন্ট প্ল্যাটফর্মে জয়েন করুন আজই।",
       downloadBtn: "অ্যাপ ডাউনলোড করুন",
       howToPlayBtn: "কিভাবে খেলবেন দেখুন",
-      downloadToast: "ডাউনলোড শুরু হয়েছে! নিচে দেওয়া ৪টি স্টেপ অনুসরণ করে অ্যাপটি ইনস্টল করুন।",
+      downloadToast: "ডাউনলোড শুরু হয়েছে! নিচে দেওয়া 4টি স্টেপ অনুসরণ করে অ্যাপটি ইনস্টল করুন।",
     },
     howToStart: {
       tag: "Get Started",
       title: "কিভাবে শুরু করবেন?",
-      subtitle: "সহজ ৪টি ধাপে Fast Gaming অ্যাপ ডাউনলোড ও ইনস্টল করে গেম খেলা শুরু করুন",
-      step1Title: "ধাপ ১",
+      subtitle: "সহজ 4টি ধাপে Fast Gaming অ্যাপ ডাউনলোড ও ইনস্টল করে গেম খেলা শুরু করুন",
+      step1Title: "ধাপ 1",
       step1Desc: "অ্যাপ ডাউনলোড করতে উপরের ডাউনলোড বাটনে ক্লিক করুন।",
-      step2Title: "ধাপ ২",
+      step2Title: "ধাপ 2",
       step2Desc: "ডাউনলোড কনফার্ম করতে পপ-আপ মেসেজে \"Download Anyway\" ক্লিক করুন।",
-      step3Title: "ধাপ ৩",
+      step3Title: "ধাপ 3",
       step3Desc: "অ্যাপটি ইনস্টল করতে সেটিংস থেকে \"Install Unknown Apps\" সোর্স পারমিশন এলাউ করুন।",
-      step4Title: "ধাপ ৪",
-      step4Desc: "ইনস্টল সম্পন্ন করে রেজিস্ট্রেশন করুন এবং আপনার পছন্দের গেমে যোগ দিন!",
+      step4Title: "ধাপ 4",
+      step4Desc: "ইনস্টল সম্পন্ন করে রেজিস্ট্রেশন করুন এবং আপনার পছন্দের টুর্নামেন্টে যোগ দিন!",
       warningAlert: "Warning alert",
       harmfulText: "File might be harmful. Do you want to download anyway?",
       anywayBtn: "Download Anyway",
       securitySettings: "Security Settings",
       allowSource: "Allow Source",
-      success: "Success!",
-      regSuccess: "রেজিস্ট্রেশন সম্পন্ন হয়েছে",
+      success: "Success",
+      regSuccess: "রেজিস্ট্রেশন সফল হয়েছে!",
     },
     games: {
-      tag: "সমর্থিত গেমস",
-      title: "Available Games",
-      subtitle: "আমাদের প্ল্যাটফর্মে উপলব্ধ সব গেমের টুর্নামেন্ট খেলুন এবং বড় পুরস্কার জিতে নিন",
-      liveTournament: "লাইভ টুর্নামেন্ট",
-      ffTitle: "Free Fire",
-      ffDesc: "দৈনিক ফ্রি ও পেইড ম্যাচ খেলুন এবং জিতে নিন আকর্ষণীয় পুরস্কার",
-      ffPlayers: "১০,০০০+ খেলোয়াড়",
-      ffPrize: "৫০,০০০৳ পর্যন্ত",
-      ffMode: "Battle Royale",
-      pubgTitle: "PUBG Mobile",
-      pubgDesc: "প্রতিদিন একাধিক রুম ম্যাচ ও প্রাইজ পুলে অংশ নিন",
-      pubgPlayers: "৮,০০০+ খেলোয়াড়",
-      pubgPrize: "৭৫,০০০৳ পর্যন্ত",
-      pubgMode: "Battle Royale",
-      playNow: "এখন খেলুন",
+      tag: "গেমস তালিকা",
+      title: "জনপ্রিয় মোবাইল টুর্নামেন্ট",
+      subtitle: "আপনার পছন্দের টুর্নামেন্ট বেছে নিন এবং অংশ নিয়ে জিতে নিন নগদ অর্থ পুরস্কার।",
+      liveTournament: "লাইভ টুর্নামেন্ট চলমান",
+      ffTitle: "Free Fire Battle Royale",
+      ffDesc: "সোলো, ডুও এবং স্কোয়াড ব্যাটল রয়্যাল টুর্নামেন্ট। রুম কোড নিয়ে যোগ দিন এবং প্রাইজ মানি জিতুন।",
+      ffPlayers: "10,000+ নিয়মিত প্লেয়ার",
+      ffPrize: "দৈনিক প্রাইজ পুল: ৳50,000 পর্যন্ত",
+      ffMode: "Solo, Duo & Squad BR",
+      csTitle: "Free Fire Clash Squad",
+      csDesc: "4v4 স্কোয়াড ফাইট টুর্নামেন্ট। সরাসরি কাস্টম রুমে প্রতিদ্বন্দ্বিতা করে জয়ী হন।",
+      csPlayers: "8,000+ নিয়মিত প্লেয়ার",
+      csPrize: "দৈনিক প্রাইজ পুল: ৳40,000 পর্যন্ত",
+      csMode: "Clash Squad 4v4",
+      playNow: "টুর্নামেন্টে যোগ দিন",
     },
     whyUs: {
-      tag: "সুবিধাসমূহ",
-      title: "কেন আমাদের প্ল্যাটফর্ম বেছে নিবেন?",
-      subtitle: "বাংলাদেশের সবচেয়ে বিশ্বস্ত এবং নিরাপদ গেমিং প্ল্যাটফর্ম",
-      feat1Title: "Instant Deposits",
-      feat1Subtitle: "Quick & Automated",
-      feat1Desc: "বিকাশ, রকেট বা নগদের মাধ্যমে যেকোনো সময় ইনস্ট্যান্ট ডিপোজিট করুন খুব সহজেই।",
-      feat2Title: "Secure & Safe",
-      feat2Subtitle: "100% Trusted",
-      feat2Desc: "আমাদের টুর্নামেন্ট সিকিউরিটি ও পেমেন্ট গেটওয়ে সম্পূর্ণ নিরাপদ ও সুরক্ষিত।",
-      feat3Title: "Instant Withdrawal",
-      feat3Subtitle: "Zero Delay Payouts",
-      feat3Desc: "আপনার জেতা প্রাইজ মানি কোনো ঝামেলা ছাড়াই সরাসরি বিকাশে ইনস্ট্যান্ট উইথড্র করে নিন।",
-      feat4Title: "24/7 Support",
-      feat4Subtitle: "Always Here For You",
-      feat4Desc: "২৪/৭ হেল্পলাইন এবং ডেডিকেটেড সাপোর্ট টিমের মাধ্যমে যেকোনো সমস্যার তাৎক্ষণিক সমাধান।",
-      feat5Title: "Active Community",
-      feat5Subtitle: "100K+ Active Players",
-      feat5Desc: "বাংলাদেশের সবচেয়ে বড় ও বিশ্বস্ত মোবাইল গেমিং টুর্নামেন্ট প্ল্যাটফর্মে অংশ নিয়ে জিতে নিন আকর্ষণীয় সব প্রাইজ।",
+      tag: "কেন Fast Gaming?",
+      title: "আমাদের সেরা সুবিধাসমূহ",
+      subtitle: "বাংলাদেশের একমাত্র প্ল্যাটফর্ম যেখানে মিলবে সম্পূর্ণ স্বয়ংক্রিয় ও নিরাপদ গেমিং অভিজ্ঞতা।",
+      feat1Title: "ইনস্ট্যান্ট উইথড্রয়াল",
+      feat1Subtitle: "bKash, Nagad ও Rocket সাপোর্ট",
+      feat1Desc: "আপনার বিজিত প্রাইজ মানি যেকোনো সময় আপনার বিকাশ, নগদ বা রকেট একাউন্টে স্বয়ংক্রিয়ভাবে তুলে নিন।",
+      feat2Title: "স্বয়ংক্রিয় রুম কোড",
+      feat2Subtitle: "সময়মতো রুম আইডি ও পাসওয়ার্ড",
+      feat2Desc: "ম্যাচ শুরু হওয়ার নির্দিষ্ট সময় পূর্বে অ্যাপের ভেতরেই স্বয়ংক্রিয়ভাবে রুম কোড পেয়ে যাবেন।",
+      feat3Title: "Fair Play ও এন্টি-চিট",
+      feat3Subtitle: "100% সৎ ও নিরাপদ গেমপ্লে",
+      feat3Desc: "যেকোনো প্রকার হ্যাক, ইমুলেটর বা অসাধু উপায় কঠোরভাবে নিষিদ্ধ। সবার জন্য সমান সুযোগ সুনিশ্চিত।",
+      feat4Title: "24/7 কাস্টমার সাপোর্ট",
+      feat4Subtitle: "যেকোনো সমস্যায় আমরা পাশে আছি",
+      feat4Desc: "টেলিগ্রাম, হোয়াটসঅ্যাপ এবং অ্যাপের লাইভ চ্যাটে আমাদের কাস্টমার সাপোর্ট টিম সর্বদা নিয়োজিত।",
+      feat5Title: "স্বচ্ছ প্রাইজ ডিস্ট্রিবিউশন",
+      feat5Subtitle: "ম্যাচ শেষে সাথে সাথেই ব্যালেন্স যোগ",
+      feat5Desc: "ম্যাচ শেষ হওয়ার কয়েক মিনিটের মধ্যেই ফলাফল ভেরিফাই করে বিজয়ীদের ওয়ালেটে প্রাইজ মানি যুক্ত হয়।",
     },
     downloadCTA: {
-      title: "এখনই Fast Gaming অ্যাপ ডাউনলোড করুন",
-      subtitle: "বাংলাদেশ জুড়ে হাজারো খেলোয়াড়ের সাথে যোগ দিন। অ্যাপটি ইনস্টল করে আজই প্রথম টুর্নামেন্টে অংশগ্রহণ করুন!",
+      title: "আজই Fast Gaming APK ডাউনলোড করুন এবং টুর্নামেন্টে যোগ দিন",
+      subtitle: "বাংলাদেশের 1 নম্বর বিশ্বস্ত eSports প্ল্যাটফর্মে হাজার হাজার প্লেয়ারের সাথে প্রতিযোগিতা করুন।",
       btnText: "অ্যাপ ডাউনলোড করুন (APK)",
-      androidSupport: "Compatible with Android 6.0+ devices • Verified Safe & Secure",
+      androidSupport: "Android 6.0+ সমর্থিত | সম্পূর্ণ নিরাপদ ও অফিসিয়াল এপিকে",
     },
     footer: {
-      subLogo: "প্রিমিয়াম গেমিং অভিজ্ঞতা",
-      copy: "Fast Gaming BD. All rights reserved.",
+      subLogo: "বাংলাদেশের #1 eSports ও গেমিং টুর্নামেন্ট অ্যাপ",
+      copy: "Fast Gaming BD. সর্বস্বত্ব সংরক্ষিত।",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       rules: "Rules of Play",
+      about: "About Us",
+      contact: "Contact Us",
+      download: "Download App",
     },
     downloadPage: {
       title: "Fast Gaming অ্যাপ ডাউনলোড ও ইনস্টলেশন গাইড",
@@ -207,7 +297,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       prerequisites: "প্রয়োজনীয় শর্তসমূহ",
       prereqItems: [
         "Android 6.0 (Marshmallow) বা তার উপরে চালিত ডিভাইস",
-        "অন্তত ৫০MB ফ্রি স্টোরেজ স্পেস",
+        "অন্তত 50MB ফ্রি স্টোরেজ স্পেস",
         "স্থিতিশীল ইন্টারনেট সংযোগ",
         "থার্ড-পার্টি অ্যাপ ইনস্টল করার অনুমতি"
       ],
@@ -255,7 +345,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       tips: "গুরুত্বপূর্ণ টিপস",
       tipItems: [
         "নিরাপত্তার জন্য শুধুমাত্র আমাদের অফিসিয়াল ওয়েবসাইট থেকে অ্যাপ ডাউনলোড করুন",
-        "ইনস্টলেশনের সময় যেকোনো সমস্যায় আমাদের ২৪/৭ সাপোর্ট টিমের সাথে যোগাযোগ করুন",
+        "ইনস্টলেশনের সময় যেকোনো সমস্যায় আমাদের 24/7 সাপোর্ট টিমের সাথে যোগাযোগ করুন",
         "আপনার অ্যাকাউন্ট নিরাপদ রাখতে শক্তিশালী পাসওয়ার্ড ব্যবহার করুন",
         "প্রথমবার টুর্নামেন্টে অংশ নেওয়ার আগে নিয়ম-কানুন ভালোভাবে পড়ুন"
       ],
@@ -274,14 +364,249 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
         },
         {
           q: "অ্যাপ কি সব Android ফোনে চলে?",
-          a: "Fast Gaming অ্যাপ Android 6.0 (Marshmallow) বা তার উপরে চালিত ডিভাইসে সাপোর্ট করে। সর্বোত্তম পারফরম্যান্সের জন্য কমপক্ষে ৩GB RAM থাকা সুপারিশ করা হয়।"
+          a: "Fast Gaming অ্যাপ Android 6.0 (Marshmallow) বা তার উপরে চালিত ডিভাইসে সাপোর্ট করে। সর্বোত্তম পারফরম্যান্সের জন্য কমপক্ষে 3GB RAM থাকা সুপারিশ করা হয়।"
         },
         {
           q: "কিভাবে আমি সহায়তা পেতে পারি?",
-          a: "আপনি আমাদের ২৪/৭ হেল্পলাইন, অ্যাপের লাইভ চ্যাট সাপোর্ট, অথবা আমাদের ফেসবুক পেজে মেসেজ দিয়ে সহায়তা পেতে পারেন।"
+          a: "আপনি আমাদের 24/7 হেল্পলাইন, অ্যাপের লাইভ চ্যাট সাপোর্ট, অথবা আমাদের ফেসবুক পেজে মেসেজ দিয়ে সহায়তা পেতে পারেন।"
         }
       ]
     },
+    terms: {
+      title: "Terms and Conditions",
+      subtitle: "Fast Gaming BD প্ল্যাটফর্ম ব্যবহারের শর্তাবলী ও নীতিমালা। অ্যাপ ব্যবহার করার পূর্বে দয়া করে মনোযোগ সহকারে পড়ুন।",
+      lastUpdated: "সর্বশেষ সংস্করণ: 12 আগস্ট, 2026",
+      sections: [
+        {
+          id: "acceptance",
+          title: "1. শর্তাবলীর স্বীকৃতি (Acceptance of Terms)",
+          content: [
+            "Fast Gaming BD অ্যাপ বা ওয়েবসাইট ব্যবহার ও সেবা গ্রহণ করার মাধ্যমে আপনি এই সকল Terms and Conditions এবং আমাদের Privacy Policy মানতে বাধ্য থাকবেন।",
+            "যদি আপনি এই শর্তাবলীর সাথে একমত না হন, তবে অনুগ্রহ করে Fast Gaming BD অ্যাপ বা প্ল্যাটফর্মের সেবা গ্রহণ করা থেকে বিরত থাকুন।"
+          ]
+        },
+        {
+          id: "age-requirement",
+          title: "2. বয়সের বাধ্যবাধকতা (Age Requirement)",
+          content: [
+            "Fast Gaming BD প্ল্যাটফর্মে একাউন্ট তৈরি করতে এবং টুর্নামেন্ট বা পেড গেমিং প্রতিযোগিতায় অংশগ্রহণ করতে আপনার বয়স অবশ্যই অন্তত 18 (আঠারো) বছর হতে হবে।",
+            "18 বছরের কম বয়সী ব্যবহারকারীদের অভিভাবকের অনুমতি ব্যতীত বা প্ল্যাটফর্মে পেড টুর্নামেন্টে অংশগ্রহণ সম্পূর্ণ নিষিদ্ধ।"
+          ]
+        },
+        {
+          id: "regulations",
+          title: "3. eSports ও গেমিং নীতিমালা (Gaming Regulations)",
+          content: [
+            "Fast Gaming BD বাংলাদেশে বৈধ স্কিল-বেসড (Skill-Based) eSports টুর্নামেন্ট পরিচালনার নীতিমালা অনুসরণ করে।",
+            "ব্যবহারকারীকে তার স্থানীয় বা রাষ্ট্রীয় আইন মেনে প্ল্যাটফর্মে প্রতিযোগিতা করতে হবে। অনৈতিক কাজ বা জুয়া জাতীয় কর্মকাণ্ড সম্পূর্ণ নিষিদ্ধ।"
+          ]
+        },
+        {
+          id: "account-security",
+          title: "4. একাউন্ট ও নিরাপত্তা (Account and Security)",
+          content: [
+            "টুর্নামেন্টে অংশ নিতে ব্যবহারকারীকে সঠিক মোবাইল নম্বর ও তথ্য দিয়ে একাউন্ট তৈরি করতে হবে।",
+            "আপনার একাউন্টের পাসওয়ার্ড, পিন বা ওটিপি (OTP) অন্য কারো সাথে শেয়ার করবেন না। একাউন্টের নিরাপত্তাজনিত যেকোনো দায়ব্যবহারকারীর ওপর বর্তাবে।",
+            "এক ব্যক্তির একাধিক ফেক একাউন্ট তৈরি করা প্ল্যাটফর্মের নীতিমালার পরিপন্থী।"
+          ]
+        },
+        {
+          id: "prohibited-activities",
+          title: "5. নিষিদ্ধ কর্মকাণ্ড ও ফেয়ার প্লে (Prohibited Activities)",
+          content: [
+            "টুর্নামেন্টে যেকোনো প্রকার হ্যাকিং, থার্ড-পার্টি অ্যাপ/স্কিপ্ট ব্যবহার, ইমুলেটর ব্যবহার (সোলো মোবাইল ম্যাচে), টিম-টিমিং (অন্যায় আঁতাত) কঠোরভাবে নিষিদ্ধ।",
+            "রুম আইডি ও পাসওয়ার্ড বাইরের অপঞ্জীকৃত কোনো ব্যক্তির সাথে শেয়ার করা সম্পূর্ণ অপরাধ হিসেবে গণ্য হবে।",
+            "কোনো প্লেয়ার অসাধু উপায় অবলম্বন করলে তার একাউন্ট সাথে সাথেই ব্যান করা হবে এবং বিজিত প্রাইজ মানি বাজেয়াপ্ত হবে।"
+          ]
+        },
+        {
+          id: "wallet-withdrawals",
+          title: "6. ওয়ালেট জমা ও প্রাইজ উইথড্রয়াল (Deposits & Withdrawals)",
+          content: [
+            "টুর্নামেন্ট এন্ট্রি ফি ও ওয়ালেট ডিপোজিট বাংলাদেশের অনুমোদিত MFS (bKash, Nagad, Rocket) এর মাধ্যমে পরিচালিত হয়।",
+            "বিজিত টুর্নামেন্ট প্রাইজ প্লেয়ারের Fast Gaming ওয়ালেটে যুক্ত হবে এবং নির্ধারিত সর্বনিম্ন সীমা সাপেক্ষে যেকোনো সময় ইনস্ট্যান্ট উইথড্র করা যাবে।",
+            "সঠিক MFS নম্বর প্রদান না করলে বা ভুল নম্বরে উইথড্র আবেদন করলে Fast Gaming BD কর্তৃপক্ষ দায়ী থাকবে না।"
+          ]
+        },
+        {
+          id: "termination",
+          title: "7. একাউন্ট স্থগিত বা বাতিল (Termination)",
+          content: [
+            "প্ল্যাটফর্মের কোনো নিয়ম লঙ্ঘন করলে, গালাগালি বা অশোভন আচরণ করলে বা জালিয়াতির চেষ্টা করলে Fast Gaming BD কর্তৃপক্ষ পূর্ব সতর্কীকরণ ছাড়াই যেকোনো একাউন্ট ব্যান বা স্থগিত করার অধিকার রাখে।"
+          ]
+        },
+        {
+          id: "disclaimer",
+          title: "8. দায়বদ্ধতার সীমা (Disclaimers & Limitation of Liability)",
+          content: [
+            "গেম প্রস্তুতকারী প্রতিষ্ঠান (যেমন Garena) থেকে সার্ভারজনিত সমস্যা বা ডাউনটাইমের জন্য Fast Gaming BD দায়ী থাকবে না।",
+            "ইন্টারনেট সংযোগের দুর্বলতা বা আপনার ডিভাইসের ত্রুটির কারণে টুর্নামেন্ট থেকে ডিসকানেক্ট হলে তার জন্য অতিরিক্ত ক্ষতিপূরণ দাবি করা যাবে না।"
+          ]
+        },
+        {
+          id: "governing-law",
+          title: "9. পরিচালনা সংক্রান্ত আইন ও পরিবর্তন (Governing Law & Changes)",
+          content: [
+            "এই শর্তাবলী গণপ্রজাতন্ত্রী বাংলাদেশের প্রচলিত আইন দ্বারা পরিচালিত।",
+            "Fast Gaming BD যেকোনো সময় এই শর্তাবলীতে পরিবর্তন বা পরিমার্জন করার অধিকার সংরক্ষণ করে। সংশোধিত নিয়মাবলীতে প্রকাশের পর থেকেই তা কার্যকর হবে।"
+          ]
+        }
+      ]
+    },
+    privacy: {
+      title: "Privacy Policy",
+      subtitle: "Fast Gaming BD আপনার তথ্যের গোপনীয়তা ও সুরক্ষায় সর্বোচ্চ প্রতিশ্রুতিবদ্ধ। আমরা কীভাবে তথ্য সংগ্রহ ও ব্যবহার করি তা জেনে নিন।",
+      lastUpdated: "সর্বশেষ সংস্করণ: 12 আগস্ট, 2026",
+      sections: [
+        {
+          id: "information-collection",
+          title: "1. আমরা যেসব তথ্য সংগ্রহ করি",
+          content: [
+            "একাউন্ট খোলার সময় আপনার নাম, মোবাইল নম্বর, ইমেইল ঠিকানা ও ইন-গেম ইউজারনেম (In-Game Name/ID)।",
+            "উইথড্রয়াল ও ডিপোজিট নিশ্চিতকরণের জন্য ওয়ালেট লেনদেন বিবরণী (কোনো পাসওয়ার্ড বা পিন সংরক্ষণ করা হয় না)।",
+            "অ্যাপ পারফরম্যান্স ও সিকিউরিটি অ্যানালিটিক্সের জন্য ডিভাইসের মডেল, আইপি এড্রেস ও অপারেটিং সিস্টেমের সংস্করণ।"
+          ]
+        },
+        {
+          id: "how-we-use",
+          title: "2. আপনার তথ্যের ব্যবহার",
+          content: [
+            "টুর্নামেন্টে রুম আইডি ও পাসওয়ার্ড প্রদান সুনিশ্চিত করতে।",
+            "আপনার বিজয়ী প্রাইজ মানি বিকাশ, নগদ বা রকেটে সফলভাবে ট্রান্সফার করার জন্য।",
+            "টুর্নামেন্ট আপডেট, ম্যাচ সময়সূচী ও সিকিউরিটি নোটিফিকেশন পাঠাতে।",
+            "অসাধু কর্মকাণ্ড ও প্রতারণা প্রতিরোধ করতে।"
+          ]
+        },
+        {
+          id: "payment-security",
+          title: "3. পেমেন্ট ও লেনদেনের নিরাপত্তা",
+          content: [
+            "আমরা কোনো বিকাশ, নগদ বা রকেটের পিন বা গোপন কোড সংগ্রহ বা সংরক্ষণ করি না। সকল লেনদেন সিকিউর API এর মাধ্যমে এনক্রিপ্ট করে সম্পন্ন হয়।"
+          ]
+        },
+        {
+          id: "third-party",
+          title: "4. তথ্য প্রকাশ ও থার্ড-পার্টি শেয়ারিং",
+          content: [
+            "আমরা কখনই আপনার ব্যক্তিগত তথ্য কোনো বাণিজ্যিক উদ্দেশ্যে থার্ড-পার্টি প্রতিষ্ঠানের কাছে বিক্রি বা ভাড়া দেই না।",
+            "আইন প্রয়োগকারী সংস্থার আইনানুগ অনুরোধ বা আদালতের নির্দেশ ব্যতিরেকে কোনো গোপনীয় তথ্য প্রকাশ করা হয় না।"
+          ]
+        },
+        {
+          id: "user-rights",
+          title: "5. ব্যবহারকারীর অধিকার ও একাউন্ট মুছে ফেলা",
+          content: [
+            "আপনার একাউন্ট তথ্য যেকোনো সময় সংশোধন বা আপডেট করার অধিকার আপনার রয়েছে।",
+            "যদি আপনি Fast Gaming BD একাউন্ট স্থায়ীভাবে মুছে ফেলতে চান, আমাদের কাস্টমার সাপোর্ট ইমেইলে (support@fastgamingbd.com) আবেদন করতে পারেন।"
+          ]
+        }
+      ]
+    },
+    rules: {
+      title: "Rules of Play & Fair Play Guidelines",
+      subtitle: "Fast Gaming BD টুর্নামেন্টের সার্বিক নিয়মাবলী, ইন-গেম নীতিমালা এবং ফেয়ার প্লে গাইডলাইন।",
+      tag: "টুর্নামেন্ট নিয়মাবলী",
+      generalTitle: "সাধারণ নিয়মাবলী (General Rules)",
+      generalRules: [
+        "ম্যাচ শুরু হওয়ার অন্তত 10 মিনিট পূর্বে অ্যাপে লগইন করে প্রস্তুত থাকুন।",
+        "রুম কোড (ID & Password) ম্যাচ শুরুর 5-10 মিনিট আগে অ্যাপে প্রদান করা হবে।",
+        "রুম কোড কোনো অপঞ্জীকৃত প্লেয়ার বা বাইরের বন্ধুদের সাথে শেয়ার করা কঠোরভাবে নিষিদ্ধ। শেয়ার করলে তাৎক্ষণিক টুর্নামেন্ট থেকে ডিসকোয়ালিফাই করা হবে।",
+        "ইন-গেম নাম (IGN) ও প্লেয়ার আইডি অ্যাপে প্রদত্ত তথ্যের সাথে 100% মিল থাকতে হবে। মিল না থাকলে কিকে আউট করা হতে পারে।",
+        "ম্যাচ শেষে বিজয়ীদের স্ক্রিনশট ও কিল কাউন্টের তথ্য অ্যাপে জমা দিন (সোলো/স্কোয়াড ম্যাচের ক্ষেত্রে)।"
+      ],
+      gamesTitle: "গেমভিত্তিক টুর্নামেন্ট নিয়ম (Game Wise Rules)",
+      ffTitle: "Free Fire (Battle Royale & Clash Squad)",
+      ffRules: [
+        "শুধুমাত্র মোবাইল ডিভাইসের প্লেয়াররা অংশ নিতে পারবেন। পিসি বা ইমুলেটর সম্পূর্ণ নিষিদ্ধ।",
+        "গন স্কিন এট্রিবিউট অন/অফ ম্যাচের বিস্তারিত তথ্যে উল্লেখ থাকবে।",
+        "ক্লাশ স্কোয়াড ম্যাচে হ্যাকিং, ফ্লাই হ্যাক বা ওয়াল স্পিড ব্যবহার করলে সারা জীবনের জন্য ব্যান করা হবে।",
+        "টিমিং বা শত্রু প্লেয়ারের সাথে অন্যায় সমঝোতা প্রমাণ হলে উভয় দলের পয়েন্ট বাতিল হবে।"
+      ],
+      fairPlayTitle: "ফেয়ার প্লে ও এন্টি-চিট পলিসি (Fair Play)",
+      fairPlaySubtitle: "সবার জন্য নিরপেক্ষ ও বিশ্বস্ত টুর্নামেন্ট সুনিশ্চিত করতে আমাদের জিরো-টলারেন্স নীতি।",
+      fairPlayRules: [
+        "ইমুলেটর / পিসি প্লেয়ার সম্পূর্ণ নিষিদ্ধ (যদি না স্পেশাল ইমুলেটর টুর্নামেন্ট ঘোষণা করা হয়)।",
+        "কোনো প্রকার স্ক্রিপ্ট, হ্যাক, অটোলক, এক্স-রে মড ব্যবহার কঠোরভাবে নিষিদ্ধ।",
+        "আমাদের অটোমেটেড সিকিউরিটি অ্যালগরিদম ও মডারেটর টিম সার্বক্ষণিক ম্যাচ পর্যবেক্ষণ করে।"
+      ],
+      refundTitle: "ম্যাচ বাতিল ও রিফান্ড নীতিমালা (Refund Policy)",
+      refundSubtitle: "প্রযুক্তিগত সমস্যা বা ম্যাচ বাতিলের ক্ষেত্রে রিফান্ড পদ্ধতি।",
+      refundRules: [
+        "যদি সার্ভার ত্রুটি বা কোনো অনিবার্য কারণে ম্যাচ বাতিল করা হয়, সকল প্লেয়ারের এন্ট্রি ফি 10 মিনিটের মধ্যে তাদের Fast Gaming ওয়ালেটে 100% রিফান্ড করে দেওয়া হবে।",
+        "প্লেয়ারের নিজের ভুল বা দেরিতে রুমে প্রবেশ না করতে পারলে এন্ট্রি ফি রিফান্ড প্রযোজ্য হবে না।"
+      ]
+    },
+    about: {
+      tag: "আমাদের গল্প",
+      title: "বাংলাদেশের #1 eSports ও টুর্নামেন্ট প্ল্যাটফর্ম",
+      subtitle: "মোবাইল গেমারদের পেশাদার eSports জগতে যুক্ত করার এবং নিরাপদে প্রাইজ মানি অর্জনের প্ল্যাটফর্ম।",
+      missionTitle: "আমাদের লক্ষ্য ও উদ্দেশ্য",
+      missionDesc: "বাংলাদেশে কোটি কোটি ই-স্পোর্টস প্রেমী গেমার রয়েছেন। আমাদের লক্ষ্য হলো গেমারদের মেধা ও স্কিল প্রদর্শনের জন্য একটি 1 নম্বর সুরক্ষিত, স্বয়ংক্রিয় ও আধুনিক টুর্নামেন্ট ইকোসিস্টেম তৈরি করা, যেখানে প্রতিটি ম্যাচ হয় স্বচ্ছ এবং প্রাইজ উইথড্রয়াল হয় মুহূর্তেই।",
+      stats: [
+        { value: "50,000+", label: "সক্রিয় গেমার", desc: "বাংলাদেশের সকল প্রান্ত থেকে নিয়মিত প্লেয়ার" },
+        { value: "৳10 লাখ+", label: "মোট পুরষ্কার বিতরণ", desc: "সাফল্যের সাথে প্লেয়ারদের কাছে হস্তান্তরিত" },
+        { value: "100,000+", label: "সম্পন্ন ম্যাচ", desc: "Free Fire টুর্নামেন্ট" },
+        { value: "99.9%", label: "ইনস্ট্যান্ট উইথড্রয়াল", desc: "bKash, Nagad ও Rocket স্বয়ংক্রিয় পেমেন্ট" }
+      ],
+      valuesTitle: "আমাদের মূল চালিকাশক্তি",
+      values: [
+        { title: "100% স্বচ্ছতা", desc: "প্রতিটি টুর্নামেন্টের পয়েন্ট টেবিল ও বিজয়ীদের তালিকা সর্বসাধারণের জন্য উন্মুক্ত।" },
+        { title: "জিরো চিটিং টলারেন্স", desc: "অত্যাধুনিক এন্টি-চিট ও মডারেশন টিম দ্বারা সম্পূর্ণ হ্যাক-মুক্ত গেমপ্লে।" },
+        { title: "প্লেয়ার-ফার্স্ট ডিজাইন", desc: "ব্যবহারকারীবান্ধব অ্যাপ ও ওয়েব ইন্টারফেস যেন যেকোনো গেমার মুহূর্তেই অংশ নিতে পারে।" },
+        { title: "ইনস্ট্যান্ট ক্যাশ পেমেন্ট", desc: "কোনো জটিলতা ছাড়া সরাসরি মোবাইল ওয়ালেটে টাকা তোলার দ্রুততম ব্যবস্থা।" }
+      ],
+      trustTitle: "বাংলাদেশের গেমারদের আস্থা",
+      trustDesc: "Fast Gaming BD শুধুমাত্র একটি অ্যাপ নয়, এটি বাংলাদেশের eSports কমিউনিটির জন্য একটি নির্ভরযোগ্য পরিবার।"
+    },
+    contact: {
+      tag: "24/7 সহায়তা",
+      title: "আমাদের সাথে যোগাযোগ করুন",
+      subtitle: "আপনার কোনো প্রশ্ন, টুর্নামেন্ট সমস্যা বা ব্যবসায়িক পরামর্শ থাকলে যেকোনো সময় মেসেজ দিন।",
+      channelsTitle: "আমাদের সাপোর্ট চ্যানেলসমূহ",
+      channels: [
+        {
+          id: "telegram",
+          name: "Telegram Channel & Support",
+          handle: "@fastgamingbd_official",
+          desc: "লাইভ নোটিশ, রুম কোড সাহায্য ও সরাসরি চ্যাট।",
+          link: "https://t.me/fastgamingbd",
+          actionText: "টেলিগ্রামে মেসেজ দিন"
+        },
+        {
+          id: "whatsapp",
+          name: "WhatsApp Support Hotline",
+          handle: "+880 1700-000000",
+          desc: "দ্রুততম ডিপোজিট ও উইথড্রয়াল হেল্পডেস্ক।",
+          link: "https://wa.me/8801700000000",
+          actionText: "হোয়াটসঅ্যাপে চ্যাট করুন"
+        },
+        {
+          id: "email",
+          name: "Official Support Email",
+          handle: "support@fastgamingbd.com",
+          desc: "যেকোনো অ্যাকাউন্ট বা প্রাতিষ্ঠানিক প্রশ্ন।",
+          link: "mailto:support@fastgamingbd.com",
+          actionText: "ইমেইল পাঠান"
+        },
+        {
+          id: "facebook",
+          name: "Facebook Community Group",
+          handle: "Fast Gaming BD Official",
+          desc: "বাংলাদেশের 50,000+ গেমারদের পরিবার।",
+          link: "https://facebook.com/fastgamingbd",
+          actionText: "গ্রুপে যোগ দিন"
+        }
+      ],
+      formTitle: "সরাসরি বার্তা পাঠান",
+      formSubtitle: "নিচের ফর্মটি পূরণ করুন, আমরা খুব দ্রুত আপনার সাথে যোগাযোগ করব।",
+      nameLabel: "আপনার নাম",
+      phoneLabel: "মোবাইল নম্বর",
+      emailLabel: "ইমেইল ঠিকানা",
+      subjectLabel: "বিষয় (Subject)",
+      messageLabel: "আপনার বার্তা বা সমস্যা বিস্তারিত লিখুন",
+      submitBtn: "বার্তা পাঠান",
+      successToast: "ধন্যবাদ! আপনার বার্তাটি পাঠানো হয়েছে। আমাদের সাপোর্ট টিম শিগগিরই উত্তর দেবে।"
+    }
   },
   en: {
     navbar: {
@@ -289,6 +614,9 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       howToPlay: "How to Play",
       games: "Available Games",
       features: "Our Features",
+      about: "About Us",
+      rules: "Rules of Play",
+      contact: "Contact Us",
       downloadBtn: "Download App",
       mobileDownloadBtn: "Download App",
     },
@@ -297,161 +625,399 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
       bangladeshMost: "Bangladesh's Most",
       adjectives: ["Secure", "Trusted", "Automated", "Premium", "Best"],
       gamingPlatform: "Gaming Platform",
-      subtitle: "Play your favorite games (Free Fire, PUBG, Ludo) and win exciting cash rewards on Fast Gaming. Join Bangladesh's safest, most trusted automated game tournament platform today.",
-      downloadBtn: "Download App (APK)",
+      subtitle: "Play your favorite Free Fire tournaments and win exciting cash rewards on Fast Gaming. Join Bangladesh's safest, most trusted automated game tournament platform today.",
+      downloadBtn: "Download App",
       howToPlayBtn: "Watch How to Play",
       downloadToast: "Download started! Follow the 4 steps below to install the app.",
     },
     howToStart: {
       tag: "Get Started",
-      title: "How to Start?",
-      subtitle: "Download and install the Fast Gaming app in 4 easy steps to start playing game tournaments.",
+      title: "How to Get Started?",
+      subtitle: "Follow these 4 simple steps to download, install, and start playing on Fast Gaming.",
       step1Title: "Step 1",
-      step1Desc: "Click the download button above to download the gamezonebd.apk installation file.",
+      step1Desc: "Click the Download button above to start downloading the APK.",
       step2Title: "Step 2",
-      step2Desc: "Click \"Download Anyway\" in the browser pop-up to confirm your game apk download.",
+      step2Desc: "Click \"Download Anyway\" on your browser pop-up to confirm.",
       step3Title: "Step 3",
-      step3Desc: "Allow \"Install Unknown Apps\" source permission in your Android settings to begin installation.",
+      step3Desc: "Allow \"Install Unknown Apps\" permission in your Android settings.",
       step4Title: "Step 4",
-      step4Desc: "Complete installation, register your account, and join your favorite gaming tournaments!",
+      step4Desc: "Complete installation, register your account, and join your favorite tournament!",
       warningAlert: "Warning alert",
       harmfulText: "File might be harmful. Do you want to download anyway?",
       anywayBtn: "Download Anyway",
       securitySettings: "Security Settings",
       allowSource: "Allow Source",
-      success: "Success!",
-      regSuccess: "Registration Complete",
+      success: "Success",
+      regSuccess: "Registration successful!",
     },
     games: {
-      tag: "Supported Games",
-      title: "Available Games",
-      subtitle: "Play daily tournaments for popular games (Free Fire, PUBG) and win big cash rewards.",
-      liveTournament: "Live Tournament",
-      ffTitle: "Free Fire Tournaments",
-      ffDesc: "Play daily free and paid Free Fire matches and win exciting prizes",
-      ffPlayers: "10K+ Players",
-      ffPrize: "Up to ৳50,000",
-      ffMode: "Battle Royale",
-      pubgTitle: "PUBG Mobile Tournaments",
-      pubgDesc: "Daily custom room matches with high prize pools and fierce competition",
-      pubgPlayers: "8K+ Players",
-      pubgPrize: "Up to ৳75,000",
-      pubgMode: "Battle Royale",
-      playNow: "Play Now",
+      tag: "Game Roster",
+      title: "Popular Mobile Tournaments",
+      subtitle: "Choose your game mode, participate in daily matches, and win real cash prizes.",
+      liveTournament: "Live Tournaments Running",
+      ffTitle: "Free Fire Battle Royale",
+      ffDesc: "Solo, Duo, and Squad Battle Royale matches. Get room codes and claim top survivor rewards.",
+      ffPlayers: "10,000+ Active Players",
+      ffPrize: "Daily Prize Pool: Up to ৳50,000",
+      ffMode: "Solo, Duo & Squad BR",
+      csTitle: "Free Fire Clash Squad",
+      csDesc: "4v4 Squad Fight custom matches. Compete head-to-head and win cash prizes.",
+      csPlayers: "8,000+ Active Players",
+      csPrize: "Daily Prize Pool: Up to ৳40,000",
+      csMode: "Clash Squad 4v4",
+      playNow: "Join Tournament",
     },
     whyUs: {
-      tag: "Features",
-      title: "Why Choose Fast Gaming?",
-      subtitle: "The most trusted, secure, and automated mobile game tournament platform in Bangladesh.",
-      feat1Title: "Instant Deposits",
-      feat1Subtitle: "Quick & Automated",
-      feat1Desc: "Instantly add money to your account via bKash, Rocket, or Nagad payments with zero delay.",
-      feat2Title: "Secure & Safe",
-      feat2Subtitle: "100% Trusted",
-      feat2Desc: "Our advanced game tournament security systems and secure payments protect your account.",
-      feat3Title: "Instant Withdrawal",
-      feat3Subtitle: "Zero Delay Payouts",
-      feat3Desc: "Withdraw your tournament winnings directly to your personal bKash wallet in minutes.",
-      feat4Title: "24/7 Support",
-      feat4Subtitle: "Always Here For You",
-      feat4Desc: "Dedicated customer support and 24/7 hotline to resolve any gaming or payment queries instantly.",
-      feat5Title: "Active Community",
-      feat5Subtitle: "100K+ Active Players",
-      feat5Desc: "Join over 100,000 active players in Bangladesh's largest game tournament community.",
+      tag: "Why Fast Gaming?",
+      title: "Platform Key Features",
+      subtitle: "Bangladesh's premier platform providing a 100% automated & secure competitive gaming environment.",
+      feat1Title: "Instant Withdrawals",
+      feat1Subtitle: "bKash, Nagad & Rocket Support",
+      feat1Desc: "Withdraw your tournament winnings directly to your mobile financial wallet anytime automatically.",
+      feat2Title: "Automated Room Credentials",
+      feat2Subtitle: "Punctual Room ID & Password",
+      feat2Desc: "Receive private Room IDs & Passwords automatically inside the app prior to match start times.",
+      feat3Title: "Fair Play & Anti-Cheat",
+      feat3Subtitle: "100% Honest & Fair Gameplay",
+      feat3Desc: "Strict bans on emulators, hacks, and scripts to guarantee an equal playing field for every player.",
+      feat4Title: "24/7 Dedicated Support",
+      feat4Subtitle: "We are always here to help",
+      feat4Desc: "Our dedicated support team is active on Telegram, WhatsApp, and live chat 24 hours a day.",
+      feat5Title: "Transparent Prize Settlement",
+      feat5Subtitle: "Instant wallet credits post-match",
+      feat5Desc: "Match results are verified within minutes and winnings are instantly credited to player wallets.",
     },
     downloadCTA: {
-      title: "Download Fast Gaming App Now",
-      subtitle: "Join thousands of players in Bangladesh. Install the Fast Gaming APK and enter your first game tournament today!",
+      title: "Download Fast Gaming APK Today and Join the Battle",
+      subtitle: "Compete with thousands of mobile gamers across Bangladesh on the #1 trusted eSports hub.",
       btnText: "Download App (APK)",
-      androidSupport: "Compatible with Android 6.0+ devices • Verified Safe & Secure",
+      androidSupport: "Android 6.0+ Supported | 100% Safe & Official APK",
     },
     footer: {
-      subLogo: "Premium Gaming Experience",
+      subLogo: "Bangladesh's #1 eSports & Mobile Gaming Tournament App",
       copy: "Fast Gaming BD. All rights reserved.",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       rules: "Rules of Play",
+      about: "About Us",
+      contact: "Contact Us",
+      download: "Download App",
     },
     downloadPage: {
-      title: "Fast Gaming App Download & Installation Guide",
-      subtitle: "A complete step-by-step guide to download, install, and set up the Fast Gaming app on your Android device.",
+      title: "Fast Gaming APK Download & Setup Guide",
+      subtitle: "Step-by-step instructions to download, install, and configure Fast Gaming on your Android phone.",
       prerequisites: "Prerequisites",
       prereqItems: [
-        "Android 6.0 (Marshmallow) or higher device",
+        "Device running Android 6.0 (Marshmallow) or higher",
         "At least 50MB of free storage space",
-        "A stable internet connection",
-        "Permission to install third-party apps"
+        "Stable internet connection",
+        "Permission to install third-party applications"
       ],
       steps: [
         {
           title: "Download the App",
-          subtitle: "Download the APK file directly to your device",
+          subtitle: "Download the APK file directly to your phone",
           details: [
-            "Click the Download button below to start downloading the app",
-            "The file will be named gamezonebd.apk",
-            "Wait for the download to complete"
+            "Click the Download button below to start the file transfer",
+            "The package is named gamezonebd.apk",
+            "Wait for the download progress to complete"
           ]
         },
         {
-          title: "Confirm the Download",
-          subtitle: "Select 'Download Anyway' when prompted by your browser",
+          title: "Confirm Download Warning",
+          subtitle: "Select 'Download Anyway' on your browser prompt",
           details: [
-            "Your browser (Chrome, etc.) will show a warning message",
-            "Click the \"Download Anyway\" or \"Keep\" button",
-            "This confirms you want to download the file"
+            "Chrome or your default browser will display a security warning",
+            "Tap \"Download Anyway\" or \"Keep\"",
+            "This confirms your choice to save the installation file"
           ],
-          warning: "This warning is normal. Browsers show this for any APK file downloaded outside the Play Store."
+          warning: "This prompt is standard Android behavior for any application installed outside the Play Store."
         },
         {
-          title: "Enable Installation Permission",
-          subtitle: "Allow 'Unknown Sources' in your Android settings",
+          title: "Grant Install Permission",
+          subtitle: "Enable 'Unknown Sources' in Android Settings",
           details: [
-            "Go to Settings > Security > Install unknown apps",
+            "Navigate to Settings > Security > Install unknown apps",
             "Select your browser (Chrome/Firefox)",
             "Toggle \"Allow from this source\" ON",
-            "Alternatively, tap the notification after download to grant permission directly"
+            "Or tap the completed download notification to grant permission directly"
           ]
         },
         {
-          title: "Install & Register",
-          subtitle: "Complete installation and create your account",
+          title: "Install & Create Account",
+          subtitle: "Complete setup and log into your profile",
           details: [
-            "Tap the \"Install\" button to complete the installation",
-            "Once installed, tap \"Open\" to launch the app",
-            "Register using your mobile phone number",
-            "Complete OTP verification and set up your profile"
+            "Tap \"Install\" to run the package manager",
+            "Once installed, tap \"Open\" to launch Fast Gaming",
+            "Register using your valid mobile phone number",
+            "Complete OTP verification and set up your gamer ID"
           ]
         }
       ],
-      tips: "Important Tips",
+      tips: "Essential Security Tips",
       tipItems: [
-        "Download the app only from our official website for security",
-        "Contact our 24/7 support team for any installation issues",
-        "Use a strong password to secure your account",
-        "Read the tournament rules carefully before participating"
+        "Download exclusively from fastgamingbd.com to protect your device",
+        "Contact 24/7 customer support for any installation queries",
+        "Use a strong password to guard your tournament wallet",
+        "Read match rules thoroughly before entering paid brackets"
       ],
-      ctaTitle: "Download Now to Start Playing",
-      ctaBtn: "Download App (APK)",
-      backToHome: "Back to Home",
+      ctaTitle: "Ready to Compete? Download Now!",
+      ctaBtn: "Download APK Now",
+      backToHome: "Back to Homepage",
       faq: "Frequently Asked Questions",
       faqItems: [
         {
-          q: "Is the APK file safe?",
-          a: "Yes, our APK file is completely safe. You are downloading from our official website which is virus-free and malware-free. We run regular security checks."
+          q: "Is the APK package safe?",
+          a: "Yes, our official APK package is completely virus-free, secure, and regularly audited."
         },
         {
-          q: "What if 'Blocked by Play Protect' appears during installation?",
-          a: "This is a standard Android security feature. Click 'Install Anyway' to proceed. This appears because the app is not from the Google Play Store."
+          q: "What should I do if Play Protect blocks installation?",
+          a: "Select 'Install Anyway' to proceed. Play Protect flags third-party APK downloads automatically."
         },
         {
-          q: "Does the app work on all Android phones?",
-          a: "Fast Gaming supports Android 6.0 (Marshmallow) and above. For best performance, we recommend at least 3GB of RAM."
+          q: "Is my phone compatible?",
+          a: "Fast Gaming requires Android 6.0 or higher with 3GB+ RAM recommended for smooth gameplay."
         },
         {
-          q: "How can I get help?",
-          a: "You can reach us through our 24/7 helpline, the in-app live chat support, or by messaging our Facebook page."
+          q: "How can I contact player support?",
+          a: "Reach our support team anytime via Telegram, WhatsApp, Facebook, or in-app live support."
         }
       ]
     },
-  },
+    terms: {
+      title: "Terms and Conditions",
+      subtitle: "Terms of Use for Fast Gaming BD. Please read these terms carefully before participating.",
+      lastUpdated: "Last updated: August 12, 2026",
+      sections: [
+        {
+          id: "acceptance",
+          title: "1. Acceptance of Terms",
+          content: [
+            "By accessing or using the Fast Gaming BD application, website, or services, you agree to be bound by these Terms and Conditions and our Privacy Policy.",
+            "If you do not agree with any part of these terms, you must refrain from using Fast Gaming BD services."
+          ]
+        },
+        {
+          id: "age-requirement",
+          title: "2. Age Requirement (18+)",
+          content: [
+            "You must be at least 18 years old to create an account, deposit funds, or participate in paid cash tournaments on Fast Gaming BD.",
+            "Minors under 18 years of age are strictly prohibited from participating in real-money competitive matches without express parental consent."
+          ]
+        },
+        {
+          id: "regulations",
+          title: "3. eSports & Gaming Regulations",
+          content: [
+            "Fast Gaming BD operates skill-based eSports tournaments in full compliance with applicable laws of the People's Republic of Bangladesh.",
+            "Players are responsible for ensuring that their participation complies with all local laws regarding competitive gaming."
+          ]
+        },
+        {
+          id: "account-security",
+          title: "4. Account and Security",
+          content: [
+            "Players must provide accurate registration details including a valid mobile number and in-game credentials.",
+            "You are solely responsible for maintaining the confidentiality of your account credentials, PIN, and OTP.",
+            "Creating duplicate or dummy accounts to manipulate tournament brackets is strictly forbidden."
+          ]
+        },
+        {
+          id: "prohibited-activities",
+          title: "5. Prohibited Activities & Fair Play",
+          content: [
+            "Cheating, using third-party scripts, wallhacks, auto-aim, emulators (in mobile-only brackets), or teaming with opponent players is strictly prohibited.",
+            "Sharing private Room IDs and Passwords with unregistered external players constitutes a severe policy violation.",
+            "Any player caught engaging in illegal or fraudulent behavior will face permanent account suspension and forfeiture of all accumulated prize balances."
+          ]
+        },
+        {
+          id: "wallet-withdrawals",
+          title: "6. Wallet Deposits & Instant Cash Withdrawals",
+          content: [
+            "Tournament entry fees and wallet top-ups are processed securely via authorized Mobile Financial Services in Bangladesh (bKash, Nagad, Rocket).",
+            "Tournament winnings are credited to your Fast Gaming wallet immediately post-match and can be withdrawn directly to your MFS account.",
+            "Fast Gaming BD is not liable for transaction delays resulting from incorrect player MFS numbers."
+          ]
+        },
+        {
+          id: "termination",
+          title: "7. Account Suspension & Termination",
+          content: [
+            "We reserve the right to suspend or terminate your account access immediately without prior notice if you breach these Terms and Conditions or engage in abusive conduct."
+          ]
+        },
+        {
+          id: "disclaimer",
+          title: "8. Disclaimers and Limitation of Liability",
+          content: [
+            "Fast Gaming BD is not responsible for server outages or maintenance issues originating from third-party game publishers (e.g., Garena).",
+            "Losses or disconnections caused by a player's unstable internet connection or device hardware failure do not qualify for compensation."
+          ]
+        },
+        {
+          id: "governing-law",
+          title: "9. Governing Law & Amendments",
+          content: [
+            "These Terms and Conditions are governed by and construed in accordance with the laws of Bangladesh.",
+            "We reserve the right to modify these terms at any time. Continued use of the platform following published changes constitutes full acceptance."
+          ]
+        }
+      ]
+    },
+    privacy: {
+      title: "Privacy Policy",
+      subtitle: "Fast Gaming BD is committed to safeguarding your personal privacy and transactional security.",
+      lastUpdated: "Last updated: August 12, 2026",
+      sections: [
+        {
+          id: "information-collection",
+          title: "1. Information We Collect",
+          content: [
+            "Registration details: Name, mobile phone number, email address, and in-game usernames (IGN/ID).",
+            "Transaction records: MFS deposit and withdrawal history (no PINs or secret credentials are ever stored).",
+            "Technical telemetry: Device model, operating system version, and IP address for security and anti-fraud monitoring."
+          ]
+        },
+        {
+          id: "how-we-use",
+          title: "2. How We Use Your Information",
+          content: [
+            "To deliver match room credentials (Room ID & Password) punctually.",
+            "To process instant payout withdrawals to your bKash, Nagad, or Rocket account.",
+            "To send essential tournament schedules, updates, and account security alerts.",
+            "To detect, prevent, and penalize fraudulent or cheating attempts."
+          ]
+        },
+        {
+          id: "payment-security",
+          title: "3. Payment & MFS Security",
+          content: [
+            "We never ask for or store your personal bKash, Nagad, or Rocket PINs. All financial requests execute via encrypted API integrations."
+          ]
+        },
+        {
+          id: "third-party",
+          title: "4. Third-Party Disclosure",
+          content: [
+            "We do not sell, trade, or rent personal player data to external marketing companies.",
+            "Data is disclosed only when mandated by law enforcement authorities under lawful process."
+          ]
+        },
+        {
+          id: "user-rights",
+          title: "5. User Rights & Account Erasure",
+          content: [
+            "You have the right to inspect and update your profile details anytime.",
+            "To request permanent account deletion, contact our support desk at support@fastgamingbd.com."
+          ]
+        }
+      ]
+    },
+    rules: {
+      title: "Rules of Play & Fair Play Guidelines",
+      subtitle: "Fast Gaming BD টুর্নামেন্টের সার্বিক নিয়মাবলী, ইন-গেম নীতিমালা এবং ফেয়ার প্লে গাইডলাইন।",
+      tag: "টুর্নামেন্ট নিয়মাবলী",
+      generalTitle: "সাধারণ নিয়মাবলী (General Rules)",
+      generalRules: [
+        "ম্যাচ শুরু হওয়ার অন্তত 10 মিনিট পূর্বে অ্যাপে লগইন করে প্রস্তুত থাকুন।",
+        "রুম কোড (ID & Password) ম্যাচ শুরুর 5-10 মিনিট আগে অ্যাপে প্রদান করা হবে।",
+        "রুম কোড কোনো অপঞ্জীকৃত প্লেয়ার বা বাইরের বন্ধুদের সাথে শেয়ার করা কঠোরভাবে নিষিদ্ধ। শেয়ার করলে তাৎক্ষণিক টুর্নামেন্ট থেকে ডিসকোয়ালিফাই করা হবে।",
+        "ইন-গেম নাম (IGN) ও প্লেয়ার আইডি অ্যাপে প্রদত্ত তথ্যের সাথে 100% মিল থাকতে হবে। মিল না থাকলে কিকে আউট করা হতে পারে।",
+        "ম্যাচ শেষে বিজয়ীদের স্ক্রিনশট ও কিল কাউন্টের তথ্য অ্যাপে জমা দিন (সোলো/স্কোয়াড ম্যাচের ক্ষেত্রে)।"
+      ],
+      gamesTitle: "গেমভিত্তিক টুর্নামেন্ট নিয়ম (Game Wise Rules)",
+      ffTitle: "Free Fire (Battle Royale & Clash Squad)",
+      ffRules: [
+        "শুধুমাত্র মোবাইল ডিভাইসের প্লেয়াররা অংশ নিতে পারবেন। পিসি বা ইমুলেটর সম্পূর্ণ নিষিদ্ধ।",
+        "গন স্কিন এট্রিবিউট অন/অফ ম্যাচের বিস্তারিত তথ্যে উল্লেখ থাকবে।",
+        "ক্লাশ স্কোয়াড ম্যাচে হ্যাকিং, ফ্লাই হ্যাক বা ওয়াল স্পিড ব্যবহার করলে সারা জীবনের জন্য ব্যান করা হবে।",
+        "টিমিং বা শত্রু প্লেয়ারের সাথে অন্যায় সমঝোতা প্রমাণ হলে উভয় দলের পয়েন্ট বাতিল হবে।"
+      ],
+      fairPlayTitle: "ফেয়ার প্লে ও এন্টি-চিট পলিসি (Fair Play)",
+      fairPlaySubtitle: "সবার জন্য নিরপেক্ষ ও বিশ্বস্ত টুর্নামেন্ট সুনিশ্চিত করতে আমাদের জিরো-টলারেন্স নীতি।",
+      fairPlayRules: [
+        "ইমুলেটর / পিসি প্লেয়ার সম্পূর্ণ নিষিদ্ধ (যদি না স্পেশাল ইমুলেটর টুর্নামেন্ট ঘোষণা করা হয়)।",
+        "কোনো প্রকার স্ক্রিপ্ট, হ্যাক, অটোলক, এক্স-রে মড ব্যবহার কঠোরভাবে নিষিদ্ধ।",
+        "আমাদের অটোমেটেড সিকিউরিটি অ্যালগরিদম ও মডারেটর টিম সার্বক্ষণিক ম্যাচ পর্যবেক্ষণ করে।"
+      ],
+      refundTitle: "ম্যাচ বাতিল ও রিফান্ড নীতিমালা (Refund Policy)",
+      refundSubtitle: "প্রযুক্তিগত সমস্যা বা ম্যাচ বাতিলের ক্ষেত্রে রিফান্ড পদ্ধতি।",
+      refundRules: [
+        "যদি সার্ভার ত্রুটি বা কোনো অনিবার্য কারণে ম্যাচ বাতিল করা হয়, সকল প্লেয়ারের এন্ট্রি ফি 10 মিনিটের মধ্যে তাদের Fast Gaming ওয়ালেটে 100% রিফান্ড করে দেওয়া হবে।",
+        "প্লেয়ারের নিজের ভুল বা দেরিতে রুমে প্রবেশ না করতে পারলে এন্ট্রি ফি রিফান্ড প্রযোজ্য হবে না।"
+      ]
+    },
+    about: {
+      tag: "আমাদের গল্প",
+      title: "বাংলাদেশের #1 eSports ও টুর্নামেন্ট প্ল্যাটফর্ম",
+      subtitle: "মোবাইল গেমারদের পেশাদার eSports জগতে যুক্ত করার এবং নিরাপদে প্রাইজ মানি অর্জনের প্ল্যাটফর্ম।",
+      missionTitle: "আমাদের লক্ষ্য ও উদ্দেশ্য",
+      missionDesc: "বাংলাদেশে কোটি কোটি ই-স্পোর্টস প্রেমী গেমার রয়েছেন। আমাদের লক্ষ্য হলো গেমারদের মেধা ও স্কিল প্রদর্শনের জন্য একটি 1 নম্বর সুরক্ষিত, স্বয়ংক্রিয় ও আধুনিক টুর্নামেন্ট ইকোসিস্টেম তৈরি করা, যেখানে প্রতিটি ম্যাচ হয় স্বচ্ছ এবং প্রাইজ উইথড্রয়াল হয় মুহূর্তেই।",
+      stats: [
+        { value: "50,000+", label: "সক্রিয় গেমার", desc: "বাংলাদেশের সকল প্রান্ত থেকে নিয়মিত প্লেয়ার" },
+        { value: "৳10 লাখ+", label: "মোট পুরষ্কার বিতরণ", desc: "সাফল্যের সাথে প্লেয়ারদের কাছে হস্তান্তরিত" },
+        { value: "100,000+", label: "সম্পন্ন ম্যাচ", desc: "Free Fire টুর্নামেন্ট" },
+        { value: "99.9%", label: "ইনস্ট্যান্ট উইথড্রয়াল", desc: "bKash, Nagad ও Rocket স্বয়ংক্রিয় পেমেন্ট" }
+      ],
+      valuesTitle: "আমাদের মূল চালিকাশক্তি",
+      values: [
+        { title: "100% স্বচ্ছতা", desc: "প্রতিটি টুর্নামেন্টের পয়েন্ট টেবিল ও বিজয়ীদের তালিকা সর্বসাধারণের জন্য উন্মুক্ত।" },
+        { title: "জিরো চিটিং টলারেন্স", desc: "অত্যাধুনিক এন্টি-চিট ও মডারেশন টিম দ্বারা সম্পূর্ণ হ্যাক-মুক্ত গেমপ্লে।" },
+        { title: "প্লেয়ার-ফার্স্ট ডিজাইন", desc: "ব্যবহারকারীবান্ধব অ্যাপ ও ওয়েব ইন্টারফেস যেন যেকোনো গেমার মুহূর্তেই অংশ নিতে পারে।" },
+        { title: "ইনস্ট্যান্ট ক্যাশ পেমেন্ট", desc: "কোনো জটিলতা ছাড়া সরাসরি মোবাইল ওয়ালেটে টাকা তোলার দ্রুততম ব্যবস্থা।" }
+      ],
+      trustTitle: "বাংলাদেশের গেমারদের আস্থা",
+      trustDesc: "Fast Gaming BD শুধুমাত্র একটি অ্যাপ নয়, এটি বাংলাদেশের eSports কমিউনিটির জন্য একটি নির্ভরযোগ্য পরিবার।"
+    },
+    contact: {
+      tag: "24/7 সহায়তা",
+      title: "আমাদের সাথে যোগাযোগ করুন",
+      subtitle: "আপনার কোনো প্রশ্ন, টুর্নামেন্ট সমস্যা বা ব্যবসায়িক পরামর্শ থাকলে যেকোনো সময় মেসেজ দিন।",
+      channelsTitle: "আমাদের সাপোর্ট চ্যানেলসমূহ",
+      channels: [
+        {
+          id: "telegram",
+          name: "Telegram Channel & Support",
+          handle: "@fastgamingbd_official",
+          desc: "লাইভ নোটিশ, রুম কোড সাহায্য ও সরাসরি চ্যাট।",
+          link: "https://t.me/fastgamingbd",
+          actionText: "টেলিগ্রামে মেসেজ দিন"
+        },
+        {
+          id: "whatsapp",
+          name: "WhatsApp Support Hotline",
+          handle: "+880 1700-000000",
+          desc: "দ্রুততম ডিপোজিট ও উইথড্রয়াল হেল্পডেস্ক।",
+          link: "https://wa.me/8801700000000",
+          actionText: "হোয়াটসঅ্যাপে চ্যাট করুন"
+        },
+        {
+          id: "email",
+          name: "Official Support Email",
+          handle: "support@fastgamingbd.com",
+          desc: "যেকোনো অ্যাকাউন্ট বা প্রাতিষ্ঠানিক প্রশ্ন।",
+          link: "mailto:support@fastgamingbd.com",
+          actionText: "ইমেইল পাঠান"
+        },
+        {
+          id: "facebook",
+          name: "Facebook Community Group",
+          handle: "Fast Gaming BD Official",
+          desc: "বাংলাদেশের 50,000+ গেমারদের পরিবার।",
+          link: "https://facebook.com/fastgamingbd",
+          actionText: "গ্রুপে যোগ দিন"
+        }
+      ],
+      formTitle: "সরাসরি বার্তা পাঠান",
+      formSubtitle: "নিচের ফর্মটি পূরণ করুন, আমরা খুব দ্রুত আপনার সাথে যোগাযোগ করব।",
+      nameLabel: "আপনার নাম",
+      phoneLabel: "মোবাইল নম্বর",
+      emailLabel: "ইমেইল ঠিকানা",
+      subjectLabel: "বিষয় (Subject)",
+      messageLabel: "আপনার বার্তা বা সমস্যা বিস্তারিত লিখুন",
+      submitBtn: "বার্তা পাঠান",
+      successToast: "ধন্যবাদ! আপনার বার্তাটি পাঠানো হয়েছে। আমাদের সাপোর্ট টিম শিগগিরই উত্তর দেবে।"
+    }
+  }
 };

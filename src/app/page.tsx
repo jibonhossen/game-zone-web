@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import { BentoFeaturesDemo } from "@/components/ui/bento-features";
 import HowToStartCarousel from "@/components/ui/how-to-start-carousel";
 import { Hero } from "@/components/ui/animated-hero";
@@ -111,7 +112,7 @@ export default function Home() {
                 title={t.games.ffTitle}
                 description={t.games.ffDesc}
                 imageSrc="/game-image/freefire.jpg"
-                imageAlt="Fast Gaming Free Fire Tournament - play online match tournaments and win cash rewards"
+                imageAlt="Fast Gaming Free Fire Battle Royale Tournament"
                 badgeText={t.games.liveTournament}
                 players={t.games.ffPlayers}
                 prize={t.games.ffPrize}
@@ -120,14 +121,14 @@ export default function Home() {
                 playLabel={t.games.playNow}
               />
               <ThreeGameCard
-                title={t.games.pubgTitle}
-                description={t.games.pubgDesc}
-                imageSrc="/game-image/pubg.webp"
-                imageAlt="Fast Gaming PUBG Mobile Tournament - join custom room tournaments and win cash prize"
+                title={t.games.csTitle}
+                description={t.games.csDesc}
+                imageSrc="/game-image/fastgamingsplash.png"
+                imageAlt="Fast Gaming Free Fire Clash Squad 4v4 Tournament"
                 badgeText={t.games.liveTournament}
-                players={t.games.pubgPlayers}
-                prize={t.games.pubgPrize}
-                mode={t.games.pubgMode}
+                players={t.games.csPlayers}
+                prize={t.games.csPrize}
+                mode={t.games.csMode}
                 language={language}
                 playLabel={t.games.playNow}
               />
@@ -204,52 +205,8 @@ export default function Home() {
 
       </main>
 
-      {/* FOOTER — dark ink background per DESIGN.md */}
-      <footer className="bg-[var(--card-dark)] py-12" aria-label="Site Footer">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-
-            {/* Logo */}
-            <div className="flex items-center gap-3.5">
-              <div className="relative flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-2xl bg-white p-1.5 shadow-md flex-shrink-0">
-                <Image
-                  src="/game-image/fastgamingsplash.png"
-                  alt="Fast Gaming Logo"
-                  width={100}
-                  height={100}
-                  className="h-full w-full object-contain"
-                />
-              </div>
-              <div>
-                <span className="text-xl sm:text-2xl font-black tracking-tight text-[var(--canvas)] block leading-none">
-                  FAST GAMING
-                </span>
-                <span className={`text-xs text-[var(--canvas-soft)]/70 font-semibold mt-1 block leading-none ${language === 'bn' ? 'font-bangla' : ''}`}>
-                  {t.footer.subLogo}
-                </span>
-              </div>
-            </div>
-
-            {/* Copyright */}
-            <p className="text-xs text-[var(--canvas-soft)]/60">
-              &copy; {new Date().getFullYear()} {t.footer.copy}
-            </p>
-
-            {/* Links */}
-            <div className="flex gap-6 text-xs text-[var(--canvas-soft)]/60 font-semibold">
-              <Link href="#" className="hover:text-[var(--canvas)] transition-colors">
-                {t.footer.privacy}
-              </Link>
-              <Link href="#" className="hover:text-[var(--canvas)] transition-colors">
-                {t.footer.terms}
-              </Link>
-              <Link href="#" className="hover:text-[var(--canvas)] transition-colors">
-                {t.footer.rules}
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* FOOTER */}
+      <Footer language={language} />
 
     </div>
   );
