@@ -6,6 +6,7 @@ import { translations } from "@/lib/translations";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { trackWebEvent } from "@/lib/analytics";
 
 interface NavbarProps {
   language: "bn" | "en";
@@ -36,6 +37,10 @@ export default function Navbar({
 
   const handleNavClick = (sectionId: string) => {
     setIsMobileMenuOpen(false);
+    trackWebEvent("navigation_link_clicked", {
+      target_link: `/#${sectionId}`,
+      link_label: sectionId,
+    });
     if (currentPage === "home") {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -44,6 +49,17 @@ export default function Navbar({
     } else {
       router.push(`/#${sectionId}`);
     }
+  };
+
+  const handleLanguageChange = (newLang: "bn" | "en") => {
+    if (language !== newLang) {
+      trackWebEvent("language_switched", {
+        from: language,
+        to: newLang,
+      });
+    }
+    setLanguage(newLang);
+    localStorage.setItem("lang", newLang);
   };
 
   const handleLogoClick = () => {
@@ -60,8 +76,15 @@ export default function Navbar({
     }
   };
 
-  const handleDownloadAction = () => {
+  const handleDownloadAction = (location: "navbar" | "mobile_menu" = "navbar") => {
     setIsMobileMenuOpen(false);
+    trackWebEvent("download_apk_clicked", {
+      source_page: currentPage,
+      button_location: location,
+      language,
+      target_url: "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk",
+    });
+
     if (onDownloadClick) {
       onDownloadClick();
     } else {
@@ -164,10 +187,7 @@ export default function Navbar({
             {/* Language Switcher */}
             <div className="flex items-center gap-0.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-full p-0.5 text-[10px]">
               <button
-                onClick={() => {
-                  setLanguage("bn");
-                  localStorage.setItem("lang", "bn");
-                }}
+                onClick={() => handleLanguageChange("bn")}
                 className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
                   language === "bn"
                     ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
@@ -177,10 +197,7 @@ export default function Navbar({
                 BN
               </button>
               <button
-                onClick={() => {
-                  setLanguage("en");
-                  localStorage.setItem("lang", "en");
-                }}
+                onClick={() => handleLanguageChange("en")}
                 className={`px-2.5 py-1 rounded-full font-extrabold transition-all cursor-pointer ${
                   language === "en"
                     ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
@@ -193,7 +210,7 @@ export default function Navbar({
 
             <button
               id="nav-btn-download"
-              onClick={handleDownloadAction}
+              onClick={() => handleDownloadAction("navbar")}
               className={`inline-flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] px-5 py-2 text-sm font-semibold text-[var(--on-primary)] hover:shadow-[var(--shadow-green)] active:scale-95 transition-all duration-300 cursor-pointer ${
                 language === "bn" ? "font-bangla" : ""
               }`}
@@ -207,10 +224,7 @@ export default function Navbar({
           <div className="flex lg:hidden items-center gap-2">
             <div className="flex items-center gap-0.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-full p-0.5 text-[10px]">
               <button
-                onClick={() => {
-                  setLanguage("bn");
-                  localStorage.setItem("lang", "bn");
-                }}
+                onClick={() => handleLanguageChange("bn")}
                 className={`px-2 py-0.5 rounded-full font-black transition-all cursor-pointer ${
                   language === "bn"
                     ? "bg-[var(--primary)] text-[var(--on-primary)]"
@@ -220,10 +234,7 @@ export default function Navbar({
                 BN
               </button>
               <button
-                onClick={() => {
-                  setLanguage("en");
-                  localStorage.setItem("lang", "en");
-                }}
+                onClick={() => handleLanguageChange("en")}
                 className={`px-2 py-0.5 rounded-full font-black transition-all cursor-pointer ${
                   language === "en"
                     ? "bg-[var(--primary)] text-[var(--on-primary)]"
@@ -315,7 +326,7 @@ export default function Navbar({
 
             <button
               id="nav-mobile-btn-download"
-              onClick={handleDownloadAction}
+              onClick={() => handleDownloadAction("mobile_menu")}
               className={`flex items-center justify-center gap-2 rounded-full bg-[var(--primary)] py-3 px-6 text-base font-bold text-[var(--on-primary)] shadow-[var(--shadow-green)] active:scale-98 cursor-pointer transition-all touch-manipulation ${
                 language === "bn" ? "font-bangla" : ""
               }`}

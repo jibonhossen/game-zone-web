@@ -20,6 +20,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import { translations } from "@/lib/translations";
+import { trackWebEvent } from "@/lib/analytics";
 
 export default function FastGamingBDApkPage() {
   const getInitialLang = (): "bn" | "en" => {
@@ -36,8 +37,15 @@ export default function FastGamingBDApkPage() {
 
   const t = translations[language];
 
-  const handleDownload = () => {
+  const handleDownload = (location: "navbar" | "hero_cta" | "bottom_cta" = "hero_cta") => {
     setDownloadSuccess(true);
+    trackWebEvent("download_apk_clicked", {
+      source_page: "fastgamingbdapk",
+      button_location: location,
+      language,
+      target_url: "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk",
+    });
+
     let iframe = document.getElementById("download-iframe") as HTMLIFrameElement;
     if (!iframe) {
       iframe = document.createElement("iframe");
@@ -88,7 +96,7 @@ export default function FastGamingBDApkPage() {
         language={language}
         setLanguage={setLanguage}
         currentPage="download"
-        onDownloadClick={handleDownload}
+        onDownloadClick={() => handleDownload("navbar")}
       />
 
       <main className="flex-1 pt-12">
@@ -117,7 +125,7 @@ export default function FastGamingBDApkPage() {
             {/* CTA Download Button */}
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                onClick={handleDownload}
+                onClick={() => handleDownload("hero_cta")}
                 className={`inline-flex items-center justify-center gap-3 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-98 text-[var(--on-primary)] font-bold text-lg px-9 py-4 shadow-[var(--shadow-green)] hover:shadow-xl transition-all duration-300 cursor-pointer w-full sm:w-auto ${language === "bn" ? "font-bangla" : ""}`}
               >
                 <Download className="h-6 w-6" />
@@ -232,7 +240,16 @@ export default function FastGamingBDApkPage() {
                 className="bg-[var(--canvas)] border border-[var(--border-subtle)] rounded-2xl overflow-hidden transition-colors"
               >
                 <button
-                  onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                  onClick={() => {
+                    const next = openFaq === index ? null : index;
+                    if (next !== null) {
+                      trackWebEvent("faq_question_expanded", {
+                        question: faq.q,
+                        page: "fastgamingbdapk",
+                      });
+                    }
+                    setOpenFaq(next);
+                  }}
                   className="w-full p-5 text-left font-bold text-base flex justify-between items-center text-[var(--ink)] focus:outline-none"
                 >
                   <span className={language === "bn" ? "font-bangla" : ""}>{faq.q}</span>

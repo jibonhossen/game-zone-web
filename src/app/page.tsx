@@ -11,6 +11,7 @@ import { translations } from "@/lib/translations";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Download, Check, Gamepad2, Smartphone } from "lucide-react";
+import { trackWebEvent } from "@/lib/analytics";
 
 const ThreeGameCard = dynamic(
   () => import("@/components/ui/ThreeGameCard"),
@@ -32,8 +33,14 @@ export default function Home() {
 
   const t = translations[language];
 
-  const handleDownloadClick = () => {
+  const handleDownloadClick = (location: "navbar" | "hero_cta" | "bottom_cta" | "banner_cta" = "hero_cta") => {
     setDownloadSuccess(true);
+    trackWebEvent("download_apk_clicked", {
+      source_page: "home",
+      button_location: location,
+      language,
+      target_url: "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk",
+    });
 
     let iframe = document.getElementById("download-iframe") as HTMLIFrameElement;
     if (!iframe) {
@@ -50,7 +57,11 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-[var(--canvas)] text-[var(--ink)] selection:bg-[var(--primary)] selection:text-[var(--on-primary)]">
       {/* Navbar */}
-      <Navbar language={language} setLanguage={setLanguage} onDownloadClick={handleDownloadClick} />
+      <Navbar
+        language={language}
+        setLanguage={setLanguage}
+        onDownloadClick={() => handleDownloadClick("navbar")}
+      />
 
       <main className="flex-1 pt-16">
 
@@ -58,7 +69,7 @@ export default function Home() {
         <section id="hero" className="relative" aria-label="Fast Gaming Showcase">
           <Hero
             language={language}
-            onDownloadClick={handleDownloadClick}
+            onDownloadClick={() => handleDownloadClick("hero_cta")}
           />
 
           {downloadSuccess && (
@@ -204,7 +215,7 @@ export default function Home() {
                 <div className="pt-6 flex flex-col sm:flex-row gap-4 justify-center items-center">
                   <button
                     id="bottom-cta-btn-download"
-                    onClick={handleDownloadClick}
+                    onClick={() => handleDownloadClick("bottom_cta")}
                     className={`inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-95 text-[var(--on-primary)] font-bold text-base px-8 py-3.5 shadow-[var(--shadow-green)] hover:shadow-[var(--shadow-lg)] transition-all duration-300 cursor-pointer w-full sm:w-auto ${language === 'bn' ? 'font-bangla' : ''}`}
                   >
                     <Download className="h-5 w-5" />

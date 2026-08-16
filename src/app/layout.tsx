@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Hind_Siliguri } from "next/font/google";
 import "./globals.css";
+import { PostHogProvider } from "@/components/providers/PostHogProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -180,7 +181,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
   );

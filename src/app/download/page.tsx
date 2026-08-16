@@ -18,6 +18,7 @@ import {
   Gamepad2,
 } from "lucide-react";
 import { translations } from "@/lib/translations";
+import { trackWebEvent } from "@/lib/analytics";
 
 const stepIcons = [Download, Shield, Settings, UserPlus];
 
@@ -37,8 +38,15 @@ export default function DownloadPage() {
   const t = translations[language];
   const dp = t.downloadPage;
 
-  const handleDownload = () => {
+  const handleDownload = (location: "navbar" | "hero_cta" | "bottom_cta" = "hero_cta") => {
     setDownloadSuccess(true);
+    trackWebEvent("download_apk_clicked", {
+      source_page: "download",
+      button_location: location,
+      language,
+      target_url: "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk",
+    });
+
     let iframe = document.getElementById("download-iframe") as HTMLIFrameElement;
     if (!iframe) {
       iframe = document.createElement("iframe");
@@ -58,7 +66,7 @@ export default function DownloadPage() {
         language={language}
         setLanguage={setLanguage}
         currentPage="download"
-        onDownloadClick={handleDownload}
+        onDownloadClick={() => handleDownload("navbar")}
       />
 
       <main className="flex-1 pt-16">
@@ -78,7 +86,7 @@ export default function DownloadPage() {
             {/* Primary Download CTA */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                onClick={handleDownload}
+                onClick={() => handleDownload("hero_cta")}
                 className={`inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-95 text-[var(--on-primary)] font-semibold text-base px-8 py-3.5 shadow-[var(--shadow-green)] hover:shadow-[var(--shadow-lg)] transition-all duration-300 cursor-pointer w-full sm:w-auto ${language === 'bn' ? 'font-bangla' : ''}`}
               >
                 <Download className="h-5 w-5" />
@@ -222,7 +230,16 @@ export default function DownloadPage() {
                   className="bg-[var(--canvas)] rounded-2xl border border-[var(--border-subtle)] overflow-hidden"
                 >
                   <button
-                    onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    onClick={() => {
+                      const next = openFaq === i ? null : i;
+                      if (next !== null) {
+                        trackWebEvent("faq_question_expanded", {
+                          question: item.q,
+                          page: "download",
+                        });
+                      }
+                      setOpenFaq(next);
+                    }}
                     className="w-full flex items-center justify-between p-4 sm:p-5 text-left cursor-pointer hover:bg-[var(--canvas-soft)]/50 transition-colors"
                   >
                     <span className={`text-sm sm:text-base font-semibold text-[var(--ink)] pr-4 ${language === 'bn' ? 'font-bangla' : ''}`}>
@@ -255,7 +272,7 @@ export default function DownloadPage() {
             </h2>
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
               <button
-                onClick={handleDownload}
+                onClick={() => handleDownload("bottom_cta")}
                 className={`inline-flex items-center justify-center gap-2.5 rounded-full bg-[var(--primary)] hover:bg-[var(--primary-active)] active:scale-95 text-[var(--on-primary)] font-semibold text-base px-8 py-3.5 shadow-[var(--shadow-green)] hover:shadow-[var(--shadow-lg)] transition-all duration-300 cursor-pointer w-full sm:w-auto ${language === 'bn' ? 'font-bangla' : ''}`}
               >
                 <Download className="h-5 w-5" />

@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import PageHeader from "@/components/ui/PageHeader";
 import { translations } from "@/lib/translations";
 import { Gamepad2, ShieldAlert, RefreshCw, Trophy, CheckCircle2 } from "lucide-react";
+import { trackWebEvent } from "@/lib/analytics";
 
 export default function RulesPage() {
   const getInitialLang = (): "bn" | "en" => {
@@ -18,6 +19,14 @@ export default function RulesPage() {
 
   const [language, setLanguage] = useState<"bn" | "en">(getInitialLang);
   const [activeTab, setActiveTab] = useState<"general" | "ff" | "fairplay" | "refunds">("general");
+
+  const handleTabSwitch = (tab: "general" | "ff" | "fairplay" | "refunds") => {
+    setActiveTab(tab);
+    trackWebEvent("rules_tab_switched", {
+      match_mode: tab,
+      language,
+    });
+  };
 
   const t = translations[language];
 
@@ -38,7 +47,7 @@ export default function RulesPage() {
           {/* Rules Category Tab Bar */}
           <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[var(--canvas-soft)] border border-[var(--border-subtle)] rounded-2xl mb-10 overflow-x-auto">
             <button
-              onClick={() => setActiveTab("general")}
+              onClick={() => handleTabSwitch("general")}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === "general"
                   ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
@@ -50,7 +59,7 @@ export default function RulesPage() {
             </button>
 
             <button
-              onClick={() => setActiveTab("ff")}
+              onClick={() => handleTabSwitch("ff")}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === "ff"
                   ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
@@ -62,7 +71,7 @@ export default function RulesPage() {
             </button>
 
             <button
-              onClick={() => setActiveTab("fairplay")}
+              onClick={() => handleTabSwitch("fairplay")}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === "fairplay"
                   ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
@@ -74,7 +83,7 @@ export default function RulesPage() {
             </button>
 
             <button
-              onClick={() => setActiveTab("refunds")}
+              onClick={() => handleTabSwitch("refunds")}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === "refunds"
                   ? "bg-[var(--primary)] text-[var(--on-primary)] shadow-xs"
