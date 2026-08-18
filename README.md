@@ -16,7 +16,7 @@ An eSports tournament & online gaming showcase web application for **Fast Gaming
 - ⚡ **Instant Payout Callouts**: Highlighting automated payouts via **bKash (বিকাশ)**, **Nagad (নগদ)**, and **Rocket (রকেট)**.
 - 🌐 **Bilingual Support (EN / BN)**: Instant real-time language toggling between English and Bengali (**বাংলা**).
 - 🪐 **3D Ring Orbit Badges**: 60fps pure-math 3D revolving badges traveling along the outer border of the hero logo card without external WebGL canvas dependencies.
-- 📱 **Interactive Step Carousel**: Step-by-step visual installation guide for the official Android APK (`gamezonebd.apk`).
+- 📱 **Interactive Step Carousel**: Step-by-step visual installation guide for the official Android APK (`fastgamingbd.apk`).
 - 🗂️ **Wise Design System Bento Grid**: Feature cards categorized into `card-sage`, `card-white`, `card-green`, and `card-dark` variants with high-contrast accessibility.
 - 🚀 **Hydration & LCP Optimized**: 100% deterministic SSR/Client math rendering with zero React hydration warnings and eager LCP preloading.
 
@@ -60,8 +60,8 @@ The project enforces the **Wise-inspired Design Language** detailed in [`DESIGN.
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/jibonhossen/game-zone-web.git
-   cd game-zone-web/web-fast-gaming
+   git clone https://github.com/jibonhossen/web-fast-gaming.git
+   cd web-fast-gaming
    ```
 
 2. **Install dependencies**:

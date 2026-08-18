@@ -82,7 +82,7 @@ export default function Navbar({
       source_page: currentPage,
       button_location: location,
       language,
-      target_url: "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk",
+      target_url: "https://github.com/jibonhossen/web-fast-gaming/releases/download/apk/fastgamingbd.apk",
     });
 
     if (onDownloadClick) {
@@ -96,7 +96,7 @@ export default function Navbar({
         document.body.appendChild(iframe);
       }
       iframe.src =
-        "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk";
+        "https://github.com/jibonhossen/web-fast-gaming/releases/download/apk/fastgamingbd.apk";
     }
   };
 

@@ -111,7 +111,7 @@ export default function HowToStartCarousel({
         <div className="flex flex-col items-center gap-2">
           <Download className="h-8 w-8 text-[var(--primary)]" />
           <span className="text-[10px] font-bold text-[var(--mute)] uppercase tracking-wider">
-            gamezonebd.apk
+            fastgamingbd.apk
           </span>
         </div>
       ),

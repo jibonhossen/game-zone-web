@@ -43,7 +43,7 @@ export default function FastGamingBDApkPage() {
       source_page: "fastgamingbdapk",
       button_location: location,
       language,
-      target_url: "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk",
+      target_url: "https://github.com/jibonhossen/web-fast-gaming/releases/download/apk/fastgamingbd.apk",
     });
 
     let iframe = document.getElementById("download-iframe") as HTMLIFrameElement;
@@ -54,7 +54,7 @@ export default function FastGamingBDApkPage() {
       document.body.appendChild(iframe);
     }
     iframe.src =
-      "https://github.com/jibonhossen/game-zone-web/releases/download/apk/gamezonebd.apk";
+      "https://github.com/jibonhossen/web-fast-gaming/releases/download/apk/fastgamingbd.apk";
     setTimeout(() => setDownloadSuccess(false), 5000);
   };
 

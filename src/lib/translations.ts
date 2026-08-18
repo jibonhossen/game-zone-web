@@ -327,7 +327,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
           subtitle: "সরাসরি আপনার ডিভাইসে APK ফাইল ডাউনলোড করুন",
           details: [
             "নিচের ডাউনলোড বাটনে ক্লিক করে অ্যাপ ডাউনলোড শুরু করুন",
-            "ফাইলটির নাম হবে gamezonebd.apk",
+            "ফাইলটির নাম হবে fastgamingbd.apk",
             "ডাউনলোড সম্পন্ন হওয়া পর্যন্ত অপেক্ষা করুন"
           ]
         },
@@ -749,7 +749,7 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
           subtitle: "Download the APK file directly to your phone",
           details: [
             "Click the Download button below to start the file transfer",
-            "The package is named gamezonebd.apk",
+            "The package is named fastgamingbd.apk",
             "Wait for the download progress to complete"
           ]
         },
