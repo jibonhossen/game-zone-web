@@ -26,12 +26,19 @@ export interface TranslationDict {
     subtitle: string;
     step1Title: string;
     step1Desc: string;
+    step1Action: string;
     step2Title: string;
     step2Desc: string;
+    step2Action: string;
     step3Title: string;
     step3Desc: string;
+    step3Action: string;
     step4Title: string;
     step4Desc: string;
+    step4Action: string;
+    step5Title: string;
+    step5Desc: string;
+    step5Action: string;
     warningAlert: string;
     harmfulText: string;
     anywayBtn: string;
@@ -231,15 +238,22 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
     howToStart: {
       tag: "Get Started",
       title: "কিভাবে শুরু করবেন?",
-      subtitle: "সহজ 4টি ধাপে Fast Gaming অ্যাপ ডাউনলোড ও ইনস্টল করে গেম খেলা শুরু করুন",
-      step1Title: "ধাপ 1",
-      step1Desc: "অ্যাপ ডাউনলোড করতে উপরের ডাউনলোড বাটনে ক্লিক করুন।",
-      step2Title: "ধাপ 2",
-      step2Desc: "ডাউনলোড কনফার্ম করতে পপ-আপ মেসেজে \"Download Anyway\" ক্লিক করুন।",
-      step3Title: "ধাপ 3",
-      step3Desc: "অ্যাপটি ইনস্টল করতে সেটিংস থেকে \"Install Unknown Apps\" সোর্স পারমিশন এলাউ করুন।",
-      step4Title: "ধাপ 4",
-      step4Desc: "ইনস্টল সম্পন্ন করে রেজিস্ট্রেশন করুন এবং আপনার পছন্দের টুর্নামেন্টে যোগ দিন!",
+      subtitle: "সহজ ৫টি ধাপে Fast Gaming অ্যাপ ডাউনলোড ও ইনস্টল করে গেম খেলা শুরু করুন",
+      step1Title: "ডাউনলোড নিশ্চিত করুন",
+      step1Desc: "ডাউনলোড বাটনে ক্লিক করার পর ব্রাউজারে সতর্কবার্তা এলে লাল তীর চিহ্নিত 'Download anyway' অপশন চাপুন।",
+      step1Action: "ট্যাপ করুন 'Download anyway'",
+      step2Title: "ফাইলটি ওপেন করুন",
+      step2Desc: "ডাউনলোড সম্পন্ন হলে নোটিফিকেশন বা Downloads ফোল্ডার থেকে 'fastgamingbd.apk' ফাইলে ক্লিক করুন।",
+      step2Action: "ওপেন করুন 'fastgamingbd.apk'",
+      step3Title: "Play Protect অপশন খুলুন",
+      step3Desc: "Google Play Protect ব্লক স্ক্রিন দেখালে লাল তীর নির্দেশিত 'More details' অপশনে ক্লিক করুন।",
+      step3Action: "ক্লিক করুন 'More details'",
+      step4Title: "ইনস্টলেশন নিশ্চিত করুন",
+      step4Desc: "নিরাপদে ইনস্টলেশন চালিয়ে যেতে লাল তীর চিহ্নিত 'Install anyway' বাটনে চাপুন।",
+      step4Action: "চাপুন 'Install anyway'",
+      step5Title: "অ্যাপ ওপেন ও খেলা শুরু করুন",
+      step5Desc: "অ্যাপ ইনস্টল সম্পন্ন হলে 'Open' বাটনে চাপুন। অ্যাকাউন্ট রেজিস্টার করে টুর্নামেন্টে অংশ নিন!",
+      step5Action: "চাপুন 'Open' বাটন",
       warningAlert: "Warning alert",
       harmfulText: "File might be harmful. Do you want to download anyway?",
       anywayBtn: "Download Anyway",
@@ -653,15 +667,22 @@ export const translations: Record<"bn" | "en", TranslationDict> = {
     howToStart: {
       tag: "Get Started",
       title: "How to Get Started?",
-      subtitle: "Follow these 4 simple steps to download, install, and start playing on Fast Gaming.",
-      step1Title: "Step 1",
-      step1Desc: "Click the Download button above to start downloading the APK.",
-      step2Title: "Step 2",
-      step2Desc: "Click \"Download Anyway\" on your browser pop-up to confirm.",
-      step3Title: "Step 3",
-      step3Desc: "Allow \"Install Unknown Apps\" permission in your Android settings.",
-      step4Title: "Step 4",
-      step4Desc: "Complete installation, register your account, and join your favorite tournament!",
+      subtitle: "Follow these 5 simple steps to download, install, and start playing on Fast Gaming.",
+      step1Title: "Confirm Download",
+      step1Desc: "When downloading, tap 'Download anyway' on the browser prompt indicated by the red arrow.",
+      step1Action: "Tap 'Download anyway'",
+      step2Title: "Open Downloaded File",
+      step2Desc: "Once downloaded, tap 'fastgamingbd.apk' from your notification bar or Downloads folder.",
+      step2Action: "Open 'fastgamingbd.apk'",
+      step3Title: "Expand Play Protect Options",
+      step3Desc: "If Google Play Protect warns you, tap 'More details' pointed by the red arrow to expand.",
+      step3Action: "Tap 'More details'",
+      step4Title: "Install Anyway",
+      step4Desc: "Tap 'Install anyway' highlighted by the red arrow to proceed with the app installation.",
+      step4Action: "Tap 'Install anyway'",
+      step5Title: "Open & Start Playing",
+      step5Desc: "Installation is complete! Tap 'Open' to launch Fast Gaming, register, and join cash tournaments.",
+      step5Action: "Tap 'Open' & Play",
       warningAlert: "Warning alert",
       harmfulText: "File might be harmful. Do you want to download anyway?",
       anywayBtn: "Download Anyway",
