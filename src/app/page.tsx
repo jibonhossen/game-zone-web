@@ -11,7 +11,7 @@ import { translations } from "@/lib/translations";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Download, Check, Gamepad2, Smartphone } from "lucide-react";
-import { trackWebEvent } from "@/lib/analytics";
+import { trackWebEvent, writeAttributionTokenToClipboard, getStoredAttribution } from "@/lib/analytics";
 
 const ThreeGameCard = dynamic(
   () => import("@/components/ui/ThreeGameCard"),
@@ -35,11 +35,19 @@ export default function Home() {
 
   const handleDownloadClick = (location: "navbar" | "hero_cta" | "bottom_cta" | "banner_cta" = "hero_cta") => {
     setDownloadSuccess(true);
+    const attr = getStoredAttribution();
+
+    // Write cross-platform attribution token to clipboard for seamless Android first-launch attribution
+    writeAttributionTokenToClipboard().catch(() => {});
+
     trackWebEvent("download_apk_clicked", {
       source_page: "home",
       button_location: location,
       language,
       target_url: "https://github.com/jibonhossen/web-fast-gaming/releases/download/apk/fastgamingbd.apk",
+      utm_source: attr.utm_source,
+      utm_medium: attr.utm_medium,
+      utm_campaign: attr.utm_campaign,
     });
 
     let iframe = document.getElementById("download-iframe") as HTMLIFrameElement;

@@ -18,7 +18,7 @@ import {
   Gamepad2,
 } from "lucide-react";
 import { translations } from "@/lib/translations";
-import { trackWebEvent } from "@/lib/analytics";
+import { trackWebEvent, writeAttributionTokenToClipboard, getStoredAttribution } from "@/lib/analytics";
 
 const stepIcons = [Download, Shield, Settings, UserPlus];
 
@@ -40,11 +40,19 @@ export default function DownloadPage() {
 
   const handleDownload = (location: "navbar" | "hero_cta" | "bottom_cta" = "hero_cta") => {
     setDownloadSuccess(true);
+    const attr = getStoredAttribution();
+
+    // Write cross-platform attribution token to clipboard
+    writeAttributionTokenToClipboard().catch(() => {});
+
     trackWebEvent("download_apk_clicked", {
       source_page: "download",
       button_location: location,
       language,
       target_url: "https://github.com/jibonhossen/web-fast-gaming/releases/download/apk/fastgamingbd.apk",
+      utm_source: attr.utm_source,
+      utm_medium: attr.utm_medium,
+      utm_campaign: attr.utm_campaign,
     });
 
     let iframe = document.getElementById("download-iframe") as HTMLIFrameElement;
